@@ -7,13 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PwForgotComponent } from './auth/pw-forgot/pw-forgot.component';
+import { PwResetComponent } from './auth/pw-reset/pw-reset.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PwForgotComponent
+    PwForgotComponent,
+    PwResetComponent
   ],
   imports: [
     BrowserModule,
