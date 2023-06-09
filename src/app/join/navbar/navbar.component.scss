@@ -1,0 +1,49 @@
+@use "sass:math" as math;
+@import "../../../variables.scss";
+@import "../../../mixin.scss";
+.nav {
+  background-color: $color-primary;
+  color: $color-grey;
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-inline: 1.75rem;
+}
+
+.nav__list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__list-item {
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: $color-primary-hover;
+    .nav__list-icon {
+      fill: $color-secondary;
+    }
+  }
+}
+
+.nav__list-icon {
+  width: #{$icon-size * 2};
+  height: #{$icon-size * 2};
+  fill: $color-grey;
+}
+
+.link {
+  text-decoration: none;
+  color: $color-grey;
+}

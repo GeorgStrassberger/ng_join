@@ -17,8 +17,14 @@
   height: 2.5rem;
 }
 
+.logo__link {
+  display: flex;
+  text-decoration: none;
+}
+
 .user {
   position: relative;
+  cursor: pointer;
 }
 
 .user__container {
