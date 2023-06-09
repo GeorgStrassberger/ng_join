@@ -1,0 +1,19 @@
+@use "sass:color";
+@use "sass:math";
+// Colors
+$color-primary: #2a3647;
+$color-primary-hover: #091931;
+$color-white: #ffffff;
+$color-secondary: #f6f7f8;
+$color-grey: #d1d1d1;
+// $color-link: #007cee;
+$color-blue: #29abe2; // links
+$color-red: #ff3d00;
+$color-green: #7ae229;
+$color-yellow: #ffa800;
+// Sizes
+$logo-width: 4rem;
+$logo-height: 5rem;
+$icon-size: 1rem;
+$btn-size-small: 5.75rem;
+$btn-size-large: 11.25rem;
