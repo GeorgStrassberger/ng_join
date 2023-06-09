@@ -8,6 +8,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PwForgotComponent } from './auth/pw-forgot/pw-forgot.component';
 import { PwResetComponent } from './auth/pw-reset/pw-reset.component';
+import { WelcomeComponent } from './join/welcome/welcome.component';
+import { HeaderComponent } from './join/header/header.component';
+import { NavbarComponent } from './join/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { PwResetComponent } from './auth/pw-reset/pw-reset.component';
     LoginComponent,
     RegisterComponent,
     PwForgotComponent,
-    PwResetComponent
+    PwResetComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

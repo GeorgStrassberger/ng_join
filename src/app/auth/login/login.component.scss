@@ -1,12 +1,14 @@
 @use "sass:math" as math;
 @import "../../../variables.scss";
 @import "../../../mixin.scss";
-section {
+.section {
   background-color: $color-secondary;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding-block: 2.25rem;
+  padding-inline: 1.75rem;
 }
 
 .logo__container {
