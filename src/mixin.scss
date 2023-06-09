@@ -9,9 +9,12 @@
 
 // ##### BUTTONs #####
 @mixin btn {
-  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.5rem;
-  height: 3rem;
+  min-height: 3rem;
   border: 0.0625rem solid $color-primary;
 }
 
@@ -19,8 +22,13 @@
   @include btn;
   background-color: $color-primary;
   color: $color-white;
+  font-weight: 700;
   border: none;
-  width: $btn-size-small;
+  width: 100%;
+  &--small {
+    @extend .btn__primary;
+    width: $btn-size-small;
+  }
   &--large {
     @extend .btn__primary;
     width: $btn-size-large;
@@ -34,7 +42,11 @@
   @include btn;
   background-color: $color-white;
   color: $color-primary;
-  width: $btn-size-small;
+  width: 100%;
+  &--small {
+    @extend .btn__secondary;
+    width: $btn-size-small;
+  }
   &--large {
     @extend .btn__secondary;
     width: $btn-size-large;
