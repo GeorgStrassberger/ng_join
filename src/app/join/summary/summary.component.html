@@ -11,36 +11,51 @@
     <!-- ROW 1 -->
     <div class="content__row">
       <!-- BOX -->
-      <div class="box">
-        <span>5</span>
-        <span>Task in Board</span>
+      <div class="box center">
+        <span class="number">5</span>
+        <span class="text">Task in Board</span>
       </div>
       <!-- BOX -->
-      <div class="box">
-        <span>2</span>
-        <span>Task in Progress</span>
+      <div class="box center">
+        <span class="number">2</span>
+        <span class="text">Task in Progress</span>
       </div>
       <!-- BOX -->
-      <div class="box">
-        <span>2</span>
-        <span>Awaiting feedback</span>
+      <div class="box center">
+        <span class="number">2</span>
+        <span class="text">Awaiting feedback</span>
       </div>
     </div>
+
     <!-- ROW 2 -->
     <div class="content__row">
-      <div class="box">
-        <div>
-          <!-- svg prio -->
-          <img src="" alt="prio" />
+      <div class="box-big">
+        <!-- LEFT -->
+        <div class="box-mid">
+          <div class="box-img">
+            <!-- svg prio -->
+            <svg class="icon" viewBox="0 0 24 18">
+              <path
+                d="M22.4143 17.4424C22.1469 17.4428 21.8864 17.3565 21.6712 17.1959L12.2677 10.176L2.86422 17.1959C2.7322 17.2947 2.58226 17.3661 2.42295 17.4062C2.26364 17.4463 2.09809 17.4543 1.93574 17.4297C1.77339 17.405 1.61743 17.3483 1.47676 17.2626C1.33609 17.177 1.21347 17.0642 1.11589 16.9306C1.01831 16.797 0.947694 16.6452 0.908064 16.484C0.868435 16.3228 0.860572 16.1553 0.884924 15.991C0.934106 15.6592 1.11152 15.3608 1.37814 15.1614L11.5247 7.57909C11.7397 7.418 12.0002 7.33105 12.2677 7.33105C12.5353 7.33105 12.7957 7.418 13.0108 7.57909L23.1573 15.1614C23.3692 15.3194 23.5263 15.5411 23.6062 15.7948C23.6862 16.0485 23.6848 16.3213 23.6024 16.5743C23.5201 16.8272 23.3608 17.0473 23.1474 17.2032C22.934 17.3591 22.6774 17.4428 22.4143 17.4424Z"
+                fill="white"
+              />
+              <path
+                d="M22.4143 10.8076C22.1469 10.8081 21.8865 10.7217 21.6712 10.5612L12.2677 3.54125L2.86422 10.5612C2.5976 10.7606 2.26362 10.8447 1.93575 10.7949C1.60787 10.7451 1.31296 10.5656 1.1159 10.2958C0.918829 10.026 0.835748 9.68802 0.884929 9.35623C0.934111 9.02444 1.11153 8.72601 1.37814 8.5266L11.5247 0.944323C11.7397 0.783236 12.0002 0.696289 12.2677 0.696289C12.5353 0.696289 12.7957 0.783236 13.0108 0.944323L23.1573 8.5266C23.3692 8.6846 23.5263 8.90629 23.6062 9.16003C23.6862 9.41377 23.6848 9.68658 23.6025 9.93951C23.5201 10.1924 23.3608 10.4126 23.1474 10.5685C22.934 10.7244 22.6774 10.8081 22.4143 10.8076Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <div class="center">
+            <span class="number">1</span>
+            <span class="text">Urgent</span>
+          </div>
         </div>
-        <div>
-          <span>1</span>
-          <span>Urgent</span>
-        </div>
-        <div>dash</div>
-        <div>
-          <span>18 Oktober 2022</span>
-          <span>Upcoming Deadline</span>
+        <!-- DASH -->
+        <div class="dash"></div>
+        <!-- RIGHT -->
+        <div class="box-right">
+          <span class="date">18 Oktober 2022</span>
+          <span class="text">Upcoming Deadline</span>
         </div>
       </div>
     </div>
@@ -48,25 +63,42 @@
     <!-- ROW 3 -->
     <div class="content__row">
       <!-- Box -->
-      <div class="box">
-        <div>
+      <div class="box-mid">
+        <div class="box-img">
           <!-- svg pen -->
-          <img src="" alt="edit" />
+          <svg class="icon" viewBox="0 0 22 30">
+            <path
+              d="M3.44543 22.0155L8.26476 24.9404L20.9079 4.10829C21.1945 3.63616 21.044 3.02113 20.5719 2.73459L17.4623 0.84736C16.9902 0.560817 16.3751 0.711269 16.0886 1.1834L3.44543 22.0155Z"
+              fill="white"
+            />
+            <path
+              d="M2.86036 22.9794L7.67969 25.9043L2.95107 28.1892L2.86036 22.9794Z"
+              fill="white"
+            />
+          </svg>
         </div>
-        <div>
-          <span>1</span>
-          <span>To-do</span>
+        <div class="center">
+          <span class="number">1</span>
+          <span class="text">To-do</span>
         </div>
       </div>
       <!-- Box -->
-      <div class="box">
-        <div>
+      <div class="box-mid">
+        <div class="box-img">
           <!-- svg check -->
-          <img src="" alt="check" />
+          <svg class="icon" viewBox="0 0 24 24">
+            <path
+              d="M4 12L10 18L20 6"
+              stroke="white"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-        <div>
-          <span>1</span>
-          <span>Done</span>
+        <div class="center">
+          <span class="number">1</span>
+          <span class="text">Done</span>
         </div>
       </div>
     </div>
