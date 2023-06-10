@@ -11,6 +11,12 @@ import { PwResetComponent } from './auth/pw-reset/pw-reset.component';
 import { WelcomeComponent } from './join/welcome/welcome.component';
 import { HeaderComponent } from './join/header/header.component';
 import { NavbarComponent } from './join/navbar/navbar.component';
+import { SummaryComponent } from './join/summary/summary.component';
+import { BoardComponent } from './join/board/board.component';
+import { AddTaskComponent } from './join/add-task/add-task.component';
+import { ContactsComponent } from './join/contacts/contacts.component';
+import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
+import { InfoComponent } from './join/info/info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,13 @@ import { NavbarComponent } from './join/navbar/navbar.component';
     PwResetComponent,
     WelcomeComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    SummaryComponent,
+    BoardComponent,
+    AddTaskComponent,
+    ContactsComponent,
+    LegalNoticeComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
