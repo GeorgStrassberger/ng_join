@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../../../variables.scss";
-@import "../../../mixin.scss";
+@import "../../shared/styles/variables.scss";
+@import "../../shared/styles/mixin.scss";
 .section {
   background-color: $color-secondary;
   height: 100%;
