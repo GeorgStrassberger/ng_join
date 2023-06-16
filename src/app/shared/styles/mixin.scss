@@ -1,10 +1,22 @@
 @use "sass:color";
 @use "sass:math";
 @import "variables.scss";
-//  #### ICONs ####
-@mixin icon {
-  height: $icon-size;
-  width: $icon-size;
+// Join Logo
+@mixin logo-size {
+  height: $logo-size-height;
+  width: $logo-size-width;
+}
+
+// Login User
+@mixin user-size {
+  height: $user-size;
+  width: $user-size;
+}
+
+//  #### Signs ####
+@mixin sign-size($multiply: 1) {
+  height: $sign-size * $multiply;
+  width: $sign-size * $multiply;
 }
 
 // ##### BUTTONs #####

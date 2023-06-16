@@ -93,7 +93,7 @@
 }
 
 .return__icon {
-  @include icon;
+  @include sign-size();
   transition: transform 225ms ease-in-out;
   &:hover {
     cursor: pointer;
@@ -103,9 +103,9 @@
 }
 
 .tf__icon {
-  @include icon;
+  @include sign-size();
   position: absolute;
-  right: math.div($icon-size, 2);
+  right: math.div($sign-size, 2);
 }
 
 .button__container {

@@ -11,10 +11,13 @@ $color-blue: #29abe2; // links
 $color-red: #ff3d00;
 $color-green: #7ae229;
 $color-yellow: #ffa800;
+// Heights
+$header-size: 5rem;
 // Sizes
-$logo-size-width: 4rem;
-$logo-size-height: 5rem;
-$icon-size: 1rem;
+$logo-size: math.div($header-size, 2);
+$logo-size-width: math.div($header-size - math.div($header-size, 5), 2);
+$logo-size-height: $logo-size;
+$sign-size: 1.5rem;
 $btn-size-small: 5.75rem;
 $btn-size-large: 11.25rem;
-$user-size: 2.5rem;
+$user-size: $logo-size;

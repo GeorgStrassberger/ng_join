@@ -17,7 +17,7 @@ import { AddTaskComponent } from './join/add-task/add-task.component';
 import { ContactsComponent } from './join/contacts/contacts.component';
 import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
 import { InfoComponent } from './join/info/info.component';
-import { TextBoxComponent } from './text-box/text-box.component';
+import { TestboxComponent } from './testbox/testbox.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +35,10 @@ import { TextBoxComponent } from './text-box/text-box.component';
     ContactsComponent,
     LegalNoticeComponent,
     InfoComponent,
-    TextBoxComponent
+    TestboxComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

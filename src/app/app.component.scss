@@ -1,7 +1,7 @@
 @use "sass:math" as math;
-@import "../variables.scss";
-@import "../mixin.scss";
-.container {
+@import "../app/shared/styles/variables.scss";
+@import "../app/shared/styles/mixin.scss";
+.hero__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -38,8 +38,7 @@
 }
 
 .nav__list-icon {
-  width: #{$icon-size * 2};
-  height: #{$icon-size * 2};
+  @include sign-size(1.5);
   fill: $color-grey;
 }
 

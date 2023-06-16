@@ -86,9 +86,9 @@
 }
 
 .tf__icon {
-  @include icon;
+  @include sign-size();
   position: absolute;
-  right: math.div($icon-size, 2);
+  right: math.div($sign-size, 2);
 }
 
 .link {

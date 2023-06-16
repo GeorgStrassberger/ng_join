@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/bootstrap";
 @import "app/shared/styles/variables.scss";
 @import "app/shared/styles/mixin.scss";
 @font-face {
@@ -26,4 +26,8 @@ html {
 body {
   background-color: $color-secondary;
   height: 100dvh;
+}
+
+.borderIt {
+  border: 1px solid red;
 }

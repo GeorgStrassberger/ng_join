@@ -3,7 +3,7 @@
 @import "../../shared/styles/mixin.scss";
 .header {
   background-color: $color-white;
-  height: 5rem;
+  height: $header-size;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,8 +13,7 @@
 }
 
 .logo {
-  width: 2rem;
-  height: 2.5rem;
+  @include logo-size();
 }
 
 .logo__link {
@@ -33,18 +32,17 @@
 }
 
 .user__img {
+  @include user-size();
   display: block;
   border-radius: 100%;
-  height: $user-size;
-  width: $user-size;
   object-fit: cover;
   object-position: center center;
 }
 
 .menu__container {
   position: absolute;
-  top: #{0 + $user-size};
-  right: #{0 + math.div($user-size, 2)};
+  top: #{0 + $logo-size};
+  right: #{0 + math.div($logo-size, 2)};
   width: max-content;
   padding: 0.75rem;
   background-color: $color-primary;
