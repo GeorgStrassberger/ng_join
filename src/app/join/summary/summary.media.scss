@@ -1,8 +1,7 @@
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   .main {
-    background-color: aliceblue;
     max-width: 100dvw;
     height: 100%;
     display: flex;

@@ -1,8 +1,10 @@
 @import "../shared/styles/variables.scss";
 @import "../shared/styles/mixin.scss";
+// @media (hover: none) {
 .main {
   padding-inline: 1.75rem;
   padding-block: 1rem;
+  max-width: 100dvw;
 }
 
 // HEAD
@@ -33,14 +35,14 @@
   padding-block: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .content__row {
+  height: 7rem;
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .sign {
@@ -62,55 +64,40 @@
   text-align: center;
   font-size: 0.85rem;
   color: $color-primary;
-  max-width: 4rem;
 }
 
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   text-align: center;
 }
 
 .box {
-  width: 6.875rem;
-  height: 6.875rem;
-  border-radius: 1.25rem;
-  background-color: $color-white;
-}
-
-.box-mid {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 9rem;
-  height: 6.875rem;
-  border-radius: 1.25rem;
-  background-color: $color-white;
-}
-
-.box-right {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 9rem;
-}
-
-.box-big {
+  height: 100%;
   width: 100%;
-  height: 6.875rem;
   border-radius: 1.25rem;
   background-color: $color-white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
-.box-img {
+.mid {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sign-container {
   background-color: $color-primary;
   height: 2.5rem;
   width: 2.5rem;
@@ -121,6 +108,7 @@
 }
 
 .dash {
+  height: 100%;
   width: 0.25rem;
   background-image: linear-gradient(
     0deg,
@@ -132,3 +120,5 @@
     transparent 100%
   );
 }
+
+// }

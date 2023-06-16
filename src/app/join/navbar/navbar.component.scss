@@ -17,6 +17,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -45,4 +46,7 @@
 .link {
   text-decoration: none;
   color: $color-grey;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
