@@ -2,6 +2,7 @@
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
 :host {
+  position: relative;
   background-color: aliceblue;
   @include mobile-container;
 }
@@ -67,4 +68,37 @@ textarea {
 
 .sign {
   @include sign-size(1);
+}
+
+// toggle with ngIF boolean
+.popup__container {
+  position: absolute;
+  padding-inline: 1.75rem;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+.popup {
+  gap: 0.5rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
 }
