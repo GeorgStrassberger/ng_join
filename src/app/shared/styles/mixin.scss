@@ -48,6 +48,12 @@
   font-weight: 400;
 }
 
+@mixin btn__font {
+  font-family: Inter;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
 .btn__primary {
   @include btn;
   background-color: $color-primary;
