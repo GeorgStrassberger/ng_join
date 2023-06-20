@@ -1,14 +1,9 @@
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
 @media (hover: hover) {
-  .main {
+  :host {
     background-color: aliceblue;
-    max-width: 100dvw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-inline: 1.75rem;
-    padding-block: 1rem;
+    @include mobile-container;
   }
   // HEAD
   .head__section {

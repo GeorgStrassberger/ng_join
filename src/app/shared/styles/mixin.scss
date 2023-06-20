@@ -30,6 +30,23 @@
   border: 0.0625rem solid $color-primary;
 }
 
+// ## Mobile Container ##
+@mixin mobile-container {
+  max-width: 100dvw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 1.75rem;
+  padding-block: 1rem;
+}
+
+// ## Default Font ##
+@mixin default_font {
+  font-family: Inter;
+  font-size: 1em;
+  font-weight: 400;
+}
+
 .btn__primary {
   @include btn;
   background-color: $color-primary;

@@ -1,1 +1,77 @@
-<p>add-task works!</p>
+<section class="head__section">
+  <p class="head__description">Kanban Project Management Tool</p>
+  <h2 class="head__title">Add Task</h2>
+  <div class="head__dash"></div>
+</section>
+<section>
+  <form class="form">
+    <!-- TITLE -->
+    <div class="wrapper">
+      <label for="titel">Title</label>
+      <input
+        class="tf default_font"
+        id="titel"
+        name="titel"
+        type="text"
+        placeholder="Enter a title"
+        required
+      />
+    </div>
+    <!-- DESCRIPTION -->
+    <div class="wrapper">
+      <label for="description">Description</label>
+      <textarea
+        class="default_font"
+        id="description"
+        name="description"
+        placeholder="Enter a Description"
+        required
+      ></textarea>
+    </div>
+    <!-- PRIO -->
+    <!-- DUE DATE -->
+    <div class="wrapper">
+      <label for="date">Due Date</label>
+      <input
+        [value]="setCurrentDate()"
+        class="tf"
+        id="date"
+        name="date"
+        type="date"
+        required
+      />
+    </div>
+    <!-- CATEGORY -->
+    <div class="wrapper">
+      <label for="category">Category</label>
+      <select class="tf" name="category" id="category" required>
+        <option value="">--Select a Category--</option>
+        <option value="backoffice">Backoffice</option>
+        <option value="design">Design</option>
+        <option value="sales">Sales</option>
+        <option value="marketing">Marketing</option>
+      </select>
+    </div>
+    <!-- ASSIGNED TO -->
+    <div class="wrapper">
+      <label for="assigned">Assigned to</label>
+      <select class="tf" name="assigned" id="assigned" required>
+        <option value="georg">Georg</option>
+        <option value="hans">Hans</option>
+        <option value="anna">Anna</option>
+      </select>
+    </div>
+    <button class="submit btn__primary" type="submit">
+      Create Task
+      <svg class="sign" viewBox="0 0 24 24">
+        <path
+          d="M4 12L10 18L20 6"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </form>
+</section>

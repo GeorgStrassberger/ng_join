@@ -18,6 +18,7 @@ import { ContactsComponent } from './join/contacts/contacts.component';
 import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
 import { InfoComponent } from './join/info/info.component';
 import { TestboxComponent } from './testbox/testbox.component';
+import { TaskComponent } from './join/add-task/task/task.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TestboxComponent } from './testbox/testbox.component';
     LegalNoticeComponent,
     InfoComponent,
     TestboxComponent,
+    TaskComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
