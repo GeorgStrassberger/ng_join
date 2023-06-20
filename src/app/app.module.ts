@@ -19,6 +19,9 @@ import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component
 import { InfoComponent } from './join/info/info.component';
 import { TestboxComponent } from './testbox/testbox.component';
 import { TaskComponent } from './join/add-task/task/task.component';
+import { AddContactCardComponent } from './join/contacts/add-contact-card/add-contact-card.component';
+import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit-contact-card.component';
+import { ContactComponent } from './join/contacts/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { TaskComponent } from './join/add-task/task/task.component';
     InfoComponent,
     TestboxComponent,
     TaskComponent,
+    AddContactCardComponent,
+    EditContactCardComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],

@@ -1,0 +1,37 @@
+@import "../../../shared/styles/variables.scss";
+@import "../../../shared/styles/mixin.scss";
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+}
+
+.contact__tag {
+  height: 2.5rem;
+  width: 2.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 0.5rem;
+  color: $color-white;
+  text-shadow: 0 0 2px $color-primary-hover;
+}
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact__name {
+  font-size: 1.3rem;
+}
+
+.contact__mail {
+  color: $color-blue;
+}
