@@ -2,14 +2,27 @@
 @import "../../shared/styles/mixin.scss";
 :host {
   @include mobile-container;
+  flex: 1 0 auto;
 }
 
 // HEAD
 .head__section {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex-grow: 0;
+  flex: 0 0 auto;
+}
+
+.return__btn {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  fill: $color-primary;
+  cursor: pointer;
+  &:hover {
+    fill: $color-primary-hover;
+  }
 }
 
 .head__title {

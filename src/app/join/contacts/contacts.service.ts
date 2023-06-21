@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TContact } from './contact/contact.interface';
-import { Contact } from './contact/contact.model';
+import { TContact } from './contact.interface';
+import { Contact } from './contact.model';
 
 @Injectable({
   providedIn: 'root',

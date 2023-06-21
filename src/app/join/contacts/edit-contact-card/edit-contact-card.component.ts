@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TContact } from '../contact/contact.interface';
+import { TContact } from '../contact.interface';
 import { ContactsService } from '../contacts.service';
-import { Contact } from '../contact/contact.model';
+import { Contact } from '../contact.model';
 
 @Component({
   selector: 'app-edit-contact-card',

@@ -23,6 +23,7 @@ import { AddContactCardComponent } from './join/contacts/add-contact-card/add-co
 import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit-contact-card.component';
 import { ContactComponent } from './join/contacts/contact/contact.component';
 import { ReturnBtnComponent } from './components/return-btn/return-btn.component';
+import { ContactLabelComponent } from './join/contacts/contact-label/contact-label.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ReturnBtnComponent } from './components/return-btn/return-btn.component
     EditContactCardComponent,
     ContactComponent,
     ReturnBtnComponent,
+    ContactLabelComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],

@@ -1,9 +1,49 @@
-<div class="contact__tag" [ngStyle]="{ 'background-color': contact.color }">
-  {{ contact.tag }}
+<div class="contact">
+  <div class="contact__tag" [ngStyle]="{ 'background-color': contact.color }">
+    {{ contact.tag }}
+  </div>
+  <span class="contact__name">{{ contact.username }}</span>
 </div>
 <div class="contact__content">
-  <span class="contact__name"
-    >{{ contact.firstname }} {{ contact.lastname }}</span
-  >
-  <span class="contact__mail">{{ contact.email }}</span>
+  <h3 class="contact__info">Contact Information</h3>
+  <h4 class="contact__headline">Email</h4>
+  <span class="contact__email">{{ contact.email }}</span>
+  <h4 class="contact__headline">Phone</h4>
+  <span class="constact__phone">{{ contact.phone }}</span>
+</div>
+
+<div class="btn__container">
+  <button class="btn__secondary--small">
+    <svg class="sign" viewBox="0 0 32 32">
+      <mask
+        id="mask0_60670_2995"
+        style="mask-type: alpha"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="32"
+        height="32"
+      >
+        <rect width="32" height="32" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_60670_2995)">
+        <path
+          d="M9.33301 28C8.59967 28 7.9719 27.7389 7.44967 27.2167C6.92745 26.6944 6.66634 26.0667 6.66634 25.3333V8H5.33301V5.33333H11.9997V4H19.9997V5.33333H26.6663V8H25.333V25.3333C25.333 26.0667 25.0719 26.6944 24.5497 27.2167C24.0275 27.7389 23.3997 28 22.6663 28H9.33301ZM22.6663 8H9.33301V25.3333H22.6663V8ZM11.9997 22.6667H14.6663V10.6667H11.9997V22.6667ZM17.333 22.6667H19.9997V10.6667H17.333V22.6667Z"
+          fill="#2A3647"
+        />
+      </g>
+    </svg>
+  </button>
+  <button class="btn__primary--small">
+    <svg class="sign" viewBox="0 0 22 30">
+      <path
+        d="M3.44543 22.0155L8.26476 24.9404L20.9079 4.10829C21.1945 3.63616 21.044 3.02113 20.5719 2.73459L17.4623 0.84736C16.9902 0.560817 16.3751 0.711269 16.0886 1.1834L3.44543 22.0155Z"
+        fill="white"
+      />
+      <path
+        d="M2.86036 22.9794L7.67969 25.9043L2.95107 28.1892L2.86036 22.9794Z"
+        fill="white"
+      />
+    </svg>
+  </button>
 </div>

@@ -28,6 +28,10 @@
   top: 1.75rem;
   right: 1.75rem;
   fill: $color-white;
+  cursor: pointer;
+  &:hover {
+    fill: $color-primary-hover;
+  }
 }
 
 .head__title {

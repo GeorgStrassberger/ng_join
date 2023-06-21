@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactsService } from './contacts.service';
-import { TContact } from './contact/contact.interface';
+import { TContact } from './contact.interface';
 
 @Component({
   selector: 'app-contacts',
@@ -9,6 +9,9 @@ import { TContact } from './contact/contact.interface';
 })
 export class ContactsComponent {
   isNewContactOpen: boolean = false;
+  isOpen: boolean = false;
+  selcetedContact!: TContact;
+
   constructor(private contactService: ContactsService) {}
 
   ngOnInit() {}
@@ -29,7 +32,11 @@ export class ContactsComponent {
   /**
    * Open Card to edit Contact
    */
-  openContact() {}
+  openContact(contact: TContact): void {
+    this.isOpen = !this.isOpen;
+    this.selcetedContact = contact;
+    console.log('Contact: ', contact);
+  }
 
   // Funktion, um die eindeutigen Anfangsbuchstaben der Vornamen zu extrahieren
   uniqueFirstLetters(): string[] {

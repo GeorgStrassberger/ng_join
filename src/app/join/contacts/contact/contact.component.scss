@@ -1,37 +1,74 @@
 @import "../../../shared/styles/variables.scss";
 @import "../../../shared/styles/mixin.scss";
 :host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem 0;
+  flex: 0 0 auto;
+}
+
+.contact {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 0.5rem 0;
+  gap: 1rem;
+  flex: 1 1 auto;
 }
 
 .contact__tag {
-  height: 2.5rem;
-  width: 2.5rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-  padding: 0.5rem;
   color: $color-white;
-  text-shadow: 0 0 2px $color-primary-hover;
+  border-radius: 100%;
+  border: 0.25rem solid $color-white;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 0.25rem $color-primary;
 }
 
 .contact__content {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1 1 auto;
 }
 
 .contact__name {
-  font-size: 1.3rem;
+  font-size: 2.25rem;
 }
 
-.contact__mail {
+.contact__info {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.contact__headline {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contact__email {
   color: $color-blue;
+}
+
+.btn__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.sign {
+  padding: 0.5rem;
+  @include sign-size(2);
 }
