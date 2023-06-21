@@ -1,0 +1,22 @@
+@use "sass:math" as math;
+@import "../../shared/styles/variables.scss";
+@import "../../shared/styles/mixin.scss";
+:host {
+  // background-color: $color-grey;
+  fill: $color-white;
+}
+
+.return {
+  position: relative;
+  cursor: pointer;
+}
+
+.return__icon {
+  display: block;
+  @include sign-size();
+  transition: transform 225ms ease-in-out;
+  &:hover {
+    transform: scale(1.5);
+    transition: transform 225ms ease-in-out;
+  }
+}

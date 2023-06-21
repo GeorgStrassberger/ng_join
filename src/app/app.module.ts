@@ -22,6 +22,7 @@ import { TaskComponent } from './join/add-task/task/task.component';
 import { AddContactCardComponent } from './join/contacts/add-contact-card/add-contact-card.component';
 import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit-contact-card.component';
 import { ContactComponent } from './join/contacts/contact/contact.component';
+import { ReturnBtnComponent } from './components/return-btn/return-btn.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ContactComponent } from './join/contacts/contact/contact.component';
     AddContactCardComponent,
     EditContactCardComponent,
     ContactComponent,
+    ReturnBtnComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],

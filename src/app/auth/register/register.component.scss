@@ -43,6 +43,13 @@
   justify-content: center;
 }
 
+.card__return-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  fill: $color-primary;
+}
+
 .card__headline {
   text-align: center;
   font-weight: 700;
@@ -84,22 +91,6 @@
   outline: none;
   width: 100%;
   border: 1px solid $color-grey;
-}
-
-.return {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.return__icon {
-  @include sign-size();
-  transition: transform 225ms ease-in-out;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: transform 225ms ease-in-out;
-  }
 }
 
 .tf__icon {

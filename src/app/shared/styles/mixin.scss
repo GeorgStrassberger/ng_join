@@ -19,18 +19,6 @@
   width: $sign-size * $multiply;
 }
 
-// ##### BUTTONs #####
-@mixin btn {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  min-height: 3rem;
-  border: 0.0625rem solid $color-primary;
-  cursor: pointer;
-}
-
 // ## Mobile Container ##
 @mixin mobile-container {
   max-width: 100dvw;
@@ -48,10 +36,24 @@
   font-weight: 400;
 }
 
+// ## BUTTON FONT ##
 @mixin btn__font {
   font-family: Inter;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 500;
+}
+
+// ##### BUTTON #####
+@mixin btn {
+  @include btn__font;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  min-height: 3rem;
+  border: 0.0625rem solid $color-primary;
+  cursor: pointer;
 }
 
 .btn__primary {

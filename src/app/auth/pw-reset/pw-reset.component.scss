@@ -34,9 +34,16 @@
   padding-block: 2rem;
 }
 
+.card__return-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  fill: $color-primary;
+}
+
 .card__header {
   position: relative;
-  padding-block: 1rem;
+  padding-block: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,22 +67,6 @@
     $color-blue 66%,
     transparent 66%
   );
-}
-
-.return {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.return__icon {
-  @include sign-size;
-  transition: transform 225ms ease-in-out;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: transform 225ms ease-in-out;
-  }
 }
 
 .form {
