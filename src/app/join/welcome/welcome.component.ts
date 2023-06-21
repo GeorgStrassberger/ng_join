@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContactsService } from '../contacts/contacts.service';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss'],
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements OnInit {
   daytime: string = '';
-  userName: string = 'Sophia Müller';
-  constructor() {
+  userName: string = 'Guast';
+
+  constructor(private contactsService: ContactsService) {
+    // DUMMY object
+    this.userName = this.contactsService.contacts[0].username;
+  }
+
+  ngOnInit(): void {
     this.greeting();
   }
 

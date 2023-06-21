@@ -1,0 +1,149 @@
+@use "sass:math" as math;
+@import "../../../shared/styles/variables.scss";
+@import "../../../shared/styles/mixin.scss";
+:host {
+  background-color: $color-grey;
+  // @include mobile-container;
+}
+
+// HEAD
+.card__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.75rem; // check padding
+  height: 40vh;
+  width: 100%;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.head__return {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  fill: $color-white;
+}
+
+.head__title {
+  font-size: clamp(2.75rem, 10vw, 4rem);
+  font-weight: 700;
+}
+
+.head__comment {
+  font-size: clamp(1.1rem, 5vw, 1.3rem);
+}
+
+.head__dash {
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
+}
+
+.head__user-container {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: $color-grey;
+  border: 0.25rem solid $color-white;
+  padding: 1.5rem;
+}
+
+.head__user-tag {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 0.25rem $color-primary;
+}
+
+// BODY
+.card__body {
+  padding: 3rem 1.75rem 3rem 1.75rem;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.sign {
+  @include sign-size(1);
+  margin-left: 0.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.tf__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tf {
+  height: 2.5rem;
+  font-size: 1.25rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 100%;
+  border: 1px solid $color-grey;
+}
+
+.tf__icon {
+  @include sign-size();
+  position: absolute;
+  right: math.div($sign-size, 2);
+}
+
+.btn__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+// toggle with ngIF boolean
+.popup__container {
+  position: absolute;
+  padding-inline: 1.75rem;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}

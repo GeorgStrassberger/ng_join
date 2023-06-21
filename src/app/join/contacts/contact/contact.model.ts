@@ -1,6 +1,7 @@
 import { TContact } from './contact.interface';
 
 export class Contact implements TContact {
+  username: string;
   firstname: string;
   lastname: string;
   email: string;
@@ -9,11 +10,13 @@ export class Contact implements TContact {
   color: string;
 
   constructor(
+    username: string,
     firstname: string,
     lastname: string,
     email: string,
     phone: string
   ) {
+    this.username = username;
     this.firstname = firstname;
     this.lastname = lastname;
     this.email = email;

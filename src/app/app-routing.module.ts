@@ -5,6 +5,8 @@ import { ContactsComponent } from './join/contacts/contacts.component';
 import { SummaryComponent } from './join/summary/summary.component';
 import { BoardComponent } from './join/board/board.component';
 import { AddTaskComponent } from './join/add-task/add-task.component';
+import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
+import { InfoComponent } from './join/info/info.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'board', component: BoardComponent },
   { path: 'addTask', component: AddTaskComponent },
   { path: 'contacts', component: ContactsComponent },
+  { path: 'legalNotice', component: LegalNoticeComponent },
+  { path: 'info', component: InfoComponent },
 ];
 
 @NgModule({

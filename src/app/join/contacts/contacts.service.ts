@@ -6,7 +6,7 @@ import { Contact } from './contact/contact.model';
   providedIn: 'root',
 })
 export class ContactsService {
-  contacts: Contact[] = [];
+  contacts: TContact[] = [];
 
   constructor() {
     this.addDummyContacts();
@@ -15,18 +15,21 @@ export class ContactsService {
 
   addDummyContacts() {
     const contact1 = new Contact(
+      'Jonny',
       'John',
       'Doe',
       'john@example.com',
       '123456789'
     );
     const contact2 = new Contact(
+      'Janny',
       'Jane',
       'Smith',
       'jane@example.com',
       '987654321'
     );
     const contact3 = new Contact(
+      'MikeJo',
       'Michael',
       'Johnson',
       'michael@example.com',
@@ -34,29 +37,34 @@ export class ContactsService {
     );
     const contact4 = new Contact(
       'Emily',
+      'Emily',
       'Davis',
       'emily@example.com',
       '999999999'
     );
     const contact5 = new Contact(
       'Sarah',
+      'Sarah',
       'Johnson',
       'sarah@example.com',
       '111111111'
     );
     const contact6 = new Contact(
+      'Rob',
       'Robert',
       'Brown',
       'robert@example.com',
       '222222222'
     );
     const contact7 = new Contact(
+      'Emmy',
       'Emma',
       'Wilson',
       'emma@example.com',
       '333333333'
     );
     const contact8 = new Contact(
+      'David',
       'David',
       'Thompson',
       'david@example.com',
@@ -85,8 +93,14 @@ export class ContactsService {
    * @param email
    * @param phone
    */
-  createContact(fn: string, ln: string, email: string, phone: string = '') {
-    const contact = new Contact(fn, ln, email, phone);
+  createContact(
+    un: string,
+    fn: string,
+    ln: string,
+    email: string,
+    phone: string = ''
+  ): void {
+    const contact = new Contact(un, fn, ln, email, phone);
     this.contacts.push(contact);
     console.log('constacts: ', this.contacts);
   }

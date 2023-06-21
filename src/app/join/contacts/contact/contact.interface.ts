@@ -1,4 +1,5 @@
 export interface TContact {
+  username: string;
   firstname: string;
   lastname: string;
   email: string;

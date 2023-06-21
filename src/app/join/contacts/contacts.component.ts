@@ -19,6 +19,7 @@ export class ContactsComponent {
    */
   openNewContactCard() {
     this.contactService.createContact(
+      'Schorschi',
       'Georg',
       'Strassberger',
       'georg@georg.de'
