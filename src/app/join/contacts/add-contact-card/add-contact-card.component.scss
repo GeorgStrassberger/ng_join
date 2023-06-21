@@ -23,6 +23,13 @@
   color: $color-white;
 }
 
+.head__return {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  fill: $color-white;
+}
+
 .head__title {
   font-size: clamp(2.75rem, 10vw, 4rem);
   font-weight: 700;
@@ -69,14 +76,9 @@
   border-bottom-right-radius: 2rem;
 }
 
-.submit {
-  @include btn__font;
-  width: 100%;
-  gap: 0.5rem;
-}
-
 .sign {
   @include sign-size(1);
+  margin-left: 0.5rem;
 }
 
 .form {
@@ -109,19 +111,30 @@
   right: math.div($sign-size, 2);
 }
 
-.return {
+// toggle with ngIF boolean
+.popup__container {
   position: absolute;
-  top: 1.5rem;
-  right: 1.75rem;
-  fill: $color-white;
+  padding-inline: 1.75rem;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
 }
 
-.return__icon {
-  @include sign-size();
-  transition: transform 225ms ease-in-out;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: transform 225ms ease-in-out;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
   }
 }
