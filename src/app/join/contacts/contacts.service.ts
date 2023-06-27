@@ -6,7 +6,26 @@ import { Contact } from './contact.model';
   providedIn: 'root',
 })
 export class ContactsService {
-  contacts: TContact[] = [];
+  contacts: TContact[] = [
+    {
+      username: 'G-Had',
+      firstname: 'Gerhard',
+      lastname: 'Schröder',
+      email: 'gerhard@schröder.com',
+      phone: '123456789',
+      tag: 'GS',
+      color: '#b6ca6f',
+    },
+    {
+      username: 'Anny',
+      firstname: 'Anja',
+      lastname: 'Schumacher',
+      email: 'anja@schumacher.com',
+      phone: '222222222',
+      tag: 'AS',
+      color: '#18fe87',
+    },
+  ];
 
   constructor() {
     this.addDummyContacts();
@@ -81,10 +100,12 @@ export class ContactsService {
       contact7,
       contact8,
     ];
-    this.contacts = [...dummyContacts];
+    dummyContacts.forEach((contact) => {
+      this.contacts.push(contact);
+    });
   }
 
-  getAllContacts() {}
+  getAllContacts(): void {}
 
   /**
    * Create a new Contact and store it on Firebase

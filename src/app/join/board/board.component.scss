@@ -1,3 +1,88 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
+:host {
+  @include mobile-container;
+}
+
+// HEAD
+.head__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 0;
+}
+
+.head__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.head__dash {
+  height: 3px;
+  background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
+}
+
+.tf__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tf {
+  height: 2.5rem;
+  font-size: 1.25rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 100%;
+  border: 1px solid $color-grey;
+}
+
+.tf__icon {
+  @include sign-size();
+  position: absolute;
+  right: math.div($sign-size, 2);
+}
+
+// BODY
+.drag__group {
+  // border: 1px solid blue;
+  padding-block: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drag__container {
+}
+
+.drag__label {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.drag__area {
+  margin-block: 0.25rem;
+  min-height: 2rem;
+  // text-align: center;
+}
+
+.task__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  color: gray;
+  width: 100%;
+  min-height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px dotted gray;
+}
+
+.task__placeholder {
+  height: 14rem;
+  border-radius: 1.5rem;
+  border: dotted 0.125rem $color-grey;
+}

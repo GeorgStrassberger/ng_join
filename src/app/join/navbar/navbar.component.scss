@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../../shared/styles/variables.scss";
-@import "../../shared/styles/mixin.scss";
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixin";
 .nav {
   background-color: $color-primary;
   color: $color-grey;
@@ -19,12 +19,14 @@
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin: 0 auto;
 }
 
 .nav__list-item {
   cursor: pointer;
   width: 5rem;
+  min-width: 4.5rem;
   height: 5rem;
   display: flex;
   flex-direction: column;
@@ -32,6 +34,7 @@
   justify-content: center;
   &:hover {
     background-color: $color-primary-hover;
+    color: $color-secondary;
     .nav__list-icon {
       fill: $color-secondary;
     }

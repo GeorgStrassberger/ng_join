@@ -38,6 +38,7 @@
     gap: 1rem;
   }
   .sign {
+    color: $color-white;
     @include sign-size(1);
   }
   .counter {

@@ -1,1 +1,114 @@
-<p>board works!</p>
+<!-- HEADER -->
+
+<section class="head__section">
+  <p class="head__description">Kanban Project Management Tool</p>
+  <h2 class="head__title">Board</h2>
+  <!-- SEARCH -->
+  <div class="tf__container">
+    <input class="tf" type="text" placeholder="Search" />
+    <svg class="tf__icon" viewBox="0 0 20 21">
+      <path
+        d="M9 0.342773C13.968 0.342773 18 4.37477 18 9.34277C18 14.3108 13.968 18.3428 9 18.3428C4.032 18.3428 0 14.3108 0 9.34277C0 4.37477 4.032 0.342773 9 0.342773ZM9 16.3428C12.867 16.3428 16 13.2098 16 9.34277C16 5.47477 12.867 2.34277 9 2.34277C5.132 2.34277 2 5.47477 2 9.34277C2 13.2098 5.132 16.3428 9 16.3428ZM17 15.8428L19.6247 18.5348C20.0068 18.9267 20.0028 19.553 19.6158 19.94L19.5972 19.9586C19.2102 20.3456 18.5839 20.3496 18.192 19.9675L15.5 17.3428L17 15.8428Z"
+        fill="black"
+      />
+    </svg>
+  </div>
+  <div class="head__dash"></div>
+</section>
+
+<!-- TASKS -->
+<section class="drag__group" cdkDropListGroup>
+  <!-- TO DO -->
+  <div class="drag__container">
+    <div class="drag__label">To Do</div>
+    <div
+      class="drag__area"
+      cdkDropList
+      [cdkDropListData]="todoTasks"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <ng-container *ngIf="todoTasks.length > 0; else todoTask">
+        <div *ngFor="let task of todoTasks" cdkDrag>
+          <!-- Placeholder -->
+          <div class="task__placeholder" *cdkDragPlaceholder></div>
+          <!-- TASK -->
+          <app-task [task]="task"></app-task>
+        </div>
+      </ng-container>
+      <ng-template #todoTask>
+        <div class="task__empty">No tasks in To Do</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- IN PROGRESS -->
+  <div class="dragbox">
+    <div class="drag__label">In Progress</div>
+    <div
+      class="drag__area"
+      cdkDropList
+      [cdkDropListData]="inProgressTasks"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <ng-container *ngIf="inProgressTasks.length > 0; else inProgressTask">
+        <div *ngFor="let task of inProgressTasks" cdkDrag>
+          <!-- Placeholder -->
+          <div class="task__placeholder" *cdkDragPlaceholder></div>
+          <!-- TASK -->
+          <app-task [task]="task"></app-task>
+        </div>
+      </ng-container>
+      <ng-template #inProgressTask>
+        <div class="task__empty">No tasks in Progress</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- AWAITING FEEDBACK -->
+  <div class="dragbox">
+    <div class="drag__label">Awaiting Feedback</div>
+    <div
+      class="drag__area"
+      cdkDropList
+      [cdkDropListData]="awitingFeedbackTasks"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <ng-container
+        *ngIf="awitingFeedbackTasks.length > 0; else awitingFeedbackTask"
+      >
+        <div *ngFor="let task of awitingFeedbackTasks" cdkDrag>
+          <!-- Placeholder -->
+          <div class="task__placeholder" *cdkDragPlaceholder></div>
+          <!-- TASK -->
+          <app-task [task]="task"></app-task>
+        </div>
+      </ng-container>
+      <ng-template #awitingFeedbackTask>
+        <div class="task__empty">No tasks in Await Feddback</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div class="dragbox">
+    <div class="drag__label">Done</div>
+    <div
+      class="drag__area"
+      cdkDropList
+      [cdkDropListData]="doneTasks"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <ng-container *ngIf="doneTasks.length > 0; else doneTask">
+        <div *ngFor="let task of doneTasks" cdkDrag>
+          <!-- Placeholder -->
+          <div class="task__placeholder" *cdkDragPlaceholder></div>
+          <!-- TASK -->
+          <app-task [task]="task"></app-task>
+        </div>
+      </ng-container>
+      <ng-template #doneTask>
+        <div class="task__empty">No tasks in Done</div>
+      </ng-template>
+    </div>
+  </div>
+</section>

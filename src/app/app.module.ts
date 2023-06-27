@@ -24,6 +24,8 @@ import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit
 import { ContactComponent } from './join/contacts/contact/contact.component';
 import { ReturnBtnComponent } from './components/return-btn/return-btn.component';
 import { ContactLabelComponent } from './join/contacts/contact-label/contact-label.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ItemComponent } from './testbox/item/item.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,9 @@ import { ContactLabelComponent } from './join/contacts/contact-label/contact-lab
     ContactComponent,
     ReturnBtnComponent,
     ContactLabelComponent,
+    ItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, DragDropModule],
   providers: [],
   bootstrap: [AppComponent],
 })

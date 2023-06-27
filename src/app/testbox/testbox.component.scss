@@ -1,124 +1,55 @@
 @import "../shared/styles/variables.scss";
 @import "../shared/styles/mixin.scss";
-// @media (hover: none) {
-.main {
-  padding-inline: 1.75rem;
-  padding-block: 1rem;
-  max-width: 100dvw;
-}
-
-// HEAD
-.head__section {
+.container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 8px;
+  border: 1px solid black;
+  background-color: gainsboro;
+  padding: 1rem;
+  min-height: 100vh;
 }
 
-.head__description {
+.todo-container {
+  background-color: lightgreen;
+  border: black solid 1px;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
-.head__title {
-  font-size: 3rem;
-  font-weight: 700;
+.progress-container {
+  background-color: lightcyan;
+  border: black solid 1px;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
-.head__comment {
+.await-container {
+  background-color: lightgoldenrodyellow;
+  border: black solid 1px;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
-.head__dash {
-  height: 3px;
-  background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
+.done-container {
+  background-color: lightpink;
+  border: black solid 1px;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
-// CONTENT
-.content {
-  padding-block: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+// das bewegliche element
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-color: red;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.content__row {
-  height: 7rem;
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+.drop-placeholder {
+  background: #ccc;
+  border: dotted 3px #999;
+  min-height: 108px;
+  border-radius: 8px;
+  transform: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-.sign {
-  @include sign-size(1);
-}
-
-.counter {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-.date {
-  text-align: center;
-  font-weight: 700;
-}
-
-.description {
-  text-align: center;
-  font-size: 0.85rem;
-  color: $color-primary;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  // align-items: center;
-  text-align: center;
-}
-
-.box {
-  height: 100%;
-  width: 100%;
-  border-radius: 1.25rem;
-  background-color: $color-white;
-}
-
-.mid {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.sign-container {
-  background-color: $color-primary;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dash {
-  height: 100%;
-  width: 0.25rem;
-  background-image: linear-gradient(
-    0deg,
-    transparent 0%,
-    transparent 15%,
-    $color-grey 15%,
-    $color-grey 85%,
-    transparent 85%,
-    transparent 100%
-  );
-}
-
-// }

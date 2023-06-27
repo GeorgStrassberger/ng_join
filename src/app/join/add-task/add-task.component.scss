@@ -3,7 +3,6 @@
 @import "../../shared/styles/mixin.scss";
 :host {
   position: relative;
-  background-color: aliceblue;
   @include mobile-container;
 }
 
