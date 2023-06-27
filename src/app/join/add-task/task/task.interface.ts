@@ -1,11 +1,19 @@
 import { TContact } from '../../contacts/contact.interface';
-import { Contact } from '../../contacts/contact.model';
 
-export interface Task {
+export type TStatus = 'todo' | 'inProgress' | 'awaitFeedback' | 'done';
+export type TPriority = 'high' | 'medium' | 'low';
+export type TCategory =
+  | 'Design'
+  | 'Sales'
+  | 'Media'
+  | 'Backoffice'
+  | 'Marketing';
+export interface ITask {
   title: string;
   description: string;
-  priority: 'high' | 'medium' | 'low';
+  priority: TPriority;
   date: Date;
-  category: string;
+  category: TCategory;
+  status: TStatus;
   assignedTo: TContact[];
 }

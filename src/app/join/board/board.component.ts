@@ -4,7 +4,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { Task } from '../add-task/task/task.interface';
+import { ITask } from '../add-task/task/task.interface';
 
 @Component({
   selector: 'app-board',
@@ -12,13 +12,14 @@ import { Task } from '../add-task/task/task.interface';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
-  todoTasks: Task[] = [
+  todoTasks: ITask[] = [
     {
       title: 'Website redesign',
       description: 'Modify the contents of the main website.',
       date: new Date(),
       priority: 'high',
       category: 'Design',
+      status: 'todo',
       assignedTo: [
         {
           username: 'G-Had',
@@ -46,6 +47,7 @@ export class BoardComponent {
       date: new Date(),
       priority: 'low',
       category: 'Sales',
+      status: 'todo',
       assignedTo: [
         {
           username: 'G-Had',
@@ -63,7 +65,8 @@ export class BoardComponent {
       description: 'Lorem Ipsum bal bla bla',
       date: new Date(),
       priority: 'medium',
-      category: 'Markting',
+      category: 'Marketing',
+      status: 'todo',
       assignedTo: [
         {
           username: 'Konni',
@@ -95,11 +98,13 @@ export class BoardComponent {
       ],
     },
   ];
-  inProgressTasks: Task[] = [];
-  awitingFeedbackTasks: Task[] = [];
-  doneTasks: Task[] = [];
+  inProgressTasks: ITask[] = [];
+  awitingFeedbackTasks: ITask[] = [];
+  doneTasks: ITask[] = [];
 
-  onDrop(event: CdkDragDrop<Task[]>): void {
+  onDrop(event: CdkDragDrop<ITask[]>): void {
+    const currentTask: ITask =
+      event.previousContainer.data[event.previousIndex];
     // wenn der gestartete container == der aktuelle container ist => dann sind wir im selben container
     if (event.previousContainer == event.container) {
       moveItemInArray(this.todoTasks, event.previousIndex, event.currentIndex);
@@ -111,6 +116,23 @@ export class BoardComponent {
         event.previousIndex,
         event.currentIndex
       );
+      this.updateTaskStatus(currentTask, event.container.id);
+    }
+  }
+
+  updateTaskStatus(task: ITask, eventID: string): void {
+    if (eventID == 'cdk-drop-list-0') {
+      task.status = 'todo';
+      console.log('TASK: ', task);
+    } else if (eventID == 'cdk-drop-list-1') {
+      task.status = 'inProgress';
+      console.log('TASK: ', task);
+    } else if (eventID == 'cdk-drop-list-2') {
+      task.status = 'awaitFeedback';
+      console.log('TASK: ', task);
+    } else if (eventID == 'cdk-drop-list-3') {
+      task.status = 'done';
+      console.log('TASK: ', task);
     }
   }
 }

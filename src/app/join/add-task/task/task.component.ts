@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task } from './task.interface';
+import { ITask } from './task.interface';
 
 @Component({
   selector: 'app-task',
@@ -7,5 +7,5 @@ import { Task } from './task.interface';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
-  @Input() task!: Task;
+  @Input() task!: ITask;
 }
