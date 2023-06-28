@@ -10,17 +10,17 @@
   <div class="content__row">
     <!-- BOX -->
     <div class="box center">
-      <span class="counter">5</span>
+      <span class="counter">{{ taskService.allTasks.length }}</span>
       <span class="description">Task in<br />Board</span>
     </div>
     <!-- BOX -->
     <div class="box center">
-      <span class="counter">2</span>
+      <span class="counter">{{ taskService.inProgressTasks.length }}</span>
       <span class="description">Task in<br />Progress</span>
     </div>
     <!-- BOX -->
     <div class="box center">
-      <span class="counter">2</span>
+      <span class="counter">{{ taskService.awitingFeedbackTasks.length }}</span>
       <span class="description">Awaiting<br />feedback</span>
     </div>
   </div>
@@ -44,7 +44,7 @@
           </svg>
         </div>
         <div class="center">
-          <span class="counter">1</span>
+          <span class="counter">{{ taskService.urgentTasks.length }}</span>
           <span class="description">Urgent</span>
         </div>
       </div>
@@ -76,7 +76,7 @@
         </svg>
       </div>
       <div class="center">
-        <span class="counter">1</span>
+        <span class="counter">{{ taskService.todoTasks.length }}</span>
         <span class="description">To-do</span>
       </div>
     </div>
@@ -95,7 +95,7 @@
         </svg>
       </div>
       <div class="center">
-        <span class="counter">1</span>
+        <span class="counter">{{ taskService.doneTasks.length }}</span>
         <span class="description">Done</span>
       </div>
     </div>

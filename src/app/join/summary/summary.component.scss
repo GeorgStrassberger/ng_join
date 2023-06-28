@@ -4,6 +4,7 @@
   :host {
     background-color: aliceblue;
     @include mobile-container;
+    flex-grow: 1;
   }
   // HEAD
   .head__section {

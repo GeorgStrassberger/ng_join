@@ -5,6 +5,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { ITask } from '../add-task/task/task.interface';
+import { TaskService } from '../add-task/task/task.service';
 
 @Component({
   selector: 'app-board',
@@ -12,95 +13,17 @@ import { ITask } from '../add-task/task/task.interface';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
-  todoTasks: ITask[] = [
-    {
-      title: 'Website redesign',
-      description: 'Modify the contents of the main website.',
-      date: new Date(),
-      priority: 'high',
-      category: 'Design',
-      status: 'todo',
-      assignedTo: [
-        {
-          username: 'G-Had',
-          firstname: 'Gerhard',
-          lastname: 'Schröder',
-          email: 'gerhard@schröder.com',
-          phone: '123456789',
-          tag: 'GS',
-          color: '#b6ca6f',
-        },
-        {
-          username: 'Anny',
-          firstname: 'Anja',
-          lastname: 'Schumacher',
-          email: 'anja@schumacher.com',
-          phone: '222222222',
-          tag: 'AS',
-          color: '#18fe87',
-        },
-      ],
-    },
-    {
-      title: 'Call potentioal clients',
-      description: 'Make the product presentation to prospective buyers.',
-      date: new Date(),
-      priority: 'low',
-      category: 'Sales',
-      status: 'todo',
-      assignedTo: [
-        {
-          username: 'G-Had',
-          firstname: 'Gerhard',
-          lastname: 'Schröder',
-          email: 'gerhard@schröder.com',
-          phone: '123456789',
-          tag: 'GS',
-          color: '#b6ca6f',
-        },
-      ],
-    },
-    {
-      title: 'Lorem Ipsum',
-      description: 'Lorem Ipsum bal bla bla',
-      date: new Date(),
-      priority: 'medium',
-      category: 'Marketing',
-      status: 'todo',
-      assignedTo: [
-        {
-          username: 'Konni',
-          firstname: 'Konrad',
-          lastname: 'Adenauer',
-          email: 'konrad@adenauer.de',
-          phone: '0176165313',
-          tag: 'KA',
-          color: '#f6cb6f',
-        },
-        {
-          username: 'G-Had',
-          firstname: 'Gerhard',
-          lastname: 'Schröder',
-          email: 'gerhard@schröder.com',
-          phone: '123456789',
-          tag: 'GS',
-          color: '#b6ca6f',
-        },
-        {
-          username: 'Anny',
-          firstname: 'Anja',
-          lastname: 'Schumacher',
-          email: 'anja@schumacher.com',
-          phone: '222222222',
-          tag: 'AS',
-          color: '#18fe87',
-        },
-      ],
-    },
-  ];
+  todoTasks: ITask[] = [];
   inProgressTasks: ITask[] = [];
   awitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
+
+  constructor(private taskService: TaskService) {
+    this.todoTasks = this.taskService.todoTasks;
+    this.inProgressTasks = this.taskService.inProgressTasks;
+    this.awitingFeedbackTasks = this.taskService.awitingFeedbackTasks;
+    this.doneTasks = this.taskService.doneTasks;
+  }
 
   onDrop(event: CdkDragDrop<ITask[]>): void {
     const currentTask: ITask =

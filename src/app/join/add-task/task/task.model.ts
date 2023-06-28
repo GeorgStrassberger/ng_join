@@ -5,16 +5,17 @@ export class Task implements ITask {
   // title: string;
   // description: string;
   // priority: TPriority;
-  date: Date;
   // category: TCategory;
-  status: TStatus;
   // assignedTo: TContact[];
+  date: Date;
+  status: TStatus;
+
   constructor(
-    private title: string,
-    private description: string,
-    private priority: TPriority,
-    private category: TCategory,
-    private assignedTo: TContact[]
+    public title: string,
+    public description: string,
+    public priority: TPriority,
+    public category: TCategory,
+    public assignedTo: TContact[]
   ) {
     this.title = title;
     this.description = description;

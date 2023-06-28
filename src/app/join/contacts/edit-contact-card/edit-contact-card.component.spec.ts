@@ -8,9 +8,8 @@ describe('EditContactCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditContactCardComponent ]
-    })
-    .compileComponents();
+      declarations: [EditContactCardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EditContactCardComponent);
     component = fixture.componentInstance;

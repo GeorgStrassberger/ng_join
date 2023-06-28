@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactsService } from './contacts.service';
 import { TContact } from './contact.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -9,10 +10,13 @@ import { TContact } from './contact.interface';
 })
 export class ContactsComponent {
   isNewContactOpen: boolean = false;
-  isOpen: boolean = false;
+
   selcetedContact!: TContact;
 
-  constructor(private contactService: ContactsService) {}
+  constructor(
+    private router: Router,
+    private contactService: ContactsService
+  ) {}
 
   ngOnInit() {}
 
@@ -33,8 +37,8 @@ export class ContactsComponent {
    * Open Card to edit Contact
    */
   openContact(contact: TContact): void {
-    this.isOpen = !this.isOpen;
-    this.selcetedContact = contact;
+    this.contactService.currentContact = contact;
+    this.router.navigate(['/contact']);
     console.log('Contact: ', contact);
   }
 

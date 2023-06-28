@@ -3,6 +3,7 @@
 :host {
   @include mobile-container;
   flex: 1 0 auto;
+  gap: 1rem;
 }
 
 // HEAD
@@ -12,17 +13,6 @@
   flex-direction: column;
   gap: 0.5rem;
   flex: 0 0 auto;
-}
-
-.return__btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  fill: $color-primary;
-  cursor: pointer;
-  &:hover {
-    fill: $color-primary-hover;
-  }
 }
 
 .head__title {
@@ -35,13 +25,11 @@
   background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
 }
 
-// ## CONTACT ##
-.contact__btn {
-  padding-block: 0.5rem;
-}
-
 // ### contact list ###
 .sign {
   @include sign-size(1.3);
   margin-left: 0.5rem;
+}
+
+.contacts {
 }

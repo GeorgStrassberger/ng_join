@@ -3,6 +3,7 @@
 @media (hover: none) {
   :host {
     @include mobile-container;
+    flex-grow: 1;
   }
   // HEAD
   .head__section {

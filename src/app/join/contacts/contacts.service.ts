@@ -6,106 +6,26 @@ import { Contact } from './contact.model';
   providedIn: 'root',
 })
 export class ContactsService {
+  currentContact!: TContact; // später ein subject draus machen
   contacts: TContact[] = [
     {
-      username: 'G-Had',
-      firstname: 'Gerhard',
-      lastname: 'Schröder',
-      email: 'gerhard@schröder.com',
-      phone: '123456789',
+      username: 'Schorsch',
+      firstname: 'Georg',
+      lastname: 'Strassberger',
+      email: 'georg@strassberger.de',
+      phone: '017696477716',
       tag: 'GS',
-      color: '#b6ca6f',
-    },
-    {
-      username: 'Anny',
-      firstname: 'Anja',
-      lastname: 'Schumacher',
-      email: 'anja@schumacher.com',
-      phone: '222222222',
-      tag: 'AS',
-      color: '#18fe87',
+      color: '#FFC700',
     },
   ];
 
   constructor() {
+    this.getAllContacts();
+  }
+
+  getAllContacts(): void {
     this.addDummyContacts();
-    console.log('constacts: ', this.contacts);
   }
-
-  addDummyContacts() {
-    const contact1 = new Contact(
-      'Jonny',
-      'John',
-      'Doe',
-      'john@example.com',
-      '123456789'
-    );
-    const contact2 = new Contact(
-      'Janny',
-      'Jane',
-      'Smith',
-      'jane@example.com',
-      '987654321'
-    );
-    const contact3 = new Contact(
-      'MikeJo',
-      'Michael',
-      'Johnson',
-      'michael@example.com',
-      '555555555'
-    );
-    const contact4 = new Contact(
-      'Emily',
-      'Emily',
-      'Davis',
-      'emily@example.com',
-      '999999999'
-    );
-    const contact5 = new Contact(
-      'Sarah',
-      'Sarah',
-      'Johnson',
-      'sarah@example.com',
-      '111111111'
-    );
-    const contact6 = new Contact(
-      'Rob',
-      'Robert',
-      'Brown',
-      'robert@example.com',
-      '222222222'
-    );
-    const contact7 = new Contact(
-      'Emmy',
-      'Emma',
-      'Wilson',
-      'emma@example.com',
-      '333333333'
-    );
-    const contact8 = new Contact(
-      'David',
-      'David',
-      'Thompson',
-      'david@example.com',
-      '444444444'
-    );
-
-    const dummyContacts: Contact[] = [
-      contact1,
-      contact2,
-      contact3,
-      contact4,
-      contact5,
-      contact6,
-      contact7,
-      contact8,
-    ];
-    dummyContacts.forEach((contact) => {
-      this.contacts.push(contact);
-    });
-  }
-
-  getAllContacts(): void {}
 
   /**
    * Create a new Contact and store it on Firebase
@@ -126,9 +46,86 @@ export class ContactsService {
     console.log('constacts: ', this.contacts);
   }
 
-  getContact() {}
+  getContact(index: number): TContact {
+    const currentContact = this.contacts[index];
+    return currentContact;
+  }
 
-  updateContact() {}
+  updateContact(): void {}
 
-  deleteContact() {}
+  deleteContact(): void {}
+
+  addDummyContacts(): void {
+    const contact0 = this.createContact(
+      'G-Had',
+      'Gerhard',
+      'Schröder',
+      'gerhard@schröder.com',
+      '123456789'
+    );
+    const contact1 = this.createContact(
+      'Jonny',
+      'John',
+      'Doe',
+      'john@example.com',
+      '123456789'
+    );
+
+    const contact2 = this.createContact(
+      'Janny',
+      'Jane',
+      'Smith',
+      'jane@example.com',
+      '987654321'
+    );
+    const contact3 = this.createContact(
+      'MikeJo',
+      'Michael',
+      'Johnson',
+      'michael@example.com',
+      '555555555'
+    );
+    const contact4 = this.createContact(
+      'Emily',
+      'Emily',
+      'Davis',
+      'emily@example.com',
+      '999999999'
+    );
+    const contact5 = this.createContact(
+      'Sarah',
+      'Sarah',
+      'Johnson',
+      'sarah@example.com',
+      '111111111'
+    );
+    const contact6 = this.createContact(
+      'Rob',
+      'Robert',
+      'Brown',
+      'robert@example.com',
+      '222222222'
+    );
+    const contact7 = this.createContact(
+      'Emmy',
+      'Emma',
+      'Wilson',
+      'emma@example.com',
+      '333333333'
+    );
+    const contact8 = this.createContact(
+      'David',
+      'David',
+      'Thompson',
+      'david@example.com',
+      '444444444'
+    );
+    const contact9 = this.createContact(
+      'Anny',
+      'Anja',
+      'Schumacher',
+      'anja@schumacher.com',
+      '222222222'
+    );
+  }
 }

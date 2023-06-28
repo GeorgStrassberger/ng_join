@@ -1,31 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TContact } from '../contact.interface';
 import { ContactsService } from '../contacts.service';
-import { Contact } from '../contact.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-contact-card',
   templateUrl: './edit-contact-card.component.html',
   styleUrls: ['./edit-contact-card.component.scss'],
 })
-export class EditContactCardComponent {
+export class EditContactCardComponent implements OnInit {
   isEdit: boolean = false;
   isDeleted: boolean = false;
-  // myContact!: TContact;
+  currentContact!: TContact;
 
-  myContact: TContact = {
-    username: 'Schorsch',
-    firstname: 'Georg',
-    lastname: 'Strassberger',
-    email: 'georg@georg.de',
-    color: '#FFC700',
-    tag: 'GS',
-    phone: '3213464',
-  };
+  constructor(
+    private router: Router,
+    private constactsService: ContactsService
+  ) {}
 
-  constructor(private constactsService: ContactsService) {
-    if (this.constactsService.contacts.length > 0) {
-      this.myContact = this.constactsService.contacts[0];
-    }
+  ngOnInit(): void {
+    this.currentContact = this.constactsService.currentContact;
+  }
+
+  onEdit(): void {
+    this.isEdit = true;
+    this.constactsService.updateContact();
+  }
+
+  onDelete(): void {
+    this.isDeleted = true;
+    this.constactsService.deleteContact();
+  }
+
+  onClose(): void {
+    this.isEdit = false;
+    this.isDeleted = false;
+    this.router.navigate(['/contacts']);
   }
 }

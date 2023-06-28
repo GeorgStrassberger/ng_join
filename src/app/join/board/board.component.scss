@@ -3,6 +3,7 @@
 @import "../../shared/styles/mixin.scss";
 :host {
   @include mobile-container;
+  flex-grow: 1;
 }
 
 // HEAD
