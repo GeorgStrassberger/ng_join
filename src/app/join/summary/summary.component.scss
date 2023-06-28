@@ -41,7 +41,6 @@
   }
   .sign {
     @include sign-size(1);
-    fill: red;
   }
   .counter {
     text-align: center;
@@ -110,4 +109,16 @@
       transparent 100%
     );
   }
+}
+
+.low {
+  background-color: $proi-low;
+}
+
+.medium {
+  background-color: $prio-mid;
+}
+
+.high {
+  background-color: $prio-high;
 }

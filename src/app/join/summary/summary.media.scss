@@ -110,3 +110,15 @@
     );
   }
 }
+
+.low {
+  background-color: $proi-low;
+}
+
+.medium {
+  background-color: $prio-mid;
+}
+
+.high {
+  background-color: $prio-high;
+}

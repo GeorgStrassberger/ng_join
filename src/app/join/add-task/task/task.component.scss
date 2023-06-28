@@ -21,15 +21,33 @@
 }
 
 .task__category {
-  text-align: center;
-  width: 6.5rem;
   height: 1.75rem;
-  border-radius: 0.5rem;
-  color: $color-white;
-  background-color: #ff7a00;
+  width: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  text-shadow: 0 0 0.125rem $color-grey;
+  color: $color-white;
+  border-radius: 0.5rem;
+}
+
+.bg {
+  &--design {
+    background-color: $category-design;
+  }
+  &--sales {
+    background-color: $category-sales;
+  }
+  &--media {
+    background-color: $category-media;
+  }
+  &--backoffice {
+    background-color: $category-backoffice;
+  }
+  &--marketing {
+    background-color: $category-marketing;
+  }
 }
 
 .task__title {
@@ -65,7 +83,6 @@
   justify-content: center;
   align-items: center;
   color: $color-white;
-  background-color: #02cf2f;
   text-shadow: 0 0 0.25rem $color-primary-hover;
   box-shadow: 0 0 0.25rem $color-primary-hover;
   border-radius: 100%;
@@ -84,14 +101,14 @@
   box-shadow: 0 0 0.25rem $color-primary-hover;
 }
 
-.medium {
-  background-color: $color-yellow;
+.low {
+  background-color: $proi-low;
 }
 
-.low {
-  background-color: $color-green;
+.medium {
+  background-color: $prio-mid;
 }
 
 .high {
-  background-color: $color-red;
+  background-color: $prio-high;
 }

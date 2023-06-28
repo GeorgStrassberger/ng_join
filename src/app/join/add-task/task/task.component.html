@@ -1,5 +1,7 @@
 <section class="task__body">
-  <div class="task__category">{{ task.category }}</div>
+  <div class="task__category" ngClass="bg--{{ task.category | lowercase }}">
+    {{ task.category }}
+  </div>
   <h2 class="task__title">{{ task.title }}</h2>
   <div class="task__desciption">{{ task.description }}</div>
 </section>
