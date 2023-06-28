@@ -48,9 +48,13 @@ export class ContactsService {
     console.log('constacts: ', this.contacts);
   }
 
-  getContact(index: number): TContact {
-    const currentContact = this.contacts[index];
-    return currentContact;
+  getContact(id: string): TContact | null {
+    const currentContact = this.contacts.find((contact) => contact.uid === id);
+    if (currentContact) {
+      return currentContact;
+    } else {
+      return null;
+    }
   }
 
   updateContact(): void {}

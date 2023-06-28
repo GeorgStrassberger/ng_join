@@ -27,17 +27,20 @@ export class AddTaskComponent implements OnInit {
     return todayString;
   }
 
-  onCreateTask(form: NgForm) {
+  onCreateTask(form: NgForm): void {
     const value = form.value;
-    const task = new Task(
-      value.title,
-      value.description,
-      value.date,
-      value.category,
-      new Array(value.assignedTo)
-    );
-    this.isAdded = true;
-    this.taskService.addTask(task);
+    const assignedTo = this.contactsService.getContact(value.assignedTo);
+    if (assignedTo) {
+      const task = new Task(
+        value.title,
+        value.description,
+        value.date,
+        value.category,
+        new Array(assignedTo)
+      );
+      this.isAdded = true;
+      this.taskService.addTask(task);
+    }
     form.reset();
   }
 
