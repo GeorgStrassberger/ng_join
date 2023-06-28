@@ -22,7 +22,11 @@
 
   <div class="btn__container">
     <!-- DELETE BTN -->
-    <button class="btn__secondary--small" title="Delete" (click)="onDelete()">
+    <button
+      class="btn__secondary--small"
+      title="Delete"
+      (click)="onDelete(contact.uid)"
+    >
       <svg class="sign" viewBox="0 0 32 32">
         <mask
           id="mask0_60670_2995"
@@ -60,7 +64,7 @@
 </section>
 <!-- POPUP DUMMY -->
 <ng-container *ngIf="isDeleted">
-  <div class="popup__container">
-    <button class="btn__primary" (click)="onClose()">Contact delete</button>
+  <div class="popup__container" (click)="onClose()">
+    <button class="btn__primary popup">Contact delete</button>
   </div>
 </ng-container>

@@ -24,14 +24,13 @@
 }
 
 .nav__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   width: 5rem;
   min-width: 4.5rem;
   height: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   &:hover {
     background-color: $color-primary-hover;
     color: $color-secondary;
@@ -47,6 +46,10 @@
 }
 
 .link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: $color-grey;
   white-space: nowrap;

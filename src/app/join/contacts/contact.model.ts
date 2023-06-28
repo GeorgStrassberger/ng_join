@@ -25,7 +25,7 @@ export class Contact implements TContact {
     this.phone = phone;
     this.tag = this.createTag(this.firstname, this.lastname);
     this.color = this.getRandomColorCode();
-    this.uid = uid;
+    this.uid = this.generateRandomUid();
   }
 
   /**
@@ -48,5 +48,16 @@ export class Contact implements TContact {
     const hexCode: string = colorCode.toString(16).padStart(6, '0');
     const color: string = `#${hexCode}`;
     return color;
+  }
+
+  generateRandomUid(length: number = 10): string {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+    const charactersLength: number = characters.length;
+    let uid: string = '';
+    for (let i = 0; i < length; i++) {
+      uid += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return uid;
   }
 }

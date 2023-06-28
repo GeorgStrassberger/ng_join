@@ -12,14 +12,17 @@
 </section>
 <!-- CARD BODY -->
 <section class="card__body">
-  <form class="form">
+  <form class="form" #editform="ngForm" (ngSubmit)="onEdit(editform)">
     <!-- NAME -->
     <div class="tf__container">
       <input
         class="tf"
         type="text"
+        name="username"
         placeholder="Name"
-        [value]="currentContact.username"
+        [(ngModel)]="currentContact.username"
+        required
+        [pattern]="'[a-zA-Z0-9äöüßÄÖÜ]{3,20}'"
       />
       <svg class="tf__icon" viewBox="0 0 24 25">
         <path
@@ -33,8 +36,11 @@
       <input
         class="tf"
         type="email"
+        name="email"
         placeholder="Email"
-        [value]="currentContact.email"
+        [(ngModel)]="currentContact.email"
+        required
+        [pattern]="'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'"
       />
       <svg class="tf__icon" viewBox="0 0 20 19">
         <path
@@ -48,8 +54,11 @@
       <input
         class="tf"
         type="tel"
+        name="phone"
         placeholder="Phone"
-        [value]="currentContact.phone"
+        [(ngModel)]="currentContact.phone"
+        required
+        [pattern]="'[0-9]{8,16}'"
       />
       <svg class="tf__icon" viewBox="0 0 20 21">
         <path
@@ -58,28 +67,33 @@
         />
       </svg>
     </div>
+
+    <div class="btn__container">
+      <button
+        class="btn__secondary--small"
+        (click)="onDelete(currentContact.uid)"
+        type="button"
+      >
+        Delete
+      </button>
+      <button
+        class="btn__primary--small"
+        type="submit"
+        [disabled]="!editform.valid"
+      >
+        Save
+      </button>
+    </div>
   </form>
-  <div class="btn__container">
-    <button
-      class="btn__secondary--small"
-      (click)="isDeleted = !isDeleted"
-      type="button"
-    >
-      Delete
-    </button>
-    <button class="btn__primary--small" (click)="onEdit()" type="submit">
-      Save
-    </button>
-  </div>
 </section>
 <!-- POPUP DUMMY -->
 <ng-container *ngIf="isEdit">
-  <div class="popup__container">
-    <button class="btn__primary" (click)="onClose()">Contact edit</button>
+  <div class="popup__container" (click)="onClose()">
+    <button class="btn__primary popup">Contact edit</button>
   </div>
 </ng-container>
 <ng-container *ngIf="isDeleted">
-  <div class="popup__container">
-    <button class="btn__primary" (click)="onClose()">Contact delete</button>
+  <div class="popup__container" (click)="onClose()">
+    <button class="btn__primary popup">Contact delete</button>
   </div>
 </ng-container>

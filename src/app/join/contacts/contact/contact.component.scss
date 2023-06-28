@@ -1,7 +1,7 @@
 @import "../../../shared/styles/variables.scss";
 @import "../../../shared/styles/mixin.scss";
 :host {
-  position: relative;
+  // position: relative;
   @include mobile-container;
   flex: 1 0 auto;
   gap: 1rem;
@@ -108,15 +108,25 @@
 // toggle with ngIF boolean
 .popup__container {
   position: absolute;
-  padding-inline: 1.75rem;
+  top: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  width: 100%;
+  bottom: 0;
+  z-index: 10;
+  padding-inline: 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(250, 250, 250, 0.3);
+  backdrop-filter: blur(0.25rem);
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  width: 80dvw;
+  transform: translate(0, -50%);
   animation-name: fade-in;
   animation-duration: 1s;
   animation-fill-mode: forwards;

@@ -45,7 +45,6 @@ export class ContactsService {
   ): void {
     const contact = new Contact(un, fn, ln, email, phone, uid);
     this.contacts.push(contact);
-    console.log('constacts: ', this.contacts);
   }
 
   getContact(id: string): TContact | null {
@@ -57,9 +56,17 @@ export class ContactsService {
     }
   }
 
-  updateContact(): void {}
+  addContact(contact: TContact): void {
+    console.log('add', contact);
+  }
 
-  deleteContact(): void {}
+  updateContact(id: string, contact: TContact): void {
+    console.log('update: ', id + ' ' + contact);
+  }
+
+  deleteContact(id: string): void {
+    console.log('id; ', id);
+  }
 
   addDummyContacts(): void {
     const contact0 = this.createContact(

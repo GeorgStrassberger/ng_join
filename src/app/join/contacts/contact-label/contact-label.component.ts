@@ -8,4 +8,5 @@ import { TContact } from '../contact.interface';
 })
 export class ContactLabelComponent {
   @Input() contact!: TContact;
+  @Input() index!: number;
 }

@@ -34,8 +34,9 @@
     </div>
     <!-- Iteriere über die Kontakte, die mit dem aktuellen Buchstaben beginnen -->
     <app-contact-label
-      *ngFor="let contact of contactsStartingWith(letter)"
+      *ngFor="let contact of contactsStartingWith(letter); let i = index"
       [contact]="contact"
+      [index]="i"
       (click)="openContact(contact)"
     ></app-contact-label>
   </div>

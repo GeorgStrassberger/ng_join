@@ -24,9 +24,14 @@ export class ContactComponent {
     this.router.navigate(['/editContact']);
   }
 
-  onDelete(): void {
+  onDelete(id: string): void {
     this.isDeleted = true;
-    this.contactsService.deleteContact();
+    const contactIndex: number = this.contactsService.contacts.findIndex(
+      (contact) => contact.uid === this.contact.uid
+    );
+    console.log('indexOf:', contactIndex);
+    this.contactsService.contacts.splice(contactIndex, 1);
+    this.contactsService.deleteContact(id);
   }
 
   onClose(): void {
