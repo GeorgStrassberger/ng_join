@@ -62,6 +62,7 @@ textarea {
 }
 
 .sign {
+  color: $color-white;
   margin-left: 0.5rem;
   @include sign-size(1);
 }

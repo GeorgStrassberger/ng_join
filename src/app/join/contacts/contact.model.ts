@@ -8,13 +8,15 @@ export class Contact implements TContact {
   phone: string;
   tag: string;
   color: string;
+  uid: string;
 
   constructor(
     username: string,
     firstname: string,
     lastname: string,
     email: string,
-    phone: string
+    phone: string,
+    uid: string = username + '16461'
   ) {
     this.username = username;
     this.firstname = firstname;
@@ -23,6 +25,7 @@ export class Contact implements TContact {
     this.phone = phone;
     this.tag = this.createTag(this.firstname, this.lastname);
     this.color = this.getRandomColorCode();
+    this.uid = uid;
   }
 
   /**

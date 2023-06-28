@@ -4,25 +4,25 @@ import { ITask, TCategory, TPriority, TStatus } from './task.interface';
 export class Task implements ITask {
   // title: string;
   // description: string;
-  // priority: TPriority;
+  // date: Date;
   // category: TCategory;
   // assignedTo: TContact[];
-  date: Date;
+  priority: TPriority;
   status: TStatus;
 
   constructor(
     public title: string,
     public description: string,
-    public priority: TPriority,
+    public date: Date,
     public category: TCategory,
-    public assignedTo: TContact[]
+    public assignedTo: TContact[] // public priority: TPriority,
   ) {
     this.title = title;
     this.description = description;
-    this.priority = priority;
+    this.date = date;
     this.category = category;
-    this.status = 'todo';
-    this.date = new Date();
     this.assignedTo = assignedTo;
+    this.status = 'todo';
+    this.priority = 'low';
   }
 }

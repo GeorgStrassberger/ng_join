@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { ITask } from './task.interface';
+import { Task } from './task.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class TaskService implements OnInit {
       description: 'Modify the contents of the main website.',
       date: new Date(),
       priority: 'high',
-      category: 'Design',
+      category: 'design',
       status: 'todo',
       assignedTo: [
         {
@@ -22,6 +23,7 @@ export class TaskService implements OnInit {
           phone: '123456789',
           tag: 'GS',
           color: '#b6ca6f',
+          uid: 's6ad4f6as4d6f',
         },
         {
           username: 'Anny',
@@ -31,6 +33,7 @@ export class TaskService implements OnInit {
           phone: '222222222',
           tag: 'AS',
           color: '#18fe87',
+          uid: '3sd54fg6ds66dfg',
         },
       ],
     },
@@ -39,7 +42,7 @@ export class TaskService implements OnInit {
       description: 'Make the product presentation to prospective buyers.',
       date: new Date(),
       priority: 'low',
-      category: 'Sales',
+      category: 'sales',
       status: 'todo',
       assignedTo: [
         {
@@ -50,6 +53,7 @@ export class TaskService implements OnInit {
           phone: '123456789',
           tag: 'GS',
           color: '#b6ca6f',
+          uid: 's6ad4f6as4d6f',
         },
       ],
     },
@@ -58,7 +62,7 @@ export class TaskService implements OnInit {
       description: 'Lorem Ipsum bal bla bla',
       date: new Date(),
       priority: 'medium',
-      category: 'Marketing',
+      category: 'marketing',
       status: 'todo',
       assignedTo: [
         {
@@ -69,6 +73,7 @@ export class TaskService implements OnInit {
           phone: '0176165313',
           tag: 'KA',
           color: '#f6cb6f',
+          uid: '6as4df646ggs',
         },
         {
           username: 'G-Had',
@@ -78,6 +83,7 @@ export class TaskService implements OnInit {
           phone: '123456789',
           tag: 'GS',
           color: '#b6ca6f',
+          uid: 's6ad4f6as4d6f',
         },
         {
           username: 'Anny',
@@ -87,6 +93,7 @@ export class TaskService implements OnInit {
           phone: '222222222',
           tag: 'AS',
           color: '#18fe87',
+          uid: '3sd54fg6ds66dfg',
         },
       ],
     },
@@ -98,23 +105,19 @@ export class TaskService implements OnInit {
   urgentTasks: ITask[] = [];
 
   constructor() {
-    this.sortByStatus();
+    this.filterByStatus();
   }
 
   ngOnInit() {}
 
-  sortByStatus() {
-    // Sort the todoTasks array by status
-    this.allTasks.sort((a, b) => {
-      if (a.status < b.status) {
-        return -1;
-      } else if (a.status > b.status) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
+  addTask(task: ITask): void {
+    if (task) {
+      this.allTasks.push(task);
+    }
+    this.filterByStatus(); //das er auch ins richtige geschoben wird
+  }
 
+  filterByStatus() {
     this.todoTasks = this.allTasks.filter((task) => task.status === 'todo');
     this.inProgressTasks = this.allTasks.filter(
       (task) => task.status === 'inProgress'
@@ -124,5 +127,17 @@ export class TaskService implements OnInit {
     );
     this.doneTasks = this.allTasks.filter((task) => task.status === 'done');
     this.urgentTasks = this.allTasks.filter((task) => task.priority === 'high');
+  }
+
+  sortAllTasks() {
+    this.allTasks.sort((a, b) => {
+      if (a.status < b.status) {
+        return -1;
+      } else if (a.status > b.status) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 }

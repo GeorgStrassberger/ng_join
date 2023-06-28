@@ -74,6 +74,9 @@
   &:hover {
     background-color: $color-primary-hover;
   }
+  &:disabled {
+    background-color: $color-grey;
+  }
 }
 
 .btn__secondary {
@@ -91,5 +94,8 @@
   }
   &:hover {
     background-color: $color-secondary;
+  }
+  &:disabled {
+    background-color: $color-grey;
   }
 }

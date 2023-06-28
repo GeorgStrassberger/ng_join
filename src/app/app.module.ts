@@ -26,6 +26,7 @@ import { ReturnBtnComponent } from './components/return-btn/return-btn.component
 import { ContactLabelComponent } from './join/contacts/contact-label/contact-label.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ItemComponent } from './testbox/item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,13 @@ import { ItemComponent } from './testbox/item/item.component';
     ContactLabelComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, DragDropModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    NgbModule,
+    DragDropModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

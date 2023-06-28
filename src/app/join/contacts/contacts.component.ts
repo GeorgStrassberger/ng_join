@@ -25,12 +25,7 @@ export class ContactsComponent {
    * Placeholder:: late add this fn into the cardcomponent
    */
   openNewContactCard() {
-    this.contactService.createContact(
-      'Schorschi',
-      'Georg',
-      'Strassberger',
-      'georg@georg.de'
-    );
+    this.router.navigate(['/addContact']);
   }
 
   /**
