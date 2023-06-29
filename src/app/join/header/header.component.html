@@ -28,7 +28,11 @@
     </a>
   </div>
   <!-- USER Profile -->
-  <div class="user" (click)="onOpenMenu()">
+  <div
+    class="user"
+    (mouseenter)="isMouseOver = true"
+    (mouseleave)="isMouseOver = false"
+  >
     <figure class="user__container">
       <img
         class="user__img"
@@ -37,7 +41,7 @@
       />
     </figure>
     <!-- User Menu -->
-    <ng-container *ngIf="openMenu">
+    <ng-container *ngIf="isMouseOver">
       <div class="menu__container">
         <ul class="menu__list">
           <li class="menu__list-item" routerLink="/help">

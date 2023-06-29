@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  openMenu: boolean = false;
+  isMouseOver: boolean = false;
 
-  onOpenMenu(): void {
-    this.openMenu = !this.openMenu;
-  }
+  // openMenu: boolean = false;
+
+  // onOpenMenu (): void {
+  //   this.openMenu = !this.openMenu;
+  //   if (this.openMenu) {
+  //     setTimeout(() => this.onOpenMenu(), 2000);
+  //   }
+  // }
 }
