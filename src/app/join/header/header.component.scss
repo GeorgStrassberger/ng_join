@@ -27,6 +27,8 @@
 }
 
 .user__container {
+  position: relative;
+  z-index: 20;
   border-radius: 100%;
   border: 1px solid $color-primary;
 }
@@ -41,10 +43,10 @@
 
 .menu__container {
   position: absolute;
-  top: #{0 + $logo-size};
+  top: #{0 + math.div($logo-size, 2)};
   right: #{0 + math.div($logo-size, 2)};
   width: max-content;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background-color: $color-primary;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -56,17 +58,22 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  // gap: 0rem;
 }
 
 .menu__list-item {
-  // padding: 0.25rem;
+  padding: 0.5rem;
+  &:hover {
+    border-radius: 0.5rem;
+    background-color: $color-primary-hover;
+  }
 }
 
 .link {
   color: $color-grey;
   text-decoration: none;
-  &:hover {
-    color: $color-secondary;
-  }
+}
+
+.menu__list-item:hover .link {
+  color: $color-secondary;
 }
