@@ -86,8 +86,8 @@
 
 <!-- POPUP -->
 <ng-container *ngIf="isAdded">
-  <div class="popup__container">
-    <div class="btn__primary" (click)="onClose()">
+  <div class="popup__container" (click)="onClose()">
+    <div class="btn__primary popup">
       <span>Task added to board</span>
       <svg class="sign" fill="currentColor" viewBox="0 0 27 23 ">
         <path

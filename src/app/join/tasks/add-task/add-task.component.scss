@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../../shared/styles/variables.scss";
-@import "../../shared/styles/mixin.scss";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.scss";
 :host {
   position: relative;
   @include mobile-container;
@@ -67,18 +67,32 @@ textarea {
   @include sign-size(1);
 }
 
-// toggle with ngIF boolean
 .popup__container {
   position: absolute;
-  padding-inline: 1.75rem;
-  top: 50%;
+  top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fade-in 1s forwards ease-out 1;
+  background-color: rgba(250, 250, 250, 0.3);
+  backdrop-filter: blur(0.25rem);
+  padding-inline: 1.75rem;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  width: 80dvw;
+  transform: translate(0, -50%);
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
 }
 
 @keyframes fade-in {
