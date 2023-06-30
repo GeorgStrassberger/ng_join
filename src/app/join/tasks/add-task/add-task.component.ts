@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Task } from './task/task.model';
-import { TCategory } from './task/task.interface';
-import { TContact } from '../contacts/contact.interface';
-import { ContactsService } from '../contacts/contacts.service';
-import { TaskService } from './task/task.service';
+import { Task } from '../task.model';
+import { TCategory } from '../task.interface';
+import { TContact } from '../../contacts/contact.interface';
+import { ContactsService } from '../../contacts/contacts.service';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-add-task',

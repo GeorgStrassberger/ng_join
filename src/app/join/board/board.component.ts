@@ -4,8 +4,8 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { ITask } from '../add-task/task/task.interface';
-import { TaskService } from '../add-task/task/task.service';
+import { ITask } from '../tasks/task.interface';
+import { TaskService } from '../tasks/task.service';
 
 @Component({
   selector: 'app-board',

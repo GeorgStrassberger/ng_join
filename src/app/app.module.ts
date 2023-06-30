@@ -13,12 +13,12 @@ import { HeaderComponent } from './join/header/header.component';
 import { NavbarComponent } from './join/navbar/navbar.component';
 import { SummaryComponent } from './join/summary/summary.component';
 import { BoardComponent } from './join/board/board.component';
-import { AddTaskComponent } from './join/add-task/add-task.component';
+import { AddTaskComponent } from './join/tasks/add-task/add-task.component';
 import { ContactsComponent } from './join/contacts/contacts.component';
 import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
 import { InfoComponent } from './join/info/info.component';
 import { TestboxComponent } from './testbox/testbox.component';
-import { TaskComponent } from './join/add-task/task/task.component';
+import { TaskComponent } from './join/tasks/task/task.component';
 import { AddContactCardComponent } from './join/contacts/add-contact-card/add-contact-card.component';
 import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit-contact-card.component';
 import { ContactComponent } from './join/contacts/contact/contact.component';
@@ -27,6 +27,8 @@ import { ContactLabelComponent } from './join/contacts/contact-label/contact-lab
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ItemComponent } from './testbox/item/item.component';
 import { FormsModule } from '@angular/forms';
+import { EditTaskComponent } from './join/tasks/edit-task/edit-task.component';
+import { TaskLabelComponent } from './join/tasks/task-label/task-label.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { FormsModule } from '@angular/forms';
     ReturnBtnComponent,
     ContactLabelComponent,
     ItemComponent,
+    EditTaskComponent,
+    TaskLabelComponent,
   ],
   imports: [
     BrowserModule,

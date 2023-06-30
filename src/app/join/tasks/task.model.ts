@@ -1,4 +1,4 @@
-import { TContact } from '../../contacts/contact.interface';
+import { TContact } from '../contacts/contact.interface';
 import { ITask, TCategory, TPriority, TStatus } from './task.interface';
 
 export class Task implements ITask {

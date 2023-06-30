@@ -4,7 +4,7 @@ import { WelcomeComponent } from './join/welcome/welcome.component';
 import { ContactsComponent } from './join/contacts/contacts.component';
 import { SummaryComponent } from './join/summary/summary.component';
 import { BoardComponent } from './join/board/board.component';
-import { AddTaskComponent } from './join/add-task/add-task.component';
+import { AddTaskComponent } from './join/tasks/add-task/add-task.component';
 import { LegalNoticeComponent } from './join/legal-notice/legal-notice.component';
 import { InfoComponent } from './join/info/info.component';
 import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit-contact-card.component';

@@ -1,7 +1,7 @@
 @import "../../../shared/styles/variables.scss";
 @import "../../../shared/styles/mixin.scss";
 :host {
-  // position: relative;
+  position: relative;
   @include mobile-container;
   flex: 1 0 auto;
   gap: 1rem;

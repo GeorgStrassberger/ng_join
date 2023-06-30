@@ -32,7 +32,7 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task [task]="task"></app-task>
+          <app-task-label [task]="task"></app-task-label>
         </div>
       </ng-container>
       <ng-template #todoTask>
@@ -55,7 +55,7 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task [task]="task"></app-task>
+          <app-task-label [task]="task"></app-task-label>
         </div>
       </ng-container>
       <ng-template #inProgressTask>
@@ -80,7 +80,7 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task [task]="task"></app-task>
+          <app-task-label [task]="task"></app-task-label>
         </div>
       </ng-container>
       <ng-template #awitingFeedbackTask>
@@ -103,7 +103,7 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task [task]="task"></app-task>
+          <app-task-label [task]="task"></app-task-label>
         </div>
       </ng-container>
       <ng-template #doneTask>

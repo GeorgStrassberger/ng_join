@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../add-task/task/task.service';
+import { TaskService } from '../tasks/task.service';
 
 @Component({
   selector: 'app-summary',
