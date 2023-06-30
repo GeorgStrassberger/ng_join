@@ -32,7 +32,11 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task-label [task]="task"></app-task-label>
+          <app-task-label
+            [task]="task"
+            (dblclick)="openTask(task)"
+            (touchend)="handleDoubleTouch($event, task)"
+          ></app-task-label>
         </div>
       </ng-container>
       <ng-template #todoTask>
@@ -55,7 +59,11 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task-label [task]="task"></app-task-label>
+          <app-task-label
+            [task]="task"
+            (dblclick)="openTask(task)"
+            (touchend)="handleDoubleTouch($event, task)"
+          ></app-task-label>
         </div>
       </ng-container>
       <ng-template #inProgressTask>
@@ -80,7 +88,11 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task-label [task]="task"></app-task-label>
+          <app-task-label
+            [task]="task"
+            (dblclick)="openTask(task)"
+            (touchend)="handleDoubleTouch($event, task)"
+          ></app-task-label>
         </div>
       </ng-container>
       <ng-template #awitingFeedbackTask>
@@ -103,7 +115,11 @@
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
-          <app-task-label [task]="task"></app-task-label>
+          <app-task-label
+            [task]="task"
+            (dblclick)="openTask(task)"
+            (touchend)="handleDoubleTouch($event, task)"
+          ></app-task-label>
         </div>
       </ng-container>
       <ng-template #doneTask>

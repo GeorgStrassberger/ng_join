@@ -1,2 +1,89 @@
+@use "sass:math" as math;
 @import "../../../shared/styles/variables";
 @import "../../../shared/styles/mixin.scss";
+:host {
+  position: relative;
+  @include mobile-container;
+  flex-grow: 1;
+}
+
+// #### FORM ####
+.form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tf {
+  @include default_font;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid $color-grey;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid $color-grey;
+}
+
+textarea {
+  @include default_font;
+  resize: none;
+  border-radius: 0.5rem;
+  height: 5rem;
+  padding: 0.75rem 1rem;
+}
+
+.sign {
+  color: $color-white;
+  margin-left: 0.5rem;
+  @include sign-size(1);
+}
+
+.popup__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(250, 250, 250, 0.3);
+  backdrop-filter: blur(0.25rem);
+  padding-inline: 1.75rem;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  width: 80dvw;
+  transform: translate(0, -50%);
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}

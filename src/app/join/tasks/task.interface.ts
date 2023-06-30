@@ -16,4 +16,5 @@ export interface ITask {
   category: TCategory;
   status: TStatus;
   assignedTo: TContact[];
+  uid: string;
 }

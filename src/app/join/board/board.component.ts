@@ -6,6 +6,7 @@ import {
 import { Component } from '@angular/core';
 import { ITask } from '../tasks/task.interface';
 import { TaskService } from '../tasks/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-board',
@@ -17,8 +18,9 @@ export class BoardComponent {
   inProgressTasks: ITask[] = [];
   awitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
+  touchedAt!: number;
 
-  constructor(private taskService: TaskService) {
+  constructor(private router: Router, private taskService: TaskService) {
     this.todoTasks = this.taskService.todoTasks;
     this.inProgressTasks = this.taskService.inProgressTasks;
     this.awitingFeedbackTasks = this.taskService.awitingFeedbackTasks;
@@ -57,5 +59,19 @@ export class BoardComponent {
       task.status = 'done';
       console.log('TASK: ', task);
     }
+  }
+
+  openTask(task: ITask): void {
+    this.taskService.currentTask = task;
+    this.router.navigate(['/task']);
+  }
+
+  handleDoubleTouch(event: TouchEvent, task: ITask): void {
+    const currentTouch = Date.now();
+    const lastTouch = Date.now() - this.touchedAt;
+    if (lastTouch < 300) {
+      this.openTask(task);
+    }
+    this.touchedAt = currentTouch;
   }
 }

@@ -1,6 +1,6 @@
 <section class="task__body">
   <div class="task__category" ngClass="bg--{{ task.category | lowercase }}">
-    {{ task.category }}
+    {{ task.category | titlecase }}
   </div>
   <h2 class="task__title">{{ task.title }}</h2>
   <div class="task__desciption">{{ task.description }}</div>
@@ -8,7 +8,9 @@
 <footer class="task__footer">
   <div class="task__tags">
     <div
-      title="{{ contact.firstname }}{{ contact.lastname }}"
+      title="{{ contact.firstname | titlecase }}{{
+        contact.lastname | titlecase
+      }}"
       class="task__tag"
       [ngStyle]="{
         backgroundColor: contact.color,

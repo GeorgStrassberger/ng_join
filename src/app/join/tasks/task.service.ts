@@ -5,8 +5,16 @@ import { ITask } from './task.interface';
   providedIn: 'root',
 })
 export class TaskService implements OnInit {
+  allCategories: string[] = [
+    'design',
+    'sales',
+    'media',
+    'backoffice',
+    'marketing',
+  ];
   allTasks: ITask[] = [
     {
+      uid: 'lksdaersjdf',
       title: 'Website redesign',
       description: 'Modify the contents of the main website.',
       date: new Date(),
@@ -37,6 +45,7 @@ export class TaskService implements OnInit {
       ],
     },
     {
+      uid: 'z6u4kj6z16s4d',
       title: 'Call potentioal clients',
       description: 'Make the product presentation to prospective buyers.',
       date: new Date(),
@@ -57,6 +66,7 @@ export class TaskService implements OnInit {
       ],
     },
     {
+      uid: 'z6u4jmz64uad',
       title: 'Lorem Ipsum',
       description: 'Lorem Ipsum bal bla bla',
       date: new Date(),
@@ -102,6 +112,7 @@ export class TaskService implements OnInit {
   awitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
   urgentTasks: ITask[] = [];
+  currentTask!: ITask;
 
   constructor() {
     this.filterByStatus();
@@ -138,5 +149,24 @@ export class TaskService implements OnInit {
         return 0;
       }
     });
+  }
+
+  getTask(id: string): ITask | null {
+    const currentTask = this.allTasks.find((task) => task.uid === id);
+    if (currentTask) {
+      return currentTask;
+    } else {
+      return null;
+    }
+  }
+
+  updateTask(id: string, task: ITask): void {
+    console.log('update: ', id + ' ' + task);
+  }
+
+  deleteTask(id: string): void {
+    console.log('id; ', id);
+    // Um die array zu aktuallisieren.
+    this.filterByStatus(); // So lang es keine subscription ist.
   }
 }
