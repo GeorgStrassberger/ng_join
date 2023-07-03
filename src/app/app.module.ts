@@ -1,9 +1,16 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+// Firebase
+import { environment } from '../environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+// Components
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PwForgotComponent } from './auth/pw-forgot/pw-forgot.component';
@@ -24,9 +31,7 @@ import { EditContactCardComponent } from './join/contacts/edit-contact-card/edit
 import { ContactComponent } from './join/contacts/contact/contact.component';
 import { ReturnBtnComponent } from './components/return-btn/return-btn.component';
 import { ContactLabelComponent } from './join/contacts/contact-label/contact-label.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ItemComponent } from './testbox/item/item.component';
-import { FormsModule } from '@angular/forms';
 import { EditTaskComponent } from './join/tasks/edit-task/edit-task.component';
 import { TaskLabelComponent } from './join/tasks/task-label/task-label.component';
 
@@ -60,9 +65,12 @@ import { TaskLabelComponent } from './join/tasks/task-label/task-label.component
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    NgbModule,
     DragDropModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],
