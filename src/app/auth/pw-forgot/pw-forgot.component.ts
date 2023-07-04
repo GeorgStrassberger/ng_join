@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-pw-forgot',
   templateUrl: './pw-forgot.component.html',
-  styleUrls: ['./pw-forgot.component.scss'],
+  styleUrls: ['./pw-forgot.component.scss', './pw-forgot.media.scss'],
 })
 export class PwForgotComponent {
   isSend: boolean = false;

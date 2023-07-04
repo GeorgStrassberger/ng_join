@@ -2,7 +2,6 @@
 @import "../../shared/styles/mixin.scss";
 @media (hover: hover) {
   :host {
-    background-color: aliceblue;
     @include mobile-container;
     flex-grow: 1;
   }
@@ -33,12 +32,7 @@
     gap: 1rem;
     flex-grow: 1;
   }
-  .content__row {
-    height: 7rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
+
   .sign {
     color: $color-white;
     @include sign-size(1);
@@ -73,13 +67,26 @@
       padding-inline: 0.5rem;
     }
   }
-  .mid {
+  .row__top {
+    height: 7rem;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+    display: grid;
     gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .row__mid {
+    height: 7rem;
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2fr 1fr 2fr;
+  }
+  .row__bot {
+    height: 7rem;
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
   }
   .wrapper {
     display: flex;

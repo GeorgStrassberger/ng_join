@@ -1,119 +1,127 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
-.section {
-  background-color: $color-secondary;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-block: 2.25rem;
-  padding-inline: 1.75rem;
-}
-
-.logo__container {
-  width: 100%;
-  min-height: 6rem;
-  height: 8rem;
-  background-color: $color-secondary;
-}
-
-.logo {
-  @include logo-size;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.7;
+@media (hover: hover) {
+  :host {
+    background-color: aliceblue;
   }
-}
+  .section {
+    background-color: $color-secondary;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-block: 1.25rem;
+    padding-inline: 1.75rem;
+  }
 
-.card {
-  position: relative;
-  background-color: $color-white;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 2rem;
-  padding-inline: 1.25rem;
-  padding-block: 2rem;
-}
+  .logo__container {
+    width: 100%;
+    min-height: 6rem;
+    height: 8rem;
+    background-color: $color-secondary;
+  }
 
-.card__header {
-  position: relative;
-  padding-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .logo {
+    @include logo-size;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
-.card__return-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  fill: $color-primary;
-}
+  .card {
+    position: relative;
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+    min-width: 30rem;
+    width: 35vw;
+    min-height: 32.5rem;
+    border-radius: 2rem;
+    padding-inline: 1.25rem;
+    padding-block: 2rem;
+    margin: 0 auto;
+  }
 
-.card__headline {
-  text-align: center;
-  font-weight: 700;
-  font-size: 3rem;
-}
+  .card__header {
+    position: relative;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.card__header-underline {
-  margin-top: 1rem;
-  height: 0.25rem;
-  width: 100%;
-  background-image: linear-gradient(
-    90deg,
-    transparent 33%,
-    $color-blue 33%,
-    $color-blue 66%,
-    transparent 66%
-  );
-}
+  .card__return-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    fill: $color-primary;
+  }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+  .card__headline {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+  }
 
-.tf__container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-block: 1rem;
-}
+  .card__header-underline {
+    margin-top: 1rem;
+    height: 0.25rem;
+    width: 100%;
+    background-image: linear-gradient(
+      90deg,
+      transparent 33%,
+      $color-blue 33%,
+      $color-blue 66%,
+      transparent 66%
+    );
+  }
 
-.tf {
-  height: 2.5rem;
-  font-size: 1.25rem;
-  padding-inline: 1.5rem;
-  border-radius: 0.5rem;
-  outline: none;
-  width: 100%;
-  border: 1px solid $color-grey;
-}
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.tf__icon {
-  @include sign-size();
-  position: absolute;
-  right: math.div($sign-size, 2);
-}
+  .tf__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-block: 1rem;
+  }
 
-.button__container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  align-items: center;
-  justify-content: center;
-}
+  .tf {
+    height: 2.5rem;
+    font-size: 1.25rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    width: 100%;
+    border: 1px solid $color-grey;
+  }
 
-.footer {
-  flex: 1 1 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  .tf__icon {
+    @include sign-size();
+    position: absolute;
+    right: math.div($sign-size, 2);
+  }
+
+  .button__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer {
+    flex: 1 1 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }

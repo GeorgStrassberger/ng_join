@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
   daytime: string = '';
-  userName: string = 'Guast';
+  userName: string = 'Guest';
 
   constructor(
     private contactsService: ContactsService,
     private router: Router
   ) {
     // DUMMY object
-    this.userName = this.contactsService.contacts[0].username;
+    // this.userName = this.contactsService.contacts[0].username;
   }
 
   ngOnInit(): void {
