@@ -40,6 +40,6 @@ export class AddContactCardComponent {
 
   onClose(): void {
     this.isCreated = false;
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/join/contacts']);
   }
 }

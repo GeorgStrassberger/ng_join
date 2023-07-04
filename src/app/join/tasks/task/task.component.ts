@@ -17,7 +17,7 @@ export class TaskComponent {
   }
 
   onEditTask(): void {
-    this.router.navigate(['/editTask']);
+    this.router.navigate(['/join/editTask']);
   }
 
   onDelete(id: string): void {
@@ -33,6 +33,6 @@ export class TaskComponent {
 
   onClose(): void {
     this.isDeleted = false;
-    this.router.navigate(['/board']);
+    this.router.navigate(['/join/board']);
   }
 }

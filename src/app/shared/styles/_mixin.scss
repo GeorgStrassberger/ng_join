@@ -54,6 +54,9 @@
   min-height: 3rem;
   border: 0.0625rem solid $color-primary;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @mixin label {

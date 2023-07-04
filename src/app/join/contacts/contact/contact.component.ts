@@ -36,6 +36,6 @@ export class ContactComponent {
 
   onClose(): void {
     this.isDeleted = false;
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/join/contacts']);
   }
 }

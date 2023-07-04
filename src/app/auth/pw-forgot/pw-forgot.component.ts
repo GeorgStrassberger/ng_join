@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pw-forgot',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class PwForgotComponent {
   isSend: boolean = false;
+
+  constructor(private router: Router) {}
+
+  restPassword() {
+    this.isSend = true;
+  }
+
+  onClose(): void {
+    this.isSend = false;
+    this.router.navigate(['/login']);
+  }
 }

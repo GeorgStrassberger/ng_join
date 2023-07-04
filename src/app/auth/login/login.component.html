@@ -1,6 +1,6 @@
 <section class="section">
   <div class="logo__container">
-    <svg class="logo" viewBox="0 0 32 40">
+    <svg class="logo" viewBox="0 0 32 40" routerLink="/">
       <path d="M22.927 0H15.8389V8.15477H22.927V0Z" fill="#2A3647" />
       <path
         d="M15.8392 14.7871H22.9273V26.2881C22.9597 29.0556 22.1721 31.7702 20.6646 34.0869C19.1761 36.3378 16.3027 39.0159 10.9866 39.0159C5.19613 39.0159 1.8211 36.2776 0 34.777L4.47096 29.262C6.24844 30.7133 7.96049 31.9072 11.0138 31.9072C13.3256 31.9072 14.2471 30.9652 14.7869 30.1437C15.5207 29.0027 15.9003 27.6683 15.8774 26.31L15.8392 14.7871Z"
@@ -32,7 +32,7 @@
       <div class="card__header-underline"></div>
     </div>
     <div class="card__content">
-      <form class="form">
+      <form class="form" (ngSubmit)="onLogin()">
         <!-- Email -->
         <div class="tf__container">
           <input class="tf" type="email" placeholder="Email" />
@@ -55,7 +55,7 @@
         </div>
         <!-- Forgot Password -->
         <div class="link__container">
-          <a href="#" class="link">Forgot my password?</a>
+          <a routerLink="/pwForgot" class="link">Forgot my password?</a>
         </div>
         <!-- Remember me -->
 
@@ -69,7 +69,12 @@
           <button class="btn__primary--large submit" type="submit">
             Log in
           </button>
-          <button class="btn__secondary--large" type="button">
+          <!-- GUEST LOGIN BUTTON -->
+          <button
+            class="btn__secondary--large"
+            type="button"
+            (click)="onGuest()"
+          >
             Guest Log in
           </button>
         </div>
@@ -78,6 +83,6 @@
   </div>
   <div class="footer">
     <span class="footer__text">Not a Join user?</span>
-    <button class="btn__primary--small">Register</button>
+    <button class="btn__primary--small" routerLink="/register">Register</button>
   </div>
 </section>

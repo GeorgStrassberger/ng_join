@@ -24,11 +24,12 @@ export class EditTaskComponent {
 
   onEdit(form: NgForm) {
     console.log('EDIT');
+    console.log('form', form);
     this.isEdit = true;
   }
 
   onClose(): void {
     this.isEdit = false;
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/join/board']);
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pw-reset',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class PwResetComponent {
   isReset: boolean = false;
+  constructor(private router: Router) {}
+
+  onSubmit() {
+    this.isReset = true;
+  }
+
+  onClose(): void {
+    this.isReset = false;
+    this.router.navigate(['/login']);
+  }
 }

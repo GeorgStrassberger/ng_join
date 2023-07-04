@@ -66,6 +66,6 @@ export class EditContactCardComponent implements OnInit {
   onClose(): void {
     this.isEdit = false;
     this.isDeleted = false;
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/join/contacts']);
   }
 }

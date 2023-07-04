@@ -63,7 +63,7 @@ export class BoardComponent {
 
   openTask(task: ITask): void {
     this.taskService.currentTask = task;
-    this.router.navigate(['/task']);
+    this.router.navigate(['/join/task']);
   }
 
   handleDoubleTouch(event: TouchEvent, task: ITask): void {

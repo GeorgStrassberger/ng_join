@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts/contacts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +11,10 @@ export class WelcomeComponent implements OnInit {
   daytime: string = '';
   userName: string = 'Guast';
 
-  constructor(private contactsService: ContactsService) {
+  constructor(
+    private contactsService: ContactsService,
+    private router: Router
+  ) {
     // DUMMY object
     this.userName = this.contactsService.contacts[0].username;
   }

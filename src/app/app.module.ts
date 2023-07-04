@@ -34,6 +34,8 @@ import { ContactLabelComponent } from './join/contacts/contact-label/contact-lab
 import { ItemComponent } from './testbox/item/item.component';
 import { EditTaskComponent } from './join/tasks/edit-task/edit-task.component';
 import { TaskLabelComponent } from './join/tasks/task-label/task-label.component';
+import { JoinComponent } from './join/join.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { TaskLabelComponent } from './join/tasks/task-label/task-label.component
     ItemComponent,
     EditTaskComponent,
     TaskLabelComponent,
+    JoinComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

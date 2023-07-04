@@ -1,5 +1,5 @@
 <section class="section">
-  <return-btn class="return__btn" routerLink="/board"></return-btn>
+  <return-btn class="return__btn" routerLink="/join/board"></return-btn>
   <div class="task__category" ngClass="bg--{{ task.category | lowercase }}">
     {{ task.category | titlecase }}
   </div>
@@ -60,7 +60,12 @@
       </svg>
     </button>
     <!-- EDIT BTN -->
-    <button class="btn__primary--small" title="Task" (click)="onEditTask()">
+    <button
+      class="btn__primary--small"
+      title="Edit Task"
+      disabled
+      (click)="onEditTask()"
+    >
       <svg class="sign" viewBox="0 0 22 30">
         <path
           d="M3.44543 22.0155L8.26476 24.9404L20.9079 4.10829C21.1945 3.63616 21.044 3.02113 20.5719 2.73459L17.4623 0.84736C16.9902 0.560817 16.3751 0.711269 16.0886 1.1834L3.44543 22.0155Z"

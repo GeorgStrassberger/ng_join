@@ -33,8 +33,7 @@ export class ContactsComponent {
    */
   openContact(contact: TContact): void {
     this.contactService.currentContact = contact;
-    this.router.navigate(['/contact']);
-    console.log('Contact: ', contact);
+    this.router.navigate(['/join/contact']);
   }
 
   // Funktion, um die eindeutigen Anfangsbuchstaben der Vornamen zu extrahieren

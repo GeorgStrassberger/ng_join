@@ -19,8 +19,11 @@
 }
 
 .logo {
-  height: $logo-size-height;
-  width: $logo-size-width;
+  @include logo-size;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .card {
