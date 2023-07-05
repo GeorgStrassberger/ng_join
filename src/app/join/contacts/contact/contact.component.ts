@@ -6,7 +6,7 @@ import { ContactsService } from '../contacts.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  styleUrls: ['./contact.component.scss', './contact.mobile.scss'],
 })
 export class ContactComponent {
   isDeleted: boolean = false;

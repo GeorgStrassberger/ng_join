@@ -46,6 +46,15 @@
     fill: $color-grey;
   }
 
+  .active {
+    transition: all ease-in-out 225ms;
+    background-color: $color-primary-hover;
+    color: $color-secondary;
+    .nav__list-icon {
+      fill: $color-secondary;
+    }
+  }
+
   .link {
     display: flex;
     flex-direction: column;

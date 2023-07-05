@@ -43,6 +43,15 @@
     }
   }
 
+  .active {
+    transition: all ease-in-out 225ms;
+    background-color: $color-primary-hover;
+    color: $color-secondary;
+    .nav__list-icon {
+      fill: $color-secondary;
+    }
+  }
+
   .nav__list-icon {
     @include sign-size(1.5);
     fill: $color-grey;

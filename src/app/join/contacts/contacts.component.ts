@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss'],
+  styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
 })
 export class ContactsComponent {
   isNewContactOpen: boolean = false;

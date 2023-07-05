@@ -19,9 +19,17 @@
   width: $sign-size * $multiply;
 }
 
+@mixin desktop-container {
+  // max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 1.75rem;
+  padding-block: 1rem;
+}
+
 // ## Mobile Container ##
 @mixin mobile-container {
-  max-width: 100dvw;
+  max-width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
