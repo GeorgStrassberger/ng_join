@@ -1,7 +1,7 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   :host {
     @include mobile-container;
     flex-grow: 1;
@@ -51,12 +51,11 @@
   // BODY
 
   .drag__group {
+    // border: 1px solid blue;
     padding-block: 0.5rem;
-    display: grid;
-    grid-template-columns:
-      minmax(14rem, 1fr) minmax(14rem, 1fr) minmax(14rem, 1fr)
-      minmax(14rem, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .drag__container {
@@ -70,7 +69,6 @@
   .drag__area {
     margin-block: 0.25rem;
     min-height: 2rem;
-    height: 100%;
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;

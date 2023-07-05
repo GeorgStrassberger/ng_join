@@ -1,7 +1,7 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   .header {
     background-color: $color-white;
     height: $header-size;
@@ -67,11 +67,9 @@
 
   .menu__list-item {
     padding: 0.5rem;
-    transition: all ease-in-out 225ms;
     &:hover {
       border-radius: 0.5rem;
       background-color: $color-primary-hover;
-      transition: all ease-in-out 225ms;
     }
   }
 
@@ -81,7 +79,6 @@
   }
 
   .menu__list-item:hover .link {
-    transition: all ease-in-out 225ms;
     color: $color-secondary;
   }
 }

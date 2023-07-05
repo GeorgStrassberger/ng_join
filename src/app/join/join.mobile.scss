@@ -1,7 +1,7 @@
 @use "sass:math" as math;
 @import "../shared/styles/mixin";
 @import "../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   .hero__wrapper {
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 
   .main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     flex-grow: 1;
   }
 }
