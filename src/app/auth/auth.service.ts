@@ -39,6 +39,11 @@ export class AuthService {
     this.router.navigate(['/join/welcome']);
   }
   guestLogin() {
+    this.user = {
+      email: 'guest@join.de',
+      userId: this.generateRandomUid(10), // später durch firestore uid ersetzen.
+    };
+    this.authChange.next(true);
     this.router.navigate(['/join/welcome']);
   }
 

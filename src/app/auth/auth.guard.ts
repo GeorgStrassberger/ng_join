@@ -1,23 +1,22 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { authState, Auth, User } from '@angular/fire/auth';
-import { Subscription } from 'rxjs';
+import { Injectable } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements OnDestroy {
-  // private auth: Auth = inject(Auth);
-  authState$ = authState(this.auth);
-  authStateSubscription: Subscription;
+export class AuthGuard {
+  constructor(private authServcie: AuthService, private router: Router) {}
 
-  constructor(private auth: Auth) {
-    this.authStateSubscription = this.authState$.subscribe(
-      (aUser: User | null) => {
-        //handle auth state changes here. Note, that user will be null if there is no currently logged in user.
-        console.log(aUser);
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    this.authStateSubscription.unsubscribe();
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.authServcie.isAuth()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
 }

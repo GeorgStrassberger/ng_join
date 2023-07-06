@@ -25,7 +25,7 @@ export class ContactsComponent {
    * Placeholder:: late add this fn into the cardcomponent
    */
   openNewContactCard() {
-    this.router.navigate(['/addContact']);
+    this.router.navigate(['/join/addContact']);
   }
 
   /**
