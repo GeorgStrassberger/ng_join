@@ -2,7 +2,7 @@
 @import "../../shared/styles/mixin.scss";
 @media (hover: hover) {
   :host {
-    @include mobile-container;
+    @include desktop-container;
     flex: 1 0 auto;
     gap: 1rem;
   }
@@ -31,4 +31,8 @@
     @include sign-size(1.3);
     margin-left: 0.5rem;
   }
+}
+
+.contacts {
+  flex-grow: 1;
 }

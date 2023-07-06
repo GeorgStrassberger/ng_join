@@ -16,7 +16,7 @@
   @include sign-size();
   transition: transform 225ms ease-in-out;
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     transition: transform 225ms ease-in-out;
   }
 }

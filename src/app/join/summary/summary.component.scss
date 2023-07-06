@@ -2,7 +2,7 @@
 @import "../../shared/styles/mixin.scss";
 @media (hover: hover) {
   :host {
-    @include mobile-container;
+    @include desktop-container;
     flex-grow: 1;
   }
   // HEAD

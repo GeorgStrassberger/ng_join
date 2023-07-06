@@ -9,7 +9,7 @@ import { TaskService } from '../task.service';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss'],
+  styleUrls: ['./add-task.component.scss', './add-task.mobile.scss'],
 })
 export class AddTaskComponent implements OnInit {
   isAdded: boolean = false;

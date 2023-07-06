@@ -24,8 +24,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'pwForgot', component: PwForgotComponent },
   { path: 'pwReset', component: PwResetComponent },
-  { path: 'addContact', component: AddContactCardComponent },
-  { path: 'editContact', component: EditContactCardComponent },
 
   // CHILD ROUTER
   {
@@ -40,6 +38,8 @@ const routes: Routes = [
       { path: 'editTask', component: EditTaskComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'contact', component: ContactComponent },
+      { path: 'addContact', component: AddContactCardComponent },
+      { path: 'editContact', component: EditContactCardComponent },
       { path: 'legalNotice', component: LegalNoticeComponent },
       { path: 'info', component: InfoComponent },
       { path: 'help', component: InfoComponent },

@@ -21,7 +21,7 @@ export class ContactComponent {
 
   onEditContact(): void {
     this.contactsService.currentContact = this.contact;
-    this.router.navigate(['/editContact']);
+    this.router.navigate(['/join/editContact']);
   }
 
   onDelete(id: string): void {

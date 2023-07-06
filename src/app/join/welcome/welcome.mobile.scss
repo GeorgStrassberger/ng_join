@@ -1,9 +1,9 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   :host {
-    @include desktop-container;
+    @include mobile-container;
     display: flex;
     flex-direction: column;
     justify-content: center;

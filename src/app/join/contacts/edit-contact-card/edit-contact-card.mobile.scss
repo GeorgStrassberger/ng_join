@@ -1,27 +1,29 @@
 @use "sass:math" as math;
 @import "../../../shared/styles/variables.scss";
 @import "../../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@media (hover: none) {
   :host {
-    position: relative;
-    background-color: $color-grey;
-    min-height: 100%;
+    backdrop-filter: blur(0.25rem);
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    padding: 1rem;
   }
 
   .card {
     box-shadow: 0.25rem 0.25rem 1rem $color-primary-hover;
-    transform: translate(0, 150%);
+    transform: translate(150%, 0);
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    height: 100%;
+    width: 100%;
     border-radius: 2rem;
-    min-width: 20rem;
     animation-name: card-fade-in;
     animation-duration: 500ms;
     animation-fill-mode: forwards;
@@ -50,6 +52,11 @@
     position: absolute;
     top: 1.75rem;
     right: 1.75rem;
+    fill: $color-white;
+    cursor: pointer;
+    &:hover {
+      fill: $color-primary-hover;
+    }
   }
 
   .head__title {
@@ -186,7 +193,7 @@
   @keyframes card-fade-in {
     0% {
       opacity: 0;
-      transform: translate(0, 150%) scale(0.5);
+      transform: translate(150%, 0) scale(1);
     }
     100% {
       opacity: 1;

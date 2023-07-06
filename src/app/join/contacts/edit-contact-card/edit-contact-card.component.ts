@@ -7,7 +7,10 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-edit-contact-card',
   templateUrl: './edit-contact-card.component.html',
-  styleUrls: ['./edit-contact-card.component.scss'],
+  styleUrls: [
+    './edit-contact-card.component.scss',
+    './edit-contact-card.mobile.scss',
+  ],
 })
 export class EditContactCardComponent implements OnInit {
   isEdit: boolean = false;
