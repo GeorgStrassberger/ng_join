@@ -103,6 +103,14 @@
     right: math.div($sign-size, 2);
   }
 
+  .tf__invalid {
+    border-color: tomato;
+  }
+
+  .tf__valid {
+    border-color: yellowgreen;
+  }
+
   .button__container {
     display: flex;
     flex-direction: column;
