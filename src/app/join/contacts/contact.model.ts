@@ -8,15 +8,14 @@ export class Contact implements TContact {
   phone: string;
   tag: string;
   color: string;
-  uid: string;
+  id: string;
 
   constructor(
     username: string,
     firstname: string,
     lastname: string,
     email: string,
-    phone: string,
-    uid: string = username + '16461'
+    phone: string
   ) {
     this.username = username;
     this.firstname = firstname;
@@ -25,7 +24,7 @@ export class Contact implements TContact {
     this.phone = phone;
     this.tag = this.createTag(this.firstname, this.lastname);
     this.color = this.getRandomColorCode();
-    this.uid = this.generateRandomUid();
+    this.id = this.generateRandomUid();
   }
 
   /**
@@ -50,7 +49,7 @@ export class Contact implements TContact {
     return color;
   }
 
-  generateRandomUid(length: number = 10): string {
+  generateRandomUid(length: number = 20): string {
     const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
     const charactersLength: number = characters.length;
@@ -59,5 +58,18 @@ export class Contact implements TContact {
       uid += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return uid;
+  }
+
+  toJSON(): TContact {
+    return {
+      username: this.username,
+      firstname: this.firstname,
+      lastname: this.lastname,
+      email: this.email,
+      phone: this.phone,
+      tag: this.tag,
+      color: this.color,
+      id: this.id,
+    };
   }
 }

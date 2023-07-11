@@ -62,6 +62,7 @@
   min-height: 3rem;
   border: 0.0625rem solid $color-primary;
   cursor: pointer;
+  padding-inline: 1rem;
   &:disabled {
     cursor: not-allowed;
   }
@@ -93,6 +94,7 @@
   &--large {
     @extend .btn__primary;
     width: $btn-size-large;
+    min-width: max-content;
   }
   &:hover {
     background-color: $color-primary-hover;
@@ -114,6 +116,7 @@
   &--large {
     @extend .btn__secondary;
     width: $btn-size-large;
+    max-width: 100%;
   }
   &:hover {
     background-color: $color-secondary;

@@ -1,24 +1,14 @@
 import { Injectable } from '@angular/core';
 import { TContact } from './contact.interface';
 import { Contact } from './contact.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactsService {
-  currentContact!: TContact; // später ein subject draus machen
-  contacts: TContact[] = [
-    {
-      username: 'Schorsch',
-      firstname: 'Georg',
-      lastname: 'Strassberger',
-      email: 'georg@strassberger.de',
-      phone: '017696477716',
-      tag: 'GS',
-      color: '#FFC700',
-      uid: 'as65d4fasdf',
-    },
-  ];
+  contacts: TContact[] = [];
+  contact$ = new BehaviorSubject<TContact | null>(null);
 
   constructor() {
     this.addDummyContacts();
@@ -40,15 +30,14 @@ export class ContactsService {
     fn: string,
     ln: string,
     email: string,
-    phone: string,
-    uid: string
+    phone: string
   ): void {
-    const contact = new Contact(un, fn, ln, email, phone, uid);
+    const contact = new Contact(un, fn, ln, email, phone);
     this.contacts.push(contact);
   }
 
   getContact(id: string): TContact | null {
-    const currentContact = this.contacts.find((contact) => contact.uid === id);
+    const currentContact = this.contacts.find((contact) => contact.id === id);
     if (currentContact) {
       return currentContact;
     } else {
@@ -56,8 +45,8 @@ export class ContactsService {
     }
   }
 
-  addContact(contact: TContact): void {
-    console.log('add', contact);
+  addContact(contact: TContact) {
+    console.log('addContact: ', contact);
   }
 
   updateContact(id: string, contact: TContact): void {
@@ -74,16 +63,14 @@ export class ContactsService {
       'Gerhard',
       'Schröder',
       'gerhard@schröder.com',
-      '123456789',
-      's6ad4f6as4d6f'
+      '123456789'
     );
     const contact1 = this.createContact(
       'Jonny',
       'John',
       'Doe',
       'john@example.com',
-      '123456789',
-      'd9f4g9sd4fg'
+      '123456789'
     );
 
     const contact2 = this.createContact(
@@ -91,64 +78,56 @@ export class ContactsService {
       'Jane',
       'Smith',
       'jane@example.com',
-      '987654321',
-      'adsf4s64f6asd4f'
+      '987654321'
     );
     const contact3 = this.createContact(
       'MikeJo',
       'Michael',
       'Johnson',
       'michael@example.com',
-      '555555555',
-      '5sa6d4f654as6d4f'
+      '555555555'
     );
     const contact4 = this.createContact(
       'Emily',
       'Emily',
       'Davis',
       'emily@example.com',
-      '999999999',
-      'fdsdf06sdf6'
+      '999999999'
     );
     const contact5 = this.createContact(
       'Sarah',
       'Sarah',
       'Johnson',
       'sarah@example.com',
-      '111111111',
-      '65sd4f64sd6f4'
+      '111111111'
     );
     const contact6 = this.createContact(
       'Rob',
       'Robert',
       'Brown',
       'robert@example.com',
-      '222222222',
-      '7a99dfg79da'
+      '222222222'
     );
     const contact7 = this.createContact(
       'Emmy',
       'Emma',
       'Wilson',
       'emma@example.com',
-      '333333333',
-      '23df1gs64'
+      '333333333'
     );
     const contact8 = this.createContact(
       'David',
       'David',
       'Thompson',
       'david@example.com',
-      '444444444',
-      '9a2s3df1g3sadf'
+      '444444444'
     );
     const contact9 = this.createContact(
       'Anny',
       'Anja',
       'Schumacher',
       'anja@schumacher.com',
-      '222222222',
-      '3sd54fg6ds66dfg'
+      '222222222'
     );
   }
 }

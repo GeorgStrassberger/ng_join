@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TContact } from '../contact.interface';
 import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
@@ -8,28 +8,31 @@ import { ContactsService } from '../contacts.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss', './contact.mobile.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   isDeleted: boolean = false;
-  contact!: TContact;
+  contact: TContact | null = null;
 
   constructor(
     private router: Router,
-    private contactsService: ContactsService
-  ) {
-    this.contact = this.contactsService.currentContact;
+    public contactsService: ContactsService
+  ) {}
+
+  ngOnInit() {
+    this.contactsService.contact$.subscribe((contact) => {
+      this.contact = contact;
+      console.log(contact);
+    });
   }
 
   onEditContact(): void {
-    this.contactsService.currentContact = this.contact;
     this.router.navigate(['/join/editContact']);
   }
 
   onDelete(id: string): void {
     this.isDeleted = true;
     const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.contact.uid
+      (contact) => contact.id === this.contact!.id
     );
-    console.log('indexOf:', contactIndex);
     this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.deleteContact(id);
   }

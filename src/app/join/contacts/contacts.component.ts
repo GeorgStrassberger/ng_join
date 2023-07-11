@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 export class ContactsComponent {
   isNewContactOpen: boolean = false;
 
-  selcetedContact!: TContact;
-
   constructor(
     private router: Router,
     private contactService: ContactsService
@@ -32,7 +30,8 @@ export class ContactsComponent {
    * Open Card to edit Contact
    */
   openContact(contact: TContact): void {
-    this.contactService.currentContact = contact;
+    this.contactService.contact$.next(contact);
+    // this.contactService.currentContact = contact;
     this.router.navigate(['/join/contact']);
   }
 

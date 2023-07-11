@@ -15,23 +15,26 @@ import { NgForm } from '@angular/forms';
 export class EditContactCardComponent implements OnInit {
   isEdit: boolean = false;
   isDeleted: boolean = false;
-  currentContact!: TContact;
+  currentContact: TContact | null = null;
 
   constructor(
     private router: Router,
     private contactsService: ContactsService
   ) {}
 
-  ngOnInit(): void {
-    this.currentContact = this.contactsService.currentContact;
+  ngOnInit() {
+    this.contactsService.contact$.subscribe((contact) => {
+      this.currentContact = contact;
+      console.log(contact);
+    });
   }
 
   onEdit(form: NgForm): void {
     const value = form.value;
     console.log('value', value);
-    if (form.valid) {
+    if (form.valid && this.currentContact) {
       this.isEdit = true;
-      const contact = {
+      const contact: TContact = {
         username: form.value.username,
         firstname: this.currentContact.firstname,
         lastname: this.currentContact.lastname,
@@ -39,29 +42,19 @@ export class EditContactCardComponent implements OnInit {
         phone: form.value.phone,
         tag: this.currentContact.tag,
         color: this.currentContact.color,
-        uid: this.currentContact.uid,
+        id: this.currentContact.id,
       };
-      this.myLocalUpdate(contact);
+      this.contactsService.contact$.next(contact);
     }
     // FIREBASE
     // this.contactsService.updateContact(this.currentContact.uid, contact);
   }
 
-  myLocalUpdate(contact: TContact): void {
-    const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.currentContact.uid
-    );
-    console.log('indexOf:', contactIndex);
-    this.contactsService.contacts.splice(contactIndex, 1);
-    this.contactsService.contacts.push(contact);
-  }
-
   onDelete(id: string): void {
     this.isDeleted = true;
     const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.currentContact.uid
+      (contact) => contact.id === this.currentContact!.id
     );
-    console.log('indexOf:', contactIndex);
     this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.deleteContact(id);
   }

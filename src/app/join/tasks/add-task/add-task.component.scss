@@ -89,14 +89,14 @@
     top: 50%;
     width: 80dvw;
     transform: translate(0, -50%);
-    animation-name: fade-in;
+    animation-name: button-fade-in;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
   }
 
-  @keyframes fade-in {
+  @keyframes button-fade-in {
     0% {
       opacity: 0;
       transform: translate(0, -50%) scale(0);

@@ -5,7 +5,7 @@
   <p class="head__comment">Better with a team</p>
   <div class="head__dash"></div>
 </section>
-<section class="contact__container">
+<section class="contact__container" *ngIf="contact">
   <div class="contact">
     <div class="contact__tag" [ngStyle]="{ 'background-color': contact.color }">
       {{ contact.tag }}
@@ -25,7 +25,7 @@
     <button
       class="btn__secondary--small"
       title="Delete"
-      (click)="onDelete(contact.uid)"
+      (click)="onDelete(contact.id)"
     >
       <svg class="sign" viewBox="0 0 32 32">
         <mask

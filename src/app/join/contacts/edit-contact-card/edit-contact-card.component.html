@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="currentContact">
   <section class="card__head">
     <return-btn class="head__return" routerLink="/join/contacts"></return-btn>
     <h2 class="head__title">Edit contact</h2>
@@ -20,7 +20,7 @@
           class="tf"
           type="text"
           name="username"
-          placeholder="Name"
+          placeholder="Username"
           [(ngModel)]="currentContact.username"
           required
           [pattern]="'[a-zA-Z0-9äöüßÄÖÜ]{3,20}'"
@@ -72,7 +72,7 @@
       <div class="btn__container">
         <button
           class="btn__secondary--small"
-          (click)="onDelete(currentContact.uid)"
+          (click)="onDelete(currentContact.id)"
           type="button"
         >
           Delete

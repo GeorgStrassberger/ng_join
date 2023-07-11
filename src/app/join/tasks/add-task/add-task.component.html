@@ -62,7 +62,7 @@
       <select class="tf" name="assignedTo" id="assigned" required ngModel>
         <option
           *ngFor="let contact of contactsService.getAllContacts()"
-          [value]="contact.uid"
+          [value]="contact.id"
         >
           {{ contact.username }}
         </option>
@@ -87,7 +87,7 @@
 <!-- POPUP -->
 <ng-container *ngIf="isAdded">
   <div class="popup__container" (click)="onClose()">
-    <div class="btn__primary popup">
+    <div class="btn__primary--large popup">
       <span>Task added to board</span>
       <svg class="sign" fill="currentColor" viewBox="0 0 27 23 ">
         <path
