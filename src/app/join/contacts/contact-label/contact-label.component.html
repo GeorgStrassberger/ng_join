@@ -3,7 +3,8 @@
 </div>
 <div class="contact__content">
   <span class="contact__name"
-    >{{ contact.firstname }} {{ contact.lastname }}</span
+    >{{ contact.firstname | titlecase }}
+    {{ contact.lastname | titlecase }}</span
   >
   <span class="contact__mail">{{ contact.email }}</span>
 </div>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { NgForm } from '@angular/forms';
-import { Contact } from '../contact.model';
 import { Router } from '@angular/router';
 import { TContact } from '../contact.interface';
 
@@ -28,17 +27,20 @@ export class AddContactCardComponent {
   onAdd(form: NgForm): void {
     const formvalue = form.value;
     console.log('formvalue: ', formvalue);
-    const newContact = new Contact(
-      this.toTitleCase(form.value.username),
-      this.toTitleCase(form.value.firstname),
-      this.toTitleCase(form.value.lastname),
-      form.value.email,
-      form.value.phone
-    );
-    console.log('newContact: ', newContact);
-    const contact: TContact = newContact.toJSON();
-    console.log('contact: ', contact);
-    this.contactsService.contacts.push(contact);
+    const newContact = {
+      username: form.value.username,
+      firstname: form.value.firstname,
+      lastname: form.value.lastname,
+      email: form.value.email,
+      phone: form.value.phone,
+      color: this.contactsService.getRandomColorCode(),
+      tag: this.contactsService.getNameTag(
+        form.value.firstname,
+        form.value.lastname
+      ),
+      id: this.contactsService.generateRandomUid(),
+    };
+    this.contactsService.contacts.push(newContact);
     this.isCreated = true;
     // FIREBASE
     // this.contactsService.addContact(tContact);

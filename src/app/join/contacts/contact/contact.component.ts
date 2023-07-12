@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TContact } from '../contact.interface';
 import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss', './contact.mobile.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   isDeleted: boolean = false;
   contact: TContact | null = null;
+  constactsSub$!: Subscription;
 
   constructor(
     private router: Router,
@@ -18,7 +20,7 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.contactsService.contact$.subscribe((contact) => {
+    this.constactsSub$ = this.contactsService.contact$.subscribe((contact) => {
       this.contact = contact;
       console.log(contact);
     });
@@ -40,5 +42,9 @@ export class ContactComponent implements OnInit {
   onClose(): void {
     this.isDeleted = false;
     this.router.navigate(['/join/contacts']);
+  }
+
+  ngOnDestroy() {
+    this.constactsSub$.unsubscribe();
   }
 }

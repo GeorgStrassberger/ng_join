@@ -34,7 +34,7 @@ export class EditContactCardComponent implements OnInit {
     console.log('value', value);
     if (form.valid && this.currentContact) {
       this.isEdit = true;
-      const contact: TContact = {
+      const editContact: TContact = {
         username: form.value.username,
         firstname: this.currentContact.firstname,
         lastname: this.currentContact.lastname,
@@ -44,7 +44,7 @@ export class EditContactCardComponent implements OnInit {
         color: this.currentContact.color,
         id: this.currentContact.id,
       };
-      this.contactsService.contact$.next(contact);
+      this.contactsService.contact$.next(editContact);
     }
     // FIREBASE
     // this.contactsService.updateContact(this.currentContact.uid, contact);

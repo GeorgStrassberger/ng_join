@@ -6,7 +6,7 @@
 </section>
 
 <!-- NEW CONTACT BUTTON -->
-<button class="btn__primary--large" (click)="openNewContactCard()">
+<button class="btn__primary--large" (click)="onNewContact()">
   New contact
   <svg class="sign" viewBox="0 0 33 31">
     <path
@@ -29,7 +29,7 @@
   <div *ngFor="let letter of uniqueFirstLetters()">
     <!-- Zeige den Buchstaben als Überschrift an -->
     <div>
-      <h3>{{ letter }}</h3>
+      <h3>{{ letter | uppercase }}</h3>
       <hr />
     </div>
     <!-- Iteriere über die Kontakte, die mit dem aktuellen Buchstaben beginnen -->
