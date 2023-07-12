@@ -64,7 +64,7 @@
           *ngFor="let contact of contactsService.getAllContacts()"
           [value]="contact.id"
         >
-          {{ contact.username }}
+          {{ contact.firstname }} {{ contact.lastname }}
         </option>
       </select>
     </div>

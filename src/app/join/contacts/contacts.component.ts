@@ -39,7 +39,6 @@ export class ContactsComponent implements OnInit {
     const firstLetters = this.contactService.contacts.map((contact) =>
       contact.firstname[0].toLowerCase()
     );
-    console.log(firstLetters);
     return [...new Set(firstLetters)].sort();
   }
 

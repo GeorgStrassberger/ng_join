@@ -25,29 +25,38 @@ export class EditContactCardComponent implements OnInit {
   ngOnInit() {
     this.contactsService.contact$.subscribe((contact) => {
       this.currentContact = contact;
-      console.log(contact);
     });
   }
 
   onEdit(form: NgForm): void {
     const value = form.value;
-    console.log('value', value);
     if (form.valid && this.currentContact) {
       this.isEdit = true;
       const editContact: TContact = {
-        username: form.value.username,
-        firstname: this.currentContact.firstname,
-        lastname: this.currentContact.lastname,
+        firstname: form.value.firstname,
+        lastname: form.value.lastname,
         email: form.value.email,
         phone: form.value.phone,
-        tag: this.currentContact.tag,
+        tag: this.contactsService.getNameTag(
+          form.value.firstname,
+          form.value.lastname
+        ),
         color: this.currentContact.color,
         id: this.currentContact.id,
       };
       this.contactsService.contact$.next(editContact);
+      this.onUpdate(editContact);
     }
     // FIREBASE
     // this.contactsService.updateContact(this.currentContact.uid, contact);
+  }
+
+  onUpdate(contact: TContact) {
+    const contactIndex: number = this.contactsService.contacts.findIndex(
+      (contact) => contact.id === this.currentContact!.id
+    );
+    this.contactsService.contacts.splice(contactIndex, 1);
+    this.contactsService.contacts.push(contact);
   }
 
   onDelete(id: string): void {

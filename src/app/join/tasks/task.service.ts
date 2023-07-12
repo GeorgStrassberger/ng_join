@@ -23,7 +23,6 @@ export class TaskService implements OnInit {
       status: 'todo',
       assignedTo: [
         {
-          username: 'G-Had',
           firstname: 'Gerhard',
           lastname: 'Schröder',
           email: 'gerhard@schröder.com',
@@ -33,7 +32,6 @@ export class TaskService implements OnInit {
           id: 's6ad4f6as4d6f',
         },
         {
-          username: 'Anny',
           firstname: 'Anja',
           lastname: 'Schumacher',
           email: 'anja@schumacher.com',
@@ -54,7 +52,6 @@ export class TaskService implements OnInit {
       status: 'todo',
       assignedTo: [
         {
-          username: 'G-Had',
           firstname: 'Gerhard',
           lastname: 'Schröder',
           email: 'gerhard@schröder.com',
@@ -75,7 +72,6 @@ export class TaskService implements OnInit {
       status: 'todo',
       assignedTo: [
         {
-          username: 'Konni',
           firstname: 'Konrad',
           lastname: 'Adenauer',
           email: 'konrad@adenauer.de',
@@ -85,7 +81,6 @@ export class TaskService implements OnInit {
           id: '6as4df646ggs',
         },
         {
-          username: 'G-Had',
           firstname: 'Gerhard',
           lastname: 'Schröder',
           email: 'gerhard@schröder.com',
@@ -95,7 +90,6 @@ export class TaskService implements OnInit {
           id: 's6ad4f6as4d6f',
         },
         {
-          username: 'Anny',
           firstname: 'Anja',
           lastname: 'Schumacher',
           email: 'anja@schumacher.com',

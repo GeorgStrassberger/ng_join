@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class ContactsService {
   contacts: TContact[] = [
     {
-      username: 'Jonny',
       firstname: 'John',
       lastname: 'Doe',
       email: 'john@example.com',
@@ -18,7 +17,6 @@ export class ContactsService {
       id: 'lClVNJyUtQpPLjOplEVD',
     },
     {
-      username: 'Schrödi',
       firstname: 'Gerhard',
       lastname: 'Schröder',
       email: 'gerhard@schröder.com',
@@ -28,7 +26,6 @@ export class ContactsService {
       id: 'bsnzVvrRGKE6b2Vxw27y',
     },
     {
-      username: 'Janny',
       firstname: 'Jane',
       lastname: 'Smith',
       email: 'jane@example.com',
@@ -38,7 +35,6 @@ export class ContactsService {
       id: 'ZSw2JODJe8pnD7KKyHpv',
     },
     {
-      username: 'Emmy',
       firstname: 'Emily',
       lastname: 'Davis',
       email: 'emily@example.com',
@@ -48,7 +44,6 @@ export class ContactsService {
       id: 'jMEHsKlLrqkjci1ZrNuJ',
     },
     {
-      username: 'MikeJo',
       firstname: 'Michael',
       lastname: 'Johnson',
       email: 'michael@example.com',
@@ -58,7 +53,6 @@ export class ContactsService {
       id: 'z4sti0dz0iZvQSn14DQ2',
     },
     {
-      username: 'Sarah',
       firstname: 'Sarah',
       lastname: 'Johnson',
       email: 'sarah@example.com',
@@ -68,7 +62,6 @@ export class ContactsService {
       id: 'sTykBPkY848XkhQnhGtN',
     },
     {
-      username: 'Anny',
       firstname: 'Anja',
       lastname: 'Vogel',
       email: 'anja@vogel.com',
@@ -78,7 +71,6 @@ export class ContactsService {
       id: '6p9qznwVgKEqeH9vv6KO',
     },
     {
-      username: 'Emmy',
       firstname: 'Emma',
       lastname: 'Wilson',
       email: 'emma@example.com',
@@ -88,7 +80,6 @@ export class ContactsService {
       id: 'ZLCfQRF5Ekg2EGfeIxXt',
     },
     {
-      username: 'Rob',
       firstname: 'Robert',
       lastname: 'Brown',
       email: 'robert@example.com',
@@ -98,7 +89,6 @@ export class ContactsService {
       id: 'Gx6zpAXSoBA4uZ0KU08A',
     },
     {
-      username: 'David',
       firstname: 'David',
       lastname: 'Thompson',
       email: 'david@example.com',
@@ -133,7 +123,6 @@ export class ContactsService {
   addContact(contact: TContact) {
     console.log('addContact: ', contact);
     const newContact: TContact = {
-      username: '',
       firstname: '',
       lastname: '',
       email: '',

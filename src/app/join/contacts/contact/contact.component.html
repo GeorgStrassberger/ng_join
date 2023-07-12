@@ -10,7 +10,10 @@
     <div class="contact__tag" [ngStyle]="{ 'background-color': contact.color }">
       {{ contact.tag }}
     </div>
-    <span class="contact__name">{{ contact.username }}</span>
+    <div class="contact__fullname">
+      <span class="contact__name">{{ contact.firstname }}</span>
+      <span class="contact__name">{{ contact.lastname }}</span>
+    </div>
   </div>
   <div class="contact__content">
     <h3 class="contact__info">Contact Information</h3>

@@ -28,7 +28,6 @@ export class AddContactCardComponent {
     const formvalue = form.value;
     console.log('formvalue: ', formvalue);
     const newContact = {
-      username: form.value.username,
       firstname: form.value.firstname,
       lastname: form.value.lastname,
       email: form.value.email,
