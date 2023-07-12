@@ -1,88 +1,85 @@
 import { Injectable } from '@angular/core';
 import { IAuthData } from './auth-data.interface';
 import { IUser } from './user.interface';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import {
+  Auth,
+  User,
+  UserCredential,
+  authState,
+  createUserWithEmailAndPassword,
+  signInAnonymously,
+  signInWithEmailAndPassword,
+  signOut,
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private user: IUser | null = null;
-  authChange = new Subject<boolean>();
+  authChange$ = new Subject<boolean>();
+  authStateSubscription!: Subscription;
+  private isAuthenticated: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private ngAuth: Auth) {}
 
-  /**
-   * Create a Dummy User
-   * @param authData
-   */
+  initAuthListerner(): void {
+    this.authStateSubscription = authState(this.ngAuth).subscribe((aUser) => {
+      if (aUser) {
+        this.isAuthenticated = true;
+        this.authChange$.next(true);
+        this.router.navigate(['/join/welcome']);
+      } else {
+        this.authChange$.next(false);
+        this.router.navigate(['/login']);
+        this.isAuthenticated = false;
+      }
+    });
+  }
+
   registerUser(authData: IAuthData) {
-    this.user = {
-      email: authData.email,
-      userId: this.generateRandomUid(10), // später durch firestore uid ersetzen.
-    };
-    this.authChange.next(true);
-    this.router.navigate(['/join/welcome']);
+    // start loadingspinner
+    createUserWithEmailAndPassword(
+      this.ngAuth,
+      authData.email,
+      authData.password
+    )
+      .then((result: UserCredential) => {
+        // hide loadingspinner
+      })
+      .catch((error) => {
+        console.warn(error.message);
+      });
   }
 
-  /**
-   * Login Dummy User
-   * @param authData
-   */
   login(authData: IAuthData) {
-    this.user = {
-      email: authData.email,
-      userId: this.generateRandomUid(10), // später durch firestore uid ersetzen.
-    };
-    this.authChange.next(true);
-    this.router.navigate(['/join/welcome']);
+    // start loadingspinner
+    signInWithEmailAndPassword(this.ngAuth, authData.email, authData.password)
+      .then((result: UserCredential) => {
+        // stop loadingspinner
+      })
+      .catch((error) => {
+        console.warn(error.message);
+      });
   }
+
   guestLogin() {
-    this.user = {
-      email: 'guest@join.de',
-      userId: this.generateRandomUid(10), // später durch firestore uid ersetzen.
-    };
-    this.authChange.next(true);
-    this.router.navigate(['/join/welcome']);
+    signInAnonymously(this.ngAuth);
   }
 
   /**
    * Change state to logout User
    */
   logout() {
-    this.user = null;
-    this.authChange.next(false);
-    this.router.navigate(['/login']);
+    signOut(this.ngAuth);
   }
 
-  /**
-   *
-   * @returns
-   */
-  getUser() {
-    return { ...this.user };
-  }
-
-  /**
-   * AuthState
-   * @returns
-   */
   isAuth(): boolean {
-    return this.user != null;
+    return this.isAuthenticated;
   }
 
-  /**
-   * Dummy UID als firebase ersatz
-   */
-  generateRandomUid(length: number = 10): string {
-    const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
-    const charactersLength: number = characters.length;
-    let uid: string = '';
-    for (let i = 0; i < length; i++) {
-      uid += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return uid;
+  ngOnDestroy(): void {
+    this.authStateSubscription.unsubscribe();
   }
 }
