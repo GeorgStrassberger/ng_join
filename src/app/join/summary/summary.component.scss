@@ -67,18 +67,13 @@
     color: $color-primary;
     background-color: $color-white;
     padding-inline: 1rem;
-    transition: all 125ms ease-in-out;
+    transition: all 175ms ease-in-out;
     @media screen and (max-width: 350px) {
       padding-inline: 0.5rem;
     }
     &:hover {
-      transition: all 125ms ease-in-out;
-      background-color: $color-primary;
-      color: $color-white;
-      .sign-container {
-        background-color: $color-white;
-        color: $color-primary;
-      }
+      transition: all 175ms ease-in-out;
+      background-color: $color-grey;
     }
   }
   .row__top {

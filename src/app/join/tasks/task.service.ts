@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { ITask } from './task.interface';
+import { Task } from './task.model';
 
 @Injectable({
   providedIn: 'root',
@@ -109,7 +110,7 @@ export class TaskService implements OnInit {
   currentTask!: ITask;
 
   constructor() {
-    this.filterByStatus();
+    this.filterByStatus(this.allTasks);
   }
 
   ngOnInit() {}
@@ -118,19 +119,17 @@ export class TaskService implements OnInit {
     if (task) {
       this.allTasks.push(task);
     }
-    this.filterByStatus(); //das er auch ins richtige geschoben wird
+    this.filterByStatus(this.allTasks); //das er auch ins richtige geschoben wird
   }
 
-  filterByStatus() {
-    this.todoTasks = this.allTasks.filter((task) => task.status === 'todo');
-    this.inProgressTasks = this.allTasks.filter(
-      (task) => task.status === 'inProgress'
-    );
-    this.awitingFeedbackTasks = this.allTasks.filter(
+  filterByStatus(tasks: ITask[]) {
+    this.todoTasks = tasks.filter((task) => task.status === 'todo');
+    this.inProgressTasks = tasks.filter((task) => task.status === 'inProgress');
+    this.awitingFeedbackTasks = tasks.filter(
       (task) => task.status === 'awaitFeedback'
     );
-    this.doneTasks = this.allTasks.filter((task) => task.status === 'done');
-    this.urgentTasks = this.allTasks.filter((task) => task.priority === 'high');
+    this.doneTasks = tasks.filter((task) => task.status === 'done');
+    this.urgentTasks = tasks.filter((task) => task.priority === 'high');
   }
 
   sortAllTasks() {
@@ -161,6 +160,6 @@ export class TaskService implements OnInit {
   deleteTask(id: string): void {
     console.log('id; ', id);
     // Um die array zu aktuallisieren.
-    this.filterByStatus(); // So lang es keine subscription ist.
+    this.filterByStatus(this.allTasks); // So lang es keine subscription ist.
   }
 }

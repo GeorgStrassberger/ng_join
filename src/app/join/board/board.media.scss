@@ -66,9 +66,7 @@
     font-weight: 700;
   }
 
-  .drag__area {
-    margin-block: 0.25rem;
-    min-height: 2rem;
+  .drag__task {
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
@@ -77,6 +75,11 @@
       cursor: -moz-grabbing;
       cursor: -webkit-grabbing;
     }
+  }
+  .drag__area {
+    margin-block: 0.25rem;
+    min-height: 2rem;
+    height: 100%;
   }
 
   .task__empty {

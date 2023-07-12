@@ -19,6 +19,7 @@ export class BoardComponent {
   awitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
   touchedAt!: number;
+  searchText: string = '';
 
   constructor(private router: Router, private taskService: TaskService) {
     this.todoTasks = this.taskService.todoTasks;
@@ -73,5 +74,20 @@ export class BoardComponent {
       this.openTask(task);
     }
     this.touchedAt = currentTouch;
+  }
+
+  searchTasks(tasks: ITask[]): ITask[] {
+    if (this.searchText.trim() === '') {
+      return tasks;
+    }
+    const filteredTasks = tasks.filter(
+      (task) =>
+        task.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        task.description
+          .toLowerCase()
+          .includes(this.searchText.toLowerCase()) ||
+        task.category.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+    return filteredTasks;
   }
 }
