@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../tasks/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -7,5 +8,9 @@ import { TaskService } from '../tasks/task.service';
   styleUrls: ['./summary.component.scss', 'summary.media.scss'],
 })
 export class SummaryComponent {
-  constructor(public taskService: TaskService) {}
+  constructor(public taskService: TaskService, private router: Router) {}
+
+  goTo(section: string) {
+    this.router.navigateByUrl(`/join/board#${section}`);
+  }
 }

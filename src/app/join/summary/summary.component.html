@@ -9,17 +9,17 @@
   <!-- ROW 1 -->
   <div class="row__top">
     <!-- BOX -->
-    <div class="box center">
+    <div class="box center" routerLink="/join/board">
       <span class="counter">{{ taskService.allTasks.length }}</span>
       <span class="description">Task in<br />Board</span>
     </div>
     <!-- BOX -->
-    <div class="box center">
+    <div class="box center" routerLink="/join/board">
       <span class="counter">{{ taskService.inProgressTasks.length }}</span>
       <span class="description">Task in<br />Progress</span>
     </div>
     <!-- BOX -->
-    <div class="box center">
+    <div class="box center" routerLink="/join/board">
       <span class="counter">{{ taskService.awitingFeedbackTasks.length }}</span>
       <span class="description">Awaiting<br />feedback</span>
     </div>
@@ -27,7 +27,7 @@
 
   <!-- ROW 2 -->
 
-  <div class="box row__mid">
+  <div class="box row__mid" routerLink="/join/board">
     <!-- LEFT -->
     <div class="wrapper">
       <div class="sign-container high">
@@ -62,7 +62,7 @@
   <!-- ROW 3 -->
   <div class="row__bot">
     <!-- Box -->
-    <div class="box wrapper">
+    <div class="box wrapper" routerLink="/join/board">
       <div class="sign-container">
         <!-- svg pen -->
         <svg class="sign" viewBox="0 0 22 30">
@@ -82,7 +82,7 @@
       </div>
     </div>
     <!-- Box -->
-    <div class="box wrapper">
+    <div class="box wrapper" routerLink="/join/board">
       <div class="sign-container">
         <!-- svg check -->
         <svg class="sign" viewBox="0 0 24 24">

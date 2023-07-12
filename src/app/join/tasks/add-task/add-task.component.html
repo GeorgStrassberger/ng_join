@@ -39,9 +39,9 @@
         id="date"
         name="date"
         type="date"
-        [value]="setCurrentDate()"
         required
-        ngModel
+        [ngModel]="setCurrentDate()"
+        [min]="setCurrentDate()"
       />
     </div>
     <!-- CATEGORY -->
@@ -49,17 +49,19 @@
       <label for="category">Category</label>
       <select class="tf" name="category" id="category" required ngModel>
         <option value="">--Select a Category--</option>
-        <option value="design">Design</option>
-        <option value="sales">Sales</option>
-        <option value="media">Media</option>
-        <option value="backoffice">Backoffice</option>
-        <option value="marketing">Marketing</option>
+        <option
+          *ngFor="let category of taskService.allCategories"
+          [value]="category"
+        >
+          {{ category | titlecase }}
+        </option>
       </select>
     </div>
     <!-- ASSIGNED TO -->
     <div class="wrapper">
       <label for="assigned">Assigned to</label>
       <select class="tf" name="assignedTo" id="assigned" required ngModel>
+        <option value="">--Select a Contact--</option>
         <option
           *ngFor="let contact of contactsService.getAllContacts()"
           [value]="contact.id"

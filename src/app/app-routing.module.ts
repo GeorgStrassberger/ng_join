@@ -45,6 +45,7 @@ const routes: Routes = [
       { path: 'legalNotice', component: LegalNoticeComponent },
       { path: 'info', component: InfoComponent },
       { path: 'help', component: InfoComponent },
+      { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
     ],
   },
   // FALLBACK
