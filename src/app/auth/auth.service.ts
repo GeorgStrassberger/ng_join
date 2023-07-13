@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IAuthData } from './auth-data.interface';
-import { IUser } from './user.interface';
 import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import {
   Auth,
-  User,
   UserCredential,
   authState,
   createUserWithEmailAndPassword,
@@ -31,9 +29,9 @@ export class AuthService {
         this.authChange$.next(true);
         this.router.navigate(['/join/welcome']);
       } else {
+        this.isAuthenticated = false;
         this.authChange$.next(false);
         this.router.navigate(['/login']);
-        this.isAuthenticated = false;
       }
     });
   }

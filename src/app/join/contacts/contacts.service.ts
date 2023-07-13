@@ -1,11 +1,27 @@
 import { Injectable } from '@angular/core';
 import { TContact } from './contact.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  DocumentData,
+  DocumentReference,
+  Firestore,
+  Query,
+  collectionData,
+  deleteDoc,
+  doc,
+  docData,
+  orderBy,
+  query,
+  setDoc,
+  updateDoc,
+} from '@angular/fire/firestore';
+import { collection, CollectionReference } from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactsService {
+  contact$ = new BehaviorSubject<TContact | null>(null);
   contacts: TContact[] = [
     {
       firstname: 'John',
@@ -98,9 +114,14 @@ export class ContactsService {
       id: 'YaEVFCsID2ldc2x1F2AN',
     },
   ];
-  contact$ = new BehaviorSubject<TContact | null>(null);
 
-  constructor() {}
+  constructor(private firestore: Firestore) {}
+
+  getContacts$(): Observable<TContact[]> {
+    return collectionData(collection(this.firestore, 'contacts'), {
+      idField: 'id',
+    }) as Observable<TContact[]>;
+  }
 
   getAllContacts(): TContact[] {
     return this.contacts;

@@ -101,20 +101,18 @@
     outline: none;
     width: 100%;
     border: 1px solid $color-grey;
+    &.ng-invalid.ng-touched {
+      border: 1px solid $prio-high;
+    }
+    &.ng-valid.ng-touched {
+      border: 1px solid $proi-low;
+    }
   }
 
   .tf__icon {
     @include sign-size();
     position: absolute;
     right: math.div($sign-size, 2);
-  }
-
-  .tf__invalid {
-    border-color: tomato;
-  }
-
-  .tf__valid {
-    border-color: yellowgreen;
   }
 
   .button__container {

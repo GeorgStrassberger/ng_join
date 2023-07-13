@@ -39,7 +39,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 0.5rem;
-    padding: 1.75rem; // check padding
+    padding: 1.75rem;
     min-height: 35vh;
     width: 100%;
     border-top-left-radius: 2rem;
@@ -134,6 +134,12 @@
     outline: none;
     width: 100%;
     border: 1px solid $color-grey;
+    &.ng-invalid.ng-touched {
+      border: 1px solid $prio-high;
+    }
+    &.ng-valid.ng-touched {
+      border: 1px solid $proi-low;
+    }
   }
 
   .tf__icon {

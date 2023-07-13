@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactsService } from '../contacts/contacts.service';
-import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -11,13 +10,7 @@ export class WelcomeComponent implements OnInit {
   daytime: string = '';
   userName: string = 'Guest';
 
-  constructor(
-    private contactsService: ContactsService,
-    private router: Router
-  ) {
-    // DUMMY object
-    // this.userName = this.contactsService.contacts[0].username;
-  }
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
     this.greeting();
@@ -35,7 +28,5 @@ export class WelcomeComponent implements OnInit {
     } else {
       this.daytime = 'evening';
     }
-    console.log(`Current time: ${now}`);
-    console.log(`Daytime: ${this.daytime}`);
   }
 }

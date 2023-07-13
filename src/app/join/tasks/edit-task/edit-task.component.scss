@@ -7,7 +7,6 @@
   flex-grow: 1;
 }
 
-// #### FORM ####
 .form {
   margin-top: 1.5rem;
   display: flex;
@@ -27,20 +26,27 @@
   height: 2.5rem;
   padding: 0.5rem 1rem;
   border: 1px solid $color-grey;
+  &.ng-invalid.ng-touched {
+    border: 1px solid $prio-high;
+  }
+  &.ng-valid.ng-touched {
+    border: 1px solid $proi-low;
+  }
 }
 
-input,
-textarea,
-select {
-  border: 1px solid $color-grey;
-}
-
-textarea {
+.ta {
   @include default_font;
   resize: none;
   border-radius: 0.5rem;
   height: 5rem;
   padding: 0.75rem 1rem;
+  border: 1px solid $color-grey;
+  &.ng-invalid.ng-touched {
+    border: 1px solid $prio-high;
+  }
+  &.ng-valid.ng-touched {
+    border: 1px solid $proi-low;
+  }
 }
 
 .sign {

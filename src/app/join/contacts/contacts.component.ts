@@ -1,22 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ContactsService } from './contacts.service';
 import { TContact } from './contact.interface';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
   isNewContactOpen: boolean = false;
+  contacts: TContact[] = [];
+  contactsSubscription$!: Subscription;
 
   constructor(
     private router: Router,
     private contactService: ContactsService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.contactsSubscription$ = this.contactService
+      .getContacts$()
+      .subscribe((contacts) => {
+        this.contacts = contacts;
+        console.log('contacts: ', contacts);
+      });
+  }
 
   /**
    * Open Card to add new Contact
@@ -47,5 +57,9 @@ export class ContactsComponent implements OnInit {
     return this.contactService.contacts.filter((contact) =>
       contact.firstname.toLowerCase().startsWith(letter)
     );
+  }
+
+  ngOnDestroy() {
+    this.contactsSubscription$.unsubscribe();
   }
 }
