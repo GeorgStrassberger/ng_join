@@ -30,7 +30,7 @@ export class TaskService implements OnInit {
           phone: '123456789',
           tag: 'JD',
           color: '#8e5e5d',
-          id: 'lClVNJyUtQpPLjOplEVD',
+          uid: 'lClVNJyUtQpPLjOplEVD',
         },
         {
           firstname: 'Sarah',
@@ -39,7 +39,7 @@ export class TaskService implements OnInit {
           phone: '0154111111',
           tag: 'SJ',
           color: '#0f1c43',
-          id: 'sTykBPkY848XkhQnhGtN',
+          uid: 'sTykBPkY848XkhQnhGtN',
         },
       ],
     },
@@ -59,7 +59,7 @@ export class TaskService implements OnInit {
           phone: '555555555',
           tag: 'MJ',
           color: '#812379',
-          id: 'z4sti0dz0iZvQSn14DQ2',
+          uid: 'z4sti0dz0iZvQSn14DQ2',
         },
       ],
     },
@@ -79,7 +79,7 @@ export class TaskService implements OnInit {
           phone: '987654321',
           tag: 'JS',
           color: '#0da119',
-          id: 'ZSw2JODJe8pnD7KKyHpv',
+          uid: 'ZSw2JODJe8pnD7KKyHpv',
         },
         {
           firstname: 'Emily',
@@ -88,7 +88,7 @@ export class TaskService implements OnInit {
           phone: '999999999',
           tag: 'ED',
           color: '#f21099',
-          id: 'jMEHsKlLrqkjci1ZrNuJ',
+          uid: 'jMEHsKlLrqkjci1ZrNuJ',
         },
         {
           firstname: 'John',
@@ -97,7 +97,7 @@ export class TaskService implements OnInit {
           phone: '123456789',
           tag: 'JD',
           color: '#8e5e5d',
-          id: 'lClVNJyUtQpPLjOplEVD',
+          uid: 'lClVNJyUtQpPLjOplEVD',
         },
       ],
     },
@@ -117,7 +117,7 @@ export class TaskService implements OnInit {
           phone: '222222222',
           tag: 'AV',
           color: '#88657b',
-          id: '6p9qznwVgKEqeH9vv6KO',
+          uid: '6p9qznwVgKEqeH9vv6KO',
         },
         {
           firstname: 'Emma',
@@ -126,7 +126,7 @@ export class TaskService implements OnInit {
           phone: '333333333',
           tag: 'EW',
           color: '#122bc1',
-          id: 'ZLCfQRF5Ekg2EGfeIxXt',
+          uid: 'ZLCfQRF5Ekg2EGfeIxXt',
         },
         {
           firstname: 'Robert',
@@ -135,7 +135,7 @@ export class TaskService implements OnInit {
           phone: '0167222222',
           tag: 'RB',
           color: '#05fc0c',
-          id: 'Gx6zpAXSoBA4uZ0KU08A',
+          uid: 'Gx6zpAXSoBA4uZ0KU08A',
         },
       ],
     },
@@ -156,6 +156,7 @@ export class TaskService implements OnInit {
   addTask(task: ITask): void {
     if (task) {
       this.allTasks.push(task);
+      console.log('allTasks', this.allTasks);
     }
     this.filterByStatus(this.allTasks); //das er auch ins richtige geschoben wird
   }

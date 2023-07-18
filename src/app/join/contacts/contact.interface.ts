@@ -5,5 +5,5 @@ export interface TContact {
   phone: string;
   tag: string;
   color: string;
-  id: string;
+  uid: string;
 }

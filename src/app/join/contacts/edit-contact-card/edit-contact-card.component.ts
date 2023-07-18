@@ -42,10 +42,10 @@ export class EditContactCardComponent implements OnInit {
           form.value.lastname
         ),
         color: this.currentContact.color,
-        id: this.currentContact.id,
+        uid: this.currentContact.uid,
       };
       this.contactsService.contact$.next(editContact);
-      this.onUpdate(editContact);
+      this.contactsService.updateContact(editContact);
     }
     // FIREBASE
     // this.contactsService.updateContact(this.currentContact.uid, contact);
@@ -53,7 +53,7 @@ export class EditContactCardComponent implements OnInit {
 
   onUpdate(contact: TContact) {
     const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.id === this.currentContact!.id
+      (contact) => contact.uid === this.currentContact!.uid
     );
     this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.contacts.push(contact);
@@ -62,7 +62,7 @@ export class EditContactCardComponent implements OnInit {
   onDelete(id: string): void {
     this.isDeleted = true;
     const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.id === this.currentContact!.id
+      (contact) => contact.uid === this.currentContact!.uid
     );
     this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.deleteContact(id);

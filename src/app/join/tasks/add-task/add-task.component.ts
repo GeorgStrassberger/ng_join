@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Task } from '../task.model';
 import { ContactsService } from '../../contacts/contacts.service';
 import { TaskService } from '../task.service';
+import { TContact } from '../../contacts/contact.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-task',
@@ -11,13 +13,21 @@ import { TaskService } from '../task.service';
 })
 export class AddTaskComponent implements OnInit {
   isAdded: boolean = false;
+  contacts: TContact[] = [];
+  contactsSubscription$!: Subscription;
 
   constructor(
     public contactsService: ContactsService,
     public taskService: TaskService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.contactsSubscription$ = this.contactsService
+      .getContacts$()
+      .subscribe((contacts) => {
+        this.contacts = contacts;
+      });
+  }
 
   setCurrentDate(): string {
     const currentDate = new Date();
@@ -43,5 +53,9 @@ export class AddTaskComponent implements OnInit {
 
   onClose(): void {
     this.isAdded = false;
+  }
+
+  ngOnDestroy() {
+    this.contactsSubscription$.unsubscribe();
   }
 }

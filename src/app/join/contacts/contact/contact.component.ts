@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   onDelete(id: string): void {
     this.isDeleted = true;
     const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.id === this.contact!.id
+      (contact) => contact.uid === this.contact!.uid
     );
     this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.deleteContact(id);

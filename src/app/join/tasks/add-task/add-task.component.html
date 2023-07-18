@@ -62,10 +62,7 @@
       <label for="assigned">Assigned to</label>
       <select class="tf" name="assignedTo" id="assigned" required ngModel>
         <option value="">--Select a Contact--</option>
-        <option
-          *ngFor="let contact of contactsService.getAllContacts()"
-          [value]="contact.id"
-        >
+        <option *ngFor="let contact of contacts" [value]="contact.uid">
           {{ contact.firstname }} {{ contact.lastname }}
         </option>
       </select>

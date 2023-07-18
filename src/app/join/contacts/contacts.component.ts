@@ -46,7 +46,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
   // Funktion, um die eindeutigen Anfangsbuchstaben der Vornamen zu extrahieren
   uniqueFirstLetters(): string[] {
-    const firstLetters = this.contactService.contacts.map((contact) =>
+    const firstLetters = this.contacts.map((contact) =>
       contact.firstname[0].toLowerCase()
     );
     return [...new Set(firstLetters)].sort();
@@ -54,7 +54,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
   // Funktion, um die Kontakte mit dem gegebenen Anfangsbuchstaben zu filtern
   contactsStartingWith(letter: string): TContact[] {
-    return this.contactService.contacts.filter((contact) =>
+    return this.contacts.filter((contact) =>
       contact.firstname.toLowerCase().startsWith(letter)
     );
   }

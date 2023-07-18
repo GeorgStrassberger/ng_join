@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TContact } from '../contact.interface';
 
 @Component({
   selector: 'app-add-contact-card',
@@ -37,12 +36,13 @@ export class AddContactCardComponent {
         form.value.firstname,
         form.value.lastname
       ),
-      id: this.contactsService.generateRandomUid(),
+      uid: this.contactsService.generateRandomUid(),
     };
-    this.contactsService.contacts.push(newContact);
+    // this.contactsService.contacts.push(newContact);
     this.isCreated = true;
     // FIREBASE
-    // this.contactsService.addContact(tContact);
+    console.log('newContact', newContact);
+    this.contactsService.addContact(newContact);
   }
 
   onClose(): void {
