@@ -42,7 +42,7 @@ export class AddContactCardComponent {
     this.isCreated = true;
     // FIREBASE
     console.log('newContact', newContact);
-    this.contactsService.addContact(newContact);
+    this.contactsService.createContact(newContact);
   }
 
   onClose(): void {

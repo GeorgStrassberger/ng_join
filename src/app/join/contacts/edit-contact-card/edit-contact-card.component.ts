@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
 export class EditContactCardComponent implements OnInit {
   isEdit: boolean = false;
   isDeleted: boolean = false;
-  currentContact: TContact | null = null;
+  currentContact!: TContact;
 
   constructor(
     private router: Router,
@@ -23,48 +23,20 @@ export class EditContactCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.contactsService.contact$.subscribe((contact) => {
-      this.currentContact = contact;
-    });
+    this.currentContact = this.contactsService.currentContact;
   }
 
   onEdit(form: NgForm): void {
     const value = form.value;
-    if (form.valid && this.currentContact) {
-      this.isEdit = true;
-      const editContact: TContact = {
-        firstname: form.value.firstname,
-        lastname: form.value.lastname,
-        email: form.value.email,
-        phone: form.value.phone,
-        tag: this.contactsService.getNameTag(
-          form.value.firstname,
-          form.value.lastname
-        ),
-        color: this.currentContact.color,
-        uid: this.currentContact.uid,
-      };
-      this.contactsService.contact$.next(editContact);
-      this.contactsService.updateContact(editContact);
-    }
-    // FIREBASE
-    // this.contactsService.updateContact(this.currentContact.uid, contact);
+    console.log("onEdit", value);
   }
 
   onUpdate(contact: TContact) {
-    const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.currentContact!.uid
-    );
-    this.contactsService.contacts.splice(contactIndex, 1);
-    this.contactsService.contacts.push(contact);
+    console.log("onUpdate", contact);
   }
 
   onDelete(id: string): void {
     this.isDeleted = true;
-    const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.currentContact!.uid
-    );
-    this.contactsService.contacts.splice(contactIndex, 1);
     this.contactsService.deleteContact(id);
   }
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -31,9 +31,6 @@ export class RegisterComponent implements OnInit {
    * @param form
    */
   onRegister(): void {
-    this.authService.registerUser({
-      email: this.registerForm.value.email,
-      password: this.registerForm.value.password,
-    });
+    console.log("onRegister", this.registerForm.value);
   }
 }

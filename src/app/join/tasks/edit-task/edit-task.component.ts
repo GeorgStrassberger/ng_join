@@ -5,7 +5,7 @@ import { ITask } from '../task.interface';
 import { TaskService } from '../task.service';
 import { ContactsService } from '../../contacts/contacts.service';
 import { TContact } from '../../contacts/contact.interface';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-edit-task',
@@ -16,7 +16,6 @@ export class EditTaskComponent {
   task: ITask;
   isEdit: boolean = false;
   contacts: TContact[] = [];
-  contactsSubscription$!: Subscription;
 
   constructor(
     private router: Router,
@@ -28,11 +27,7 @@ export class EditTaskComponent {
   }
 
   ngOnInit() {
-    this.contactsSubscription$ = this.contactsService
-      .getContacts$()
-      .subscribe((contacts) => {
-        this.contacts = contacts;
-      });
+        this.contacts = this.contactsService.contacts;
   }
 
   onEdit(form: NgForm) {
@@ -47,6 +42,5 @@ export class EditTaskComponent {
   }
 
   ngOnDestroy() {
-    this.contactsSubscription$.unsubscribe();
   }
 }

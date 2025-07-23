@@ -1,6 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +7,17 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isMouseOver: boolean = false;
-  isAuth: boolean = false;
-  authStatus$!: Subscription;
 
-  constructor(private authServcie: AuthService) {}
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.authStatus$ = this.authServcie.authChange$.subscribe((authStatus) => {
-      this.isAuth = authStatus;
-    });
   }
 
   onLogout() {
-    this.authServcie.logout();
+    console.log('onLogout');
   }
 
   ngOnDestroy() {
-    this.authStatus$.unsubscribe();
   }
 }
