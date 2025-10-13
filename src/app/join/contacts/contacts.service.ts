@@ -5,7 +5,18 @@ import {TContact} from './contact.interface';
   providedIn: 'root',
 })
 export class ContactsService {
-  contacts: TContact[] = [];
+  contacts: TContact[] = [
+      {
+      "firstname": "123",
+      "lastname": "123",
+      "email": "123@123.de",
+      "phone": "123123123",
+      "color": "#aa16a6",
+      "tag": "11",
+      "uid": "UUCfpisrXRKxmOXfIskO"
+    }
+  ];
+
   currentContact: TContact = this.contacts[0];
 
   constructor() {
@@ -17,6 +28,7 @@ export class ContactsService {
 
   createContact(contact: TContact): void {
     this.contacts.push(contact);
+    console.log("Conntacts: ", this.contacts);
   }
 
   updateContact(contact: TContact): void {

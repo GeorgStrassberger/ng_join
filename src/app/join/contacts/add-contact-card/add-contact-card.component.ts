@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ContactsService } from '../contacts.service';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {ContactsService} from '../contacts.service';
+import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-contact-card',
@@ -17,7 +17,8 @@ export class AddContactCardComponent {
   constructor(
     private router: Router,
     private contactsService: ContactsService
-  ) {}
+  ) {
+  }
 
   toTitleCase(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -38,10 +39,8 @@ export class AddContactCardComponent {
       ),
       uid: this.contactsService.generateRandomUid(),
     };
-    // this.contactsService.contacts.push(newContact);
     this.isCreated = true;
     // FIREBASE
-    console.log('newContact', newContact);
     this.contactsService.createContact(newContact);
   }
 

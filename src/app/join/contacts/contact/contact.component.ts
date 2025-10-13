@@ -24,6 +24,8 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   onEditContact(): void {
+    const aktuellerKontakt = this.contactsService.currentContact
+    console.log('aktuellerKontakt: ' ,aktuellerKontakt);
     this.router.navigate(['/join/editContact']);
   }
 

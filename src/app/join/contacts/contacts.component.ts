@@ -33,6 +33,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
    * Open Card to edit Contact
    */
   openContact(contact: TContact): void {
+    console.log("Contact with contact", contact);
+    console.log("Constacts: ", this.contacts);
     this.router.navigate(['/join/contact']);
   }
 
