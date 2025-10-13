@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
 export class AddTaskComponent implements OnInit {
   isAdded: boolean = false;
   contacts: TContact[] = [];
-  contactsSubscription$!: Subscription;
 
   constructor(
     public contactsService: ContactsService,
@@ -22,11 +21,7 @@ export class AddTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.contactsSubscription$ = this.contactsService
-      .getContacts$()
-      .subscribe((contacts) => {
-        this.contacts = contacts;
-      });
+        this.contacts = this.contactsService.contacts;
   }
 
   setCurrentDate(): string {
@@ -56,6 +51,5 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.contactsSubscription$.unsubscribe();
   }
 }

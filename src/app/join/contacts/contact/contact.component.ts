@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TContact } from '../contact.interface';
-import { Router } from '@angular/router';
-import { ContactsService } from '../contacts.service';
-import { Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {TContact} from '../contact.interface';
+import {Router} from '@angular/router';
+import {ContactsService} from '../contacts.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -12,21 +12,20 @@ import { Subscription } from 'rxjs';
 export class ContactComponent implements OnInit, OnDestroy {
   isDeleted: boolean = false;
   contact: TContact | null = null;
-  constactsSub$!: Subscription;
 
   constructor(
     private router: Router,
     public contactsService: ContactsService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
-    this.constactsSub$ = this.contactsService.contact$.subscribe((contact) => {
-      this.contact = contact;
-      console.log(contact);
-    });
+    this.contact = this.contactsService.contacts[0];
   }
 
   onEditContact(): void {
+    const aktuellerKontakt = this.contactsService.currentContact
+    console.log('aktuellerKontakt: ' ,aktuellerKontakt);
     this.router.navigate(['/join/editContact']);
   }
 
@@ -45,6 +44,5 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.constactsSub$.unsubscribe();
   }
 }

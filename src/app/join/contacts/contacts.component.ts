@@ -1,8 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ContactsService } from './contacts.service';
-import { TContact } from './contact.interface';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ContactsService} from './contacts.service';
+import {TContact} from './contact.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -10,22 +9,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
 })
 export class ContactsComponent implements OnInit, OnDestroy {
-  isNewContactOpen: boolean = false;
   contacts: TContact[] = [];
-  contactsSubscription$!: Subscription;
 
   constructor(
     private router: Router,
     private contactService: ContactsService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
-    this.contactsSubscription$ = this.contactService
-      .getContacts$()
-      .subscribe((contacts) => {
-        this.contacts = contacts;
-        console.log('contacts: ', contacts);
-      });
+    this.contacts = this.contactService.getAllContacts();
   }
 
   /**
@@ -40,7 +33,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
    * Open Card to edit Contact
    */
   openContact(contact: TContact): void {
-    this.contactService.contact$.next(contact);
+    console.log("Contact with contact", contact);
+    console.log("Constacts: ", this.contacts);
     this.router.navigate(['/join/contact']);
   }
 
@@ -60,6 +54,5 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.contactsSubscription$.unsubscribe();
   }
 }

@@ -1,35 +1,25 @@
-import { Injectable } from '@angular/core';
-import { TContact } from './contact.interface';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import {
-  Firestore,
-  addDoc,
-  collectionData,
-  deleteDoc,
-  doc,
-  setDoc,
-  updateDoc,
-} from '@angular/fire/firestore';
-import { collection } from '@firebase/firestore';
+import {Injectable} from '@angular/core';
+import {TContact} from './contact.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactsService {
-  contact$ = new BehaviorSubject<TContact | null>(null);
-  contactsSubscription$!: Subscription;
-  contacts: TContact[] = [];
+  contacts: TContact[] = [
+      {
+      "firstname": "123",
+      "lastname": "123",
+      "email": "123@123.de",
+      "phone": "123123123",
+      "color": "#aa16a6",
+      "tag": "11",
+      "uid": "UUCfpisrXRKxmOXfIskO"
+    }
+  ];
 
-  constructor(private firestore: Firestore) {
-    this.contactsSubscription$ = this.getContacts$().subscribe((contacts) => {
-      this.contacts = contacts;
-    });
-  }
+  currentContact: TContact = this.contacts[0];
 
-  getContacts$(): Observable<TContact[]> {
-    return collectionData(collection(this.firestore, 'contacts'), {
-      idField: 'id',
-    }) as Observable<TContact[]>;
+  constructor() {
   }
 
   getAllContacts(): TContact[] {
@@ -38,7 +28,20 @@ export class ContactsService {
 
   createContact(contact: TContact): void {
     this.contacts.push(contact);
+    console.log("Conntacts: ", this.contacts);
   }
+
+  updateContact(contact: TContact): void {
+    const contactIndex = this.contacts.indexOf(contact);
+    if (contactIndex >= 0) {
+      this.contacts[contactIndex] = contact;
+    }
+  }
+
+  deleteContact(id: string){
+    const contactIndex = this.contacts.findIndex(id => id === id);
+    this.contacts.splice(contactIndex, 1);
+  };
 
   getContact(id: string): TContact | null {
     const currentContact = this.contacts.find((contact) => contact.uid === id);
@@ -47,30 +50,6 @@ export class ContactsService {
     } else {
       return null;
     }
-  }
-
-  addContact(contact: TContact) {
-    addDoc(collection(this.firestore, 'contacts'), contact)
-      .then((docRef) => {
-        const updateContact = { ...contact, uid: docRef.id };
-        console.log('updateContact: ', updateContact);
-        this.updateContact(updateContact);
-      })
-      .catch((error) => console.warn(error.message));
-  }
-
-  updateContact(contact: TContact) {
-    const contactDocumentReference = doc(
-      this.firestore,
-      `contacts/${contact.uid}`
-    );
-    return updateDoc(contactDocumentReference, { ...contact });
-  }
-
-  deleteContact(id: string) {
-    console.log('id; ', id);
-    const gameDocumentReference = doc(this.firestore, `contacts/${id}`);
-    return deleteDoc(gameDocumentReference);
   }
 
   getNameTag(fn: string, ln: string): string {
@@ -101,6 +80,5 @@ export class ContactsService {
   }
 
   ngOnDestroy() {
-    this.contactsSubscription$.unsubscribe();
   }
 }

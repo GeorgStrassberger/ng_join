@@ -18,7 +18,6 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PwForgotComponent } from './auth/pw-forgot/pw-forgot.component';
 import { PwResetComponent } from './auth/pw-reset/pw-reset.component';
-import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -30,7 +29,6 @@ const routes: Routes = [
   {
     path: 'join',
     component: JoinComponent,
-    canActivate: [AuthGuard],
     children: [
       { path: 'welcome', component: WelcomeComponent },
       { path: 'summary', component: SummaryComponent },
