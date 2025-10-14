@@ -21,7 +21,7 @@ export class AddTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-        this.contacts = this.contactsService.contacts;
+    this.contacts = this.contactsService.getContacts();
   }
 
   setCurrentDate(): string {
@@ -30,20 +30,20 @@ export class AddTaskComponent implements OnInit {
   }
 
   onCreateTask(form: NgForm): void {
-    const value = form.value;
-    const assignedTo = this.contactsService.getContact(value.assignedTo);
-    if (assignedTo) {
-      const task = new Task(
-        value.title,
-        value.description,
-        value.date,
-        value.category,
-        new Array(assignedTo)
-      );
-      this.isAdded = true;
-      this.taskService.addTask(task);
-    }
-    form.reset();
+    // const value = form.value;
+    // const assignedTo = this.contactsService.getContact(value.assignedTo);
+    // if (assignedTo) {
+    //   const task = new Task(
+    //     value.title,
+    //     value.description,
+    //     value.date,
+    //     value.category,
+    //     new Array(assignedTo)
+    //   );
+    //   this.isAdded = true;
+    //   this.taskService.addTask(task);
+    // }
+    // form.reset();
   }
 
   onClose(): void {

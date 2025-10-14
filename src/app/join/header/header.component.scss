@@ -15,6 +15,7 @@
 
   .logo {
     @include logo-size();
+
     &:hover {
       opacity: 0.8;
     }
@@ -62,7 +63,6 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    // gap: 0rem;
   }
 
   .menu__list-item {

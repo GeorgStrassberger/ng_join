@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContactsService} from './contacts.service';
 import {TContact} from './contact.interface';
 import {Router} from '@angular/router';
@@ -8,17 +8,17 @@ import {Router} from '@angular/router';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
 })
-export class ContactsComponent implements OnInit, OnDestroy {
+export class ContactsComponent implements OnInit {
   contacts: TContact[] = [];
 
   constructor(
     private router: Router,
-    private contactService: ContactsService
+    public contactService: ContactsService
   ) {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getAllContacts();
+    this.contacts = this.contactService.getContacts();
   }
 
   /**
@@ -33,9 +33,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
    * Open Card to edit Contact
    */
   openContact(contact: TContact): void {
-    console.log("Contact with contact", contact);
-    console.log("Constacts: ", this.contacts);
-    this.router.navigate(['/join/contact']);
+    this.router.navigate(['/join/contact', contact.uid]);
   }
 
   // Funktion, um die eindeutigen Anfangsbuchstaben der Vornamen zu extrahieren
@@ -51,8 +49,5 @@ export class ContactsComponent implements OnInit, OnDestroy {
     return this.contacts.filter((contact) =>
       contact.firstname.toLowerCase().startsWith(letter)
     );
-  }
-
-  ngOnDestroy() {
   }
 }

@@ -1,60 +1,65 @@
 import {Injectable} from '@angular/core';
 import {TContact} from './contact.interface';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class ContactsService {
-  contacts: TContact[] = [
-      {
-      "firstname": "123",
-      "lastname": "123",
-      "email": "123@123.de",
-      "phone": "123123123",
-      "color": "#aa16a6",
-      "tag": "11",
-      "uid": "UUCfpisrXRKxmOXfIskO"
-    }
-  ];
 
-  currentContact: TContact = this.contacts[0];
+  private _contacts: TContact[] = [
+      {
+        "firstname": "Hans",
+        "lastname": "Müller",
+        "email": "hans.mueller@gmail.de",
+        "phone": "0176964712316",
+        "color": "#aa16a6",
+        "tag": "HM",
+        "uid": "UUCfpisrXRKxmOXfIskO"
+      }
+    ];
 
   constructor() {
   }
 
-  getAllContacts(): TContact[] {
-    return this.contacts;
+  getContacts(): TContact[] {
+    return this._contacts;
+    console.log("Contacts: ", this._contacts);
   }
 
-  createContact(contact: TContact): void {
-    this.contacts.push(contact);
-    console.log("Conntacts: ", this.contacts);
+  addContact(contact: TContact): void {
+    this._contacts.push(contact);
+    console.log("Add to Contacts: ", this._contacts);
   }
 
-  updateContact(contact: TContact): void {
-    const contactIndex = this.contacts.indexOf(contact);
+  editContact(contact: TContact): void {
+    const contactIndex = this._contacts.indexOf(contact);
     if (contactIndex >= 0) {
-      this.contacts[contactIndex] = contact;
+      this._contacts[contactIndex] = contact;
     }
   }
 
-  deleteContact(id: string){
-    const contactIndex = this.contacts.findIndex(id => id === id);
-    this.contacts.splice(contactIndex, 1);
+  deleteContact(id: string) {
+    const contactIndex: number = this._contacts.findIndex((contact: TContact): boolean => contact.uid === id);
+    if (contactIndex){
+      this._contacts.splice(contactIndex, 1);
+      console.log("Contact Deleted");
+    }else{
+      console.log("Contact not found");
+    }
   };
 
   getContact(id: string): TContact | null {
-    const currentContact = this.contacts.find((contact) => contact.uid === id);
-    if (currentContact) {
-      return currentContact;
+    const contact: TContact | undefined = this._contacts.find((contact: TContact): boolean => contact.uid === id);
+    if (contact) {
+      return contact;
     } else {
       return null;
     }
   }
 
   getNameTag(fn: string, ln: string): string {
-    const tag: string = fn[0] + ln[0];
-    return tag;
+    return fn[0] + ln[0];
   }
 
   /**
@@ -64,8 +69,7 @@ export class ContactsService {
   getRandomColorCode(): string {
     const colorCode: number = Math.floor(Math.random() * 16777216);
     const hexCode: string = colorCode.toString(16).padStart(6, '0');
-    const color: string = `#${hexCode}`;
-    return color;
+    return `#${hexCode}`;
   }
 
   generateRandomUid(length: number = 20): string {
@@ -79,6 +83,4 @@ export class ContactsService {
     return uid;
   }
 
-  ngOnDestroy() {
-  }
 }

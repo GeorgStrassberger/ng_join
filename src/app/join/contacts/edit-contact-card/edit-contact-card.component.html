@@ -1,4 +1,4 @@
-<div class="card" *ngIf="currentContact">
+<div class="card" *ngIf="contact">
   <section class="card__head">
     <return-btn class="head__return" routerLink="/join/contacts"></return-btn>
     <h2 class="head__title">Edit contact</h2>
@@ -6,9 +6,9 @@
     <!-- USER TAG -->
     <div
       class="head__user-container"
-      [ngStyle]="{ 'background-color': currentContact.color }"
+      [ngStyle]="{ 'background-color': contact.color }"
     >
-      <span class="head__user-tag">{{ currentContact.tag }}</span>
+      <span class="head__user-tag">{{ contact.tag }}</span>
     </div>
   </section>
   <!-- CARD BODY -->
@@ -21,7 +21,7 @@
           type="text"
           name="firstname"
           placeholder="Firstname"
-          [(ngModel)]="currentContact.firstname"
+          [(ngModel)]="contact.firstname"
           required
           [pattern]="'[a-zA-Z0-9äöüßÄÖÜ]{3,20}'"
         />
@@ -39,7 +39,7 @@
           type="text"
           name="lastname"
           placeholder="Lastname"
-          [(ngModel)]="currentContact.lastname"
+          [(ngModel)]="contact.lastname"
           required
           [pattern]="'[a-zA-Z0-9äöüßÄÖÜ]{3,20}'"
         />
@@ -57,7 +57,7 @@
           type="email"
           name="email"
           placeholder="Email"
-          [(ngModel)]="currentContact.email"
+          [(ngModel)]="contact.email"
           required
           [pattern]="'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'"
         />
@@ -75,7 +75,7 @@
           type="tel"
           name="phone"
           placeholder="Phone"
-          [(ngModel)]="currentContact.phone"
+          [(ngModel)]="contact.phone"
           required
           [pattern]="'[0-9]{8,16}'"
         />
@@ -90,8 +90,8 @@
       <div class="btn__container">
         <button
           class="btn__secondary--small"
-          (click)="onDelete(currentContact.uid)"
           type="button"
+          (click)="onDelete(contact.uid)"
         >
           Delete
         </button>
@@ -107,12 +107,12 @@
   </section>
   <!-- POPUP DUMMY -->
   <ng-container *ngIf="isEdit">
-    <div class="popup__container" (click)="onClose()">
+    <div class="popup__container" (click)="onCloseEdit(contact)">
       <button class="btn__primary--large popup">Contact edit</button>
     </div>
   </ng-container>
   <ng-container *ngIf="isDeleted">
-    <div class="popup__container" (click)="onClose()">
+    <div class="popup__container" (click)="onCloseDelete()">
       <button class="btn__primary--large popup">Contact delete</button>
     </div>
   </ng-container>

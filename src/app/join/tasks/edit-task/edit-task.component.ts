@@ -27,7 +27,7 @@ export class EditTaskComponent {
   }
 
   ngOnInit() {
-        this.contacts = this.contactsService.contacts;
+    this.contacts = this.contactsService.getContacts();
   }
 
   onEdit(form: NgForm) {

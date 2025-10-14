@@ -20,10 +20,6 @@ export class AddContactCardComponent {
   ) {
   }
 
-  toTitleCase(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   onAdd(form: NgForm): void {
     const formvalue = form.value;
     console.log('formvalue: ', formvalue);
@@ -40,8 +36,7 @@ export class AddContactCardComponent {
       uid: this.contactsService.generateRandomUid(),
     };
     this.isCreated = true;
-    // FIREBASE
-    this.contactsService.createContact(newContact);
+    this.contactsService.addContact(newContact);
   }
 
   onClose(): void {
