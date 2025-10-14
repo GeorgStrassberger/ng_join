@@ -15,8 +15,6 @@
 
   .logo__container {
     width: 100%;
-    min-height: 6rem;
-    height: 8rem;
     background-color: $color-secondary;
   }
 
@@ -37,6 +35,7 @@
     border-radius: 2rem;
     padding-inline: 1.25rem;
     padding-block: 2rem;
+    margin-block: 1rem;
   }
 
   .card__return-btn {
