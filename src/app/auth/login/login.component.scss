@@ -42,7 +42,7 @@
     border-radius: 2rem;
     padding-inline: 1.25rem;
     padding-block: 2rem;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
   .card__header {
@@ -133,7 +133,7 @@
   }
 
   .footer {
-    flex: 1 1 100px;
+    //flex: 1 1 100px;
     display: flex;
     gap: 4rem;
     flex-direction: row;

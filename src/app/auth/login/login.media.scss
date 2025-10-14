@@ -1,6 +1,7 @@
 @use "sass:math" as math;
 @import "../../shared/styles/variables.scss";
 @import "../../shared/styles/mixin.scss";
+
 @media (hover: none) {
   .section {
     background-color: $color-secondary;
@@ -14,14 +15,13 @@
 
   .logo__container {
     width: 100%;
-    min-height: 6rem;
-    height: 8rem;
     background-color: $color-secondary;
   }
 
   .logo {
     @include logo-size;
     cursor: pointer;
+
     &:hover {
       opacity: 0.7;
     }
@@ -36,6 +36,7 @@
     border-radius: 2rem;
     padding-inline: 1.25rem;
     padding-block: 2rem;
+    margin-block: 1rem;
   }
 
   .card__header {
@@ -57,11 +58,11 @@
     height: 0.25rem;
     width: 100%;
     background-image: linear-gradient(
-      90deg,
-      transparent 33%,
-      $color-blue 33%,
-      $color-blue 66%,
-      transparent 66%
+        90deg,
+        transparent 33%,
+        $color-blue 33%,
+        $color-blue 66%,
+        transparent 66%
     );
   }
 
@@ -76,7 +77,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-block: 1rem;
+    margin-top: 1rem;
   }
 
   .tf {
@@ -87,9 +88,11 @@
     outline: none;
     width: 100%;
     border: 1px solid $color-grey;
+
     &.ng-invalid.ng-touched {
       border: 1px solid $prio-high;
     }
+
     &.ng-valid.ng-touched {
       border: 1px solid $proi-low;
     }
@@ -126,7 +129,6 @@
   }
 
   .footer {
-    flex: 0 0 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
