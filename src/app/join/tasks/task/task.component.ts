@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ITask } from '../task.interface';
 import { TaskService } from '../task.service';
 import { Router } from '@angular/router';
@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss'],
+  styleUrls: ['./task.component.scss', './task.mobile.scss'],
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
   task!: ITask;
   isDeleted: boolean = false;
 
@@ -16,8 +16,12 @@ export class TaskComponent {
     this.task = this.taskService.currentTask;
   }
 
-  onEditTask(): void {
-    this.router.navigate(['/join/editTask']);
+  ngOnInit() {
+    console.log('this.task', this.task);
+  }
+
+  onEdit(taskId: string): void {
+    this.router.navigate(['/join/editTask', taskId]);
   }
 
   onDelete(id: string): void {

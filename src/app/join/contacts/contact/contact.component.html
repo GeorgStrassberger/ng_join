@@ -1,11 +1,12 @@
 <section class="head__section">
-  <return-btn class="return__btn" routerLink="/join/contacts"></return-btn>
   <p class="head__description">Kanban Project Management Tool</p>
   <h2 class="head__title">Contact</h2>
   <p class="head__comment">Better with a team</p>
   <div class="head__dash"></div>
 </section>
+
 <section class="contact__container" *ngIf="contact">
+  <return-btn class="return__btn" routerLink="/join/contacts"></return-btn>
   <div class="contact">
     <div class="contact__tag" [ngStyle]="{ 'background-color': contact.color }">
       {{ contact.tag }}
@@ -51,7 +52,11 @@
       </svg>
     </button>
     <!-- EDIT BTN -->
-    <button class="btn__primary--small" title="Edit" (click)="onEdit(contact.uid)">
+    <button
+      class="btn__primary--small"
+      title="Edit"
+      (click)="onEdit(contact.uid)"
+    >
       <svg class="sign" viewBox="0 0 22 30">
         <path
           d="M3.44543 22.0155L8.26476 24.9404L20.9079 4.10829C21.1945 3.63616 21.044 3.02113 20.5719 2.73459L17.4623 0.84736C16.9902 0.560817 16.3751 0.711269 16.0886 1.1834L3.44543 22.0155Z"

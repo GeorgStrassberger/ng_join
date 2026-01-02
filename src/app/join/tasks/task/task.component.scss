@@ -1,165 +1,187 @@
 @import "../../../shared/styles/variables";
 @import "../../../shared/styles/mixin";
-:host {
-  position: relative;
-  @include mobile-container;
-  flex: 1 0 auto;
-  gap: 1rem;
-}
-// HEAD
-.section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 0 0 auto;
-}
-
-.return__btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  fill: $color-primary;
-  cursor: pointer;
-  &:hover {
-    fill: $color-primary-hover;
+@media (hover: hover) {
+  :host {
+    position: relative;
+    @include desktop-container;
+    width: 100%;
+    gap: 1rem;
   }
-}
 
-.task__category {
-  @include label;
-}
-
-.task__title {
-  font-size: 2.25rem;
-  font-weight: 700;
-}
-
-.task__desc {
-  // margin-block: 1rem;
-}
-
-.task__wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.task__headline {
-  font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.task__prio {
-  @include label;
-}
-
-.task__assigned-container {
-}
-.task__users {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.25rem 0;
-}
-
-.task__user-tag {
-  color: $color-white;
-  border-radius: 100%;
-  border: 0.25rem solid $color-white;
-  padding: 0.5rem;
-  font-size: 1rem;
-  text-align: center;
-  text-shadow: 0 0 0.5rem $color-primary;
-}
-
-.task__user-name {
-}
-
-.bg {
-  &--design {
-    background-color: $category-design;
+  // HEAD
+  .head__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 0;
   }
-  &--sales {
-    background-color: $category-sales;
-  }
-  &--media {
-    background-color: $category-media;
-  }
-  &--backoffice {
-    background-color: $category-backoffice;
-  }
-  &--marketing {
-    background-color: $category-marketing;
-  }
-}
 
-.prio {
-  &--high {
-    background-color: $prio-high;
+  .return__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    fill: $color-primary;
+    cursor: pointer;
+    &:hover {
+      fill: $color-primary-hover;
+    }
   }
-  &--medium {
-    background-color: $prio-mid;
+
+  .head__title {
+    font-size: 3rem;
+    font-weight: 700;
   }
-  &--low {
-    background-color: $proi-low;
+
+  .head__dash {
+    height: 3px;
+    background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
   }
-}
 
-.btn__container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 100%;
-  flex: 1 1 auto;
-}
-
-.sign {
-  padding: 0.5rem;
-  color: $color-white;
-  @include sign-size(2);
-}
-// toggle with ngIF boolean
-.popup__container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  padding-inline: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(250, 250, 250, 0.3);
-  backdrop-filter: blur(0.25rem);
-}
-
-.popup {
-  position: absolute;
-  top: 50%;
-  width: 80dvw;
-  transform: translate(0, -50%);
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translate(0, -50%) scale(0);
+  // HEAD
+  .tast__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
   }
-  100% {
-    opacity: 1;
-    transform: translate(0, -50%) scale(1);
+
+  .task__category {
+    @include label;
+  }
+
+  .task__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+  }
+
+  .task__desc {
+    // margin-block: 1rem;
+  }
+
+  .task__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .task__headline {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .task__prio {
+    @include label;
+  }
+
+  .task__assigned-container {
+  }
+
+  .task__users {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  .task__user-tag {
+    color: $color-white;
+    border-radius: 100%;
+    border: 0.25rem solid $color-white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    text-shadow: 0 0 0.5rem $color-primary;
+  }
+
+  .task__user-name {
+  }
+
+  .bg {
+    &--design {
+      background-color: $category-design;
+    }
+    &--sales {
+      background-color: $category-sales;
+    }
+    &--media {
+      background-color: $category-media;
+    }
+    &--backoffice {
+      background-color: $category-backoffice;
+    }
+    &--marketing {
+      background-color: $category-marketing;
+    }
+  }
+
+  .prio {
+    &--high {
+      background-color: $prio-high;
+    }
+    &--medium {
+      background-color: $prio-mid;
+    }
+    &--low {
+      background-color: $proi-low;
+    }
+  }
+
+  .btn__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .sign {
+    padding: 0.5rem;
+    color: $color-white;
+    @include sign-size(2);
+  }
+  // toggle with ngIF boolean
+  .popup__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    padding-inline: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(250, 250, 250, 0.3);
+    backdrop-filter: blur(0.25rem);
+  }
+
+  .popup {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    transform: translate(0, -50%);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translate(0, -50%) scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%) scale(1);
+    }
   }
 }

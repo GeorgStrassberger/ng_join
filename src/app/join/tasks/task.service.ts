@@ -142,7 +142,7 @@ export class TaskService implements OnInit {
   ];
   todoTasks: ITask[] = [];
   inProgressTasks: ITask[] = [];
-  awitingFeedbackTasks: ITask[] = [];
+  awaitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
   urgentTasks: ITask[] = [];
   currentTask!: ITask;
@@ -164,7 +164,7 @@ export class TaskService implements OnInit {
   filterByStatus(tasks: ITask[]) {
     this.todoTasks = tasks.filter((task) => task.status === 'todo');
     this.inProgressTasks = tasks.filter((task) => task.status === 'inProgress');
-    this.awitingFeedbackTasks = tasks.filter(
+    this.awaitingFeedbackTasks = tasks.filter(
       (task) => task.status === 'awaitFeedback'
     );
     this.doneTasks = tasks.filter((task) => task.status === 'done');

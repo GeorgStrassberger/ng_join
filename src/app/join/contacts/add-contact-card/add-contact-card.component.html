@@ -104,10 +104,10 @@
       </button>
     </form>
   </section>
-
-  <ng-container *ngIf="isCreated">
-    <div class="popup__container" (click)="onClose()">
-      <button class="btn__primary popup">Contact succesfully created</button>
-    </div>
-  </ng-container>
 </div>
+
+<ng-container *ngIf="isCreated">
+  <div class="popup__container" (click)="onClose()">
+    <button class="btn__primary popup">Contact successfully created</button>
+  </div>
+</ng-container>

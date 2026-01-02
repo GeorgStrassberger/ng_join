@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'board', component: BoardComponent },
       { path: 'addTask', component: AddTaskComponent },
       { path: 'task', component: TaskComponent },
-      { path: 'editTask', component: EditTaskComponent },
+      { path: 'editTask/:id', component: EditTaskComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'contact/:id', component: ContactComponent },
       { path: 'addContact', component: AddContactCardComponent },

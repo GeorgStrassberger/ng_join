@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Task } from '../task.model';
 import { ContactsService } from '../../contacts/contacts.service';
 import { TaskService } from '../task.service';
 import { TContact } from '../../contacts/contact.interface';
-import { Subscription } from 'rxjs';
+import {ITask} from "../task.interface";
 
 @Component({
   selector: 'app-add-task',
@@ -30,26 +29,27 @@ export class AddTaskComponent implements OnInit {
   }
 
   onCreateTask(form: NgForm): void {
-    // const value = form.value;
-    // const assignedTo = this.contactsService.getContact(value.assignedTo);
-    // if (assignedTo) {
-    //   const task = new Task(
-    //     value.title,
-    //     value.description,
-    //     value.date,
-    //     value.category,
-    //     new Array(assignedTo)
-    //   );
-    //   this.isAdded = true;
-    //   this.taskService.addTask(task);
-    // }
-    // form.reset();
+    const value = form.value;
+    const contact: TContact | null = this.contactsService.getContact(value.assignedTo);
+
+    if (contact) {
+      const newTask: ITask = {
+        title: value.title,
+        description: value.description,
+        date: value.date,
+        category: value.category,
+        assignedTo: new Array(contact),
+        priority: 'low',
+        status: 'todo',
+        uid: this.contactsService.generateRandomUid(),
+      }
+       this.isAdded = true;
+      this.taskService.addTask(newTask);
+    }
+    form.reset();
   }
 
   onClose(): void {
     this.isAdded = false;
-  }
-
-  ngOnDestroy() {
   }
 }

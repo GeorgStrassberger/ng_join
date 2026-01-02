@@ -85,13 +85,13 @@
     <div
       class="drag__area"
       cdkDropList
-      [cdkDropListData]="awitingFeedbackTasks"
+      [cdkDropListData]="awaitingFeedbackTasks"
       (cdkDropListDropped)="onDrop($event)"
     >
       <ng-container
-        *ngIf="awitingFeedbackTasks.length > 0; else awitingFeedbackTask"
+        *ngIf="awaitingFeedbackTasks.length > 0; else awitingFeedbackTask"
       >
-        <div *ngFor="let task of searchTasks(awitingFeedbackTasks)" cdkDrag>
+        <div *ngFor="let task of searchTasks(awaitingFeedbackTasks)" cdkDrag>
           <!-- Placeholder -->
           <div class="task__placeholder" *cdkDragPlaceholder></div>
           <!-- TASK -->
