@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../../shared/styles/variables";
-@import "../../shared/styles/mixin";
+@use "../../shared/styles/index" as *;
+
 @media (hover: none) {
   .nav {
     background-color: $color-primary;

@@ -1,5 +1,4 @@
-@import "../../../shared/styles/variables.scss";
-@import "../../../shared/styles/mixin.scss";
+@use "../../../shared/styles/index" as *;
 :host {
   display: flex;
   flex-direction: row;

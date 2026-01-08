@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../app/shared/styles/variables.scss";
-@import "../app/shared/styles/mixin.scss";
+@use "./shared/styles/index" as *;
+
 .hero__wrapper {
   display: flex;
   flex-direction: column;

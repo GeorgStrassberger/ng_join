@@ -1,22 +1,23 @@
 @use "sass:color";
 @use "sass:math";
-@import "variables.scss";
+@use "variables" as v;
+
 // Join Logo
 @mixin logo-size {
-  height: $logo-size-height;
-  width: $logo-size-width;
+  height: v.$logo-size-height;
+  width: v.$logo-size-width;
 }
 
 // Login User
 @mixin user-size {
-  height: $user-size;
-  width: $user-size;
+  height: v.$user-size;
+  width: v.$user-size;
 }
 
 //  #### Signs ####
 @mixin sign-size($multiply: 1) {
-  height: $sign-size * $multiply;
-  width: $sign-size * $multiply;
+  height: v.$sign-size * $multiply;
+  width: v.$sign-size * $multiply;
 }
 
 @mixin desktop-container {
@@ -60,7 +61,7 @@
   justify-content: center;
   border-radius: 0.5rem;
   min-height: 3rem;
-  border: 0.0625rem solid $color-primary;
+  border: 0.0625rem solid v.$color-primary;
   cursor: pointer;
   padding-inline: 1rem;
   &:disabled {
@@ -75,53 +76,53 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  text-shadow: 0 0 0.125rem $color-grey;
-  color: $color-white;
+  text-shadow: 0 0 0.125rem v.$color-grey;
+  color: v.$color-white;
   border-radius: 0.5rem;
 }
 
 .btn__primary {
   @include btn;
-  background-color: $color-primary;
-  color: $color-white;
+  background-color: v.$color-primary;
+  color: v.$color-white;
   font-weight: 700;
   border: none;
   //width: 100%;
   &--small {
     @extend .btn__primary;
-    width: $btn-size-small;
+    width: v.$btn-size-small;
   }
   &--large {
     @extend .btn__primary;
-    width: $btn-size-large;
+    width: v.$btn-size-large;
     min-width: max-content;
   }
   &:hover {
-    background-color: $color-primary-hover;
+    background-color: v.$color-primary-hover;
   }
   &:disabled {
-    background-color: $color-grey;
+    background-color: v.$color-grey;
   }
 }
 
 .btn__secondary {
   @include btn;
-  background-color: $color-white;
-  color: $color-primary;
+  background-color: v.$color-white;
+  color: v.$color-primary;
   width: 100%;
   &--small {
     @extend .btn__secondary;
-    width: $btn-size-small;
+    width: v.$btn-size-small;
   }
   &--large {
     @extend .btn__secondary;
-    width: $btn-size-large;
+    width: v.$btn-size-large;
     max-width: 100%;
   }
   &:hover {
-    background-color: $color-secondary;
+    background-color: v.$color-secondary;
   }
   &:disabled {
-    background-color: $color-grey;
+    background-color: v.$color-grey;
   }
 }

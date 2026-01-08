@@ -1,5 +1,5 @@
-@import "../../shared/styles/variables.scss";
-@import "../../shared/styles/mixin.scss";
+@use "../../shared/styles/index" as *;
+
 @media (hover: hover) {
   :host {
     @include desktop-container;

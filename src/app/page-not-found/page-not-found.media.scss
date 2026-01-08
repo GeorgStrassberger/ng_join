@@ -1,6 +1,6 @@
 @use "sass:math" as math;
-@import "../shared/styles/variables.scss";
-@import "../shared/styles/mixin.scss";
+@use "../shared/styles/index" as *;
+
 @media (hover: none) {
   // :host {
   //   background-color: aliceblue;
