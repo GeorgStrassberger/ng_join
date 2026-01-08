@@ -6,9 +6,10 @@ import { TContact } from '../../contacts/contact.interface';
 import {ITask} from "../task.interface";
 
 @Component({
-  selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss', './add-task.mobile.scss'],
+    selector: 'app-add-task',
+    templateUrl: './add-task.component.html',
+    styleUrls: ['./add-task.component.scss', './add-task.mobile.scss'],
+    standalone: false
 })
 export class AddTaskComponent implements OnInit {
   isAdded: boolean = false;

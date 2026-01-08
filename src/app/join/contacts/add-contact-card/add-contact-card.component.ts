@@ -4,12 +4,13 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-add-contact-card',
-  templateUrl: './add-contact-card.component.html',
-  styleUrls: [
-    './add-contact-card.component.scss',
-    './add-contact-card.media.scss',
-  ],
+    selector: 'app-add-contact-card',
+    templateUrl: './add-contact-card.component.html',
+    styleUrls: [
+        './add-contact-card.component.scss',
+        './add-contact-card.media.scss',
+    ],
+    standalone: false
 })
 export class AddContactCardComponent {
   isCreated: boolean = false;

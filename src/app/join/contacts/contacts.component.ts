@@ -4,9 +4,10 @@ import {TContact} from './contact.interface';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-contacts',
-  templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
+    selector: 'app-contacts',
+    templateUrl: './contacts.component.html',
+    styleUrls: ['./contacts.component.scss', './contacts.mobile.scss'],
+    standalone: false
 })
 export class ContactsComponent implements OnInit {
   contacts: TContact[] = [];

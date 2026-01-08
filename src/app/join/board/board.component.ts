@@ -9,9 +9,10 @@ import { TaskService } from '../tasks/task.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss', './board.media.scss'],
+    selector: 'app-board',
+    templateUrl: './board.component.html',
+    styleUrls: ['./board.component.scss', './board.media.scss'],
+    standalone: false
 })
 export class BoardComponent {
   todoTasks: ITask[] = [];

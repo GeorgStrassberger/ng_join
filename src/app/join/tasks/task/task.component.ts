@@ -4,9 +4,10 @@ import { TaskService } from '../task.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss', './task.mobile.scss'],
+    selector: 'app-task',
+    templateUrl: './task.component.html',
+    styleUrls: ['./task.component.scss', './task.mobile.scss'],
+    standalone: false
 })
 export class TaskComponent implements OnInit {
   task!: ITask;

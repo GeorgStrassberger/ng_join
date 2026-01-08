@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pw-forgot',
-  templateUrl: './pw-forgot.component.html',
-  styleUrls: ['./pw-forgot.component.scss', './pw-forgot.media.scss'],
+    selector: 'app-pw-forgot',
+    templateUrl: './pw-forgot.component.html',
+    styleUrls: ['./pw-forgot.component.scss', './pw-forgot.media.scss'],
+    standalone: false
 })
 export class PwForgotComponent {
   isSend: boolean = false;

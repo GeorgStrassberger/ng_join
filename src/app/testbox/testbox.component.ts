@@ -12,9 +12,10 @@ export interface myData {
 }
 
 @Component({
-  selector: 'app-testbox',
-  templateUrl: './testbox.component.html',
-  styleUrls: ['./testbox.component.scss'],
+    selector: 'app-testbox',
+    templateUrl: './testbox.component.html',
+    styleUrls: ['./testbox.component.scss'],
+    standalone: false
 })
 export class TestboxComponent {
   todoItems: myData[] = [
