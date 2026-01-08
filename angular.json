@@ -68,12 +68,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-join:build:production"
+              "buildTarget": "ng-join:build:production"
             },
             "development": {
-              "browserTarget": "ng-join:build:development",
               "host": "0.0.0.0",
-              "port": 4200
+              "port": 4200,
+              "buildTarget": "ng-join:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-join:build"
+            "buildTarget": "ng-join:build"
           }
         },
         "test": {
