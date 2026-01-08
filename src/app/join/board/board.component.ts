@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class BoardComponent {
   todoTasks: ITask[] = [];
   inProgressTasks: ITask[] = [];
-  awitingFeedbackTasks: ITask[] = [];
+  awaitingFeedbackTasks: ITask[] = [];
   doneTasks: ITask[] = [];
   touchedAt!: number;
   searchText: string = '';
@@ -24,7 +24,7 @@ export class BoardComponent {
   constructor(private router: Router, private taskService: TaskService) {
     this.todoTasks = this.taskService.todoTasks;
     this.inProgressTasks = this.taskService.inProgressTasks;
-    this.awitingFeedbackTasks = this.taskService.awitingFeedbackTasks;
+    this.awaitingFeedbackTasks = this.taskService.awaitingFeedbackTasks;
     this.doneTasks = this.taskService.doneTasks;
   }
 
@@ -44,6 +44,7 @@ export class BoardComponent {
       );
       this.updateTaskStatus(currentTask, event.container.id);
     }
+    // Serve http put request
   }
 
   updateTaskStatus(task: ITask, eventID: string): void {

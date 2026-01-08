@@ -1,19 +1,19 @@
-@import "../../../shared/styles/variables.scss";
-@import "../../../shared/styles/mixin.scss";
-@media (hover: hover) {
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin";
+@media (hover: none) {
   :host {
     position: relative;
-    @include desktop-container;
-    width: 100%;
+    @include mobile-container;
+    flex: 1 0 auto;
     gap: 1rem;
   }
 
   // HEAD
   .head__section {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    flex-grow: 0;
   }
 
   .return__btn {
@@ -37,65 +37,96 @@
     background-image: linear-gradient(90deg, $color-blue 20%, transparent 20%);
   }
 
-  .contact__container {
+  // HEAD
+  .tast__container {
     position: relative;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     height: 100%;
   }
 
-  .contact {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-    flex: 0 1 auto;
+  .task__category {
+    @include label;
   }
 
-  .contact__tag {
-    color: $color-white;
-    border-radius: 100%;
-    border: 0.25rem solid $color-white;
-    padding: 1rem;
-    font-size: 2rem;
-    text-align: center;
-    text-shadow: 0 0 0.25rem $color-primary;
-  }
-
-  .contact__content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-block: 1rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    flex: 0 1 auto;
-  }
-  .contact__fullname {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .contact__name {
+  .task__title {
     font-size: 2.25rem;
-  }
-
-  .contact__info {
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
-
-  .contact__headline {
-    font-size: 1rem;
     font-weight: 700;
   }
 
-  .contact__email {
-    color: $color-blue;
+  .task__desc {
+    // margin-block: 1rem;
+  }
+
+  .task__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .task__headline {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .task__prio {
+    @include label;
+  }
+
+  .task__assigned-container {
+  }
+  .task__users {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  .task__user-tag {
+    color: $color-white;
+    border-radius: 100%;
+    border: 0.25rem solid $color-white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    text-shadow: 0 0 0.5rem $color-primary;
+  }
+
+  .task__user-name {
+  }
+
+  .bg {
+    &--design {
+      background-color: $category-design;
+    }
+    &--sales {
+      background-color: $category-sales;
+    }
+    &--media {
+      background-color: $category-media;
+    }
+    &--backoffice {
+      background-color: $category-backoffice;
+    }
+    &--marketing {
+      background-color: $category-marketing;
+    }
+  }
+
+  .prio {
+    &--high {
+      background-color: $prio-high;
+    }
+    &--medium {
+      background-color: $prio-mid;
+    }
+    &--low {
+      background-color: $proi-low;
+    }
   }
 
   .btn__container {
@@ -113,7 +144,6 @@
     color: $color-white;
     @include sign-size(2);
   }
-
   // toggle with ngIF boolean
   .popup__container {
     position: absolute;
@@ -134,7 +164,7 @@
   .popup {
     position: absolute;
     top: 50%;
-    width: auto;
+    width: 80dvw;
     transform: translate(0, -50%);
     animation-name: fade-in;
     animation-duration: 1s;

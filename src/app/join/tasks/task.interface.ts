@@ -1,4 +1,4 @@
-import { TContact } from '../contacts/contact.interface';
+import {TContact } from '../contacts/contact.interface';
 
 export type TStatus = 'todo' | 'inProgress' | 'awaitFeedback' | 'done';
 export type TPriority = 'high' | 'medium' | 'low';

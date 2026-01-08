@@ -86,7 +86,7 @@
   color: $color-white;
   font-weight: 700;
   border: none;
-  width: 100%;
+  //width: 100%;
   &--small {
     @extend .btn__primary;
     width: $btn-size-small;

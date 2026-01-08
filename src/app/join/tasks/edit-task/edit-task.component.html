@@ -1,3 +1,8 @@
+<section class="head__section">
+  <p class="head__description">Kanban Project Management Tool</p>
+  <h2 class="head__title">Edit Task</h2>
+  <div class="head__dash"></div>
+</section>
 <section>
   <form class="form" (ngSubmit)="onEdit(editForm)" #editForm="ngForm">
     <!-- TITLE -->
@@ -41,16 +46,20 @@
     <!-- CATEGORY -->
     <div class="wrapper">
       <label for="category">Category</label>
-      <select class="tf" name="category" id="category" required ngModel>
+      <select
+        class="tf"
+        name="category"
+        id="category"
+        required
+        ngModel
+        [(ngModel)]="task.category"
+      >
         <ng-container *ngFor="let category of taskService.allCategories">
           <!-- Den Aktiven anzeigen -->
-          <option
-            *ngIf="task.category === category"
-            [(ngModel)]="task.category"
-          >
+          <option *ngIf="task.category === category" [ngValue]="category">
             {{ task.category | titlecase }}
           </option>
-          <!-- Die Inactiven in die Liste -->
+          <!-- Die Inaktiven in die Liste -->
           <option *ngIf="task.category !== category" value="{{ category }}">
             {{ category | titlecase }}
           </option>
@@ -70,7 +79,7 @@
       </select>
     </div> -->
     <button class="btn__primary" type="submit" [disabled]="!editForm.valid">
-      Edit Task
+      <span>Edit Task</span>
       <svg class="sign" viewBox="0 0 24 24">
         <path
           d="M4 12L10 18L20 6"
@@ -88,7 +97,7 @@
 <!-- POPUP -->
 <ng-container *ngIf="isEdit">
   <div class="popup__container" (click)="onClose()">
-    <div class="btn__primary popup">
+    <button class="btn__primary popup">
       <span>Task succesfully edit</span>
       <svg class="sign" fill="currentColor" viewBox="0 0 27 23 ">
         <path
@@ -106,6 +115,6 @@
     2.49979L20.167 20.4998Z "
         />
       </svg>
-    </div>
+    </button>
   </div>
 </ng-container>

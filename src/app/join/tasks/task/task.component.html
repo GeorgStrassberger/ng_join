@@ -1,4 +1,10 @@
-<section class="section">
+<section class="head__section">
+  <p class="head__description">Kanban Project Management Tool</p>
+  <h2 class="head__title">Task</h2>
+  <div class="head__dash"></div>
+</section>
+
+<section class="tast__container">
   <return-btn class="return__btn" routerLink="/join/board"></return-btn>
   <div class="task__category" ngClass="bg--{{ task.category | lowercase }}">
     {{ task.category | titlecase }}
@@ -63,8 +69,7 @@
     <button
       class="btn__primary--small"
       title="Edit Task"
-      disabled
-      (click)="onEditTask()"
+      (click)="onEdit(task.uid)"
     >
       <svg class="sign" viewBox="0 0 22 30">
         <path

@@ -1,48 +1,47 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TContact} from '../contact.interface';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ContactsService} from '../contacts.service';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss', './contact.mobile.scss'],
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent implements OnInit {
+
   isDeleted: boolean = false;
   contact: TContact | null = null;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
-    public contactsService: ContactsService
+    private contactsService: ContactsService
   ) {
   }
 
   ngOnInit() {
-    this.contact = this.contactsService.contacts[0];
+    const id: string | null = this.route.snapshot.paramMap.get('id');
+    if(id){
+      this.contact = this.contactsService.getContact(id);
+      console.log('this.contact', this.contact);
+    }
+    else {
+      console.log('ID is null');
+    }
   }
 
-  onEditContact(): void {
-    const aktuellerKontakt = this.contactsService.currentContact
-    console.log('aktuellerKontakt: ' ,aktuellerKontakt);
-    this.router.navigate(['/join/editContact']);
+  onEdit(contactID: string): void {
+    this.router.navigate(['/join/editContact', contactID]);
   }
 
-  onDelete(id: string): void {
+  onDelete(contactID: string): void {
     this.isDeleted = true;
-    const contactIndex: number = this.contactsService.contacts.findIndex(
-      (contact) => contact.uid === this.contact!.uid
-    );
-    this.contactsService.contacts.splice(contactIndex, 1);
-    this.contactsService.deleteContact(id);
+    this.contactsService.deleteContact(contactID);
   }
 
   onClose(): void {
     this.isDeleted = false;
     this.router.navigate(['/join/contacts']);
-  }
-
-  ngOnDestroy() {
   }
 }
