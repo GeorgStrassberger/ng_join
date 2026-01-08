@@ -10,12 +10,12 @@
       type="text"
       placeholder="Search"
       [(ngModel)]="searchText"
-    />
+      />
     <svg class="tf__icon" viewBox="0 0 20 21">
       <path
         d="M9 0.342773C13.968 0.342773 18 4.37477 18 9.34277C18 14.3108 13.968 18.3428 9 18.3428C4.032 18.3428 0 14.3108 0 9.34277C0 4.37477 4.032 0.342773 9 0.342773ZM9 16.3428C12.867 16.3428 16 13.2098 16 9.34277C16 5.47477 12.867 2.34277 9 2.34277C5.132 2.34277 2 5.47477 2 9.34277C2 13.2098 5.132 16.3428 9 16.3428ZM17 15.8428L19.6247 18.5348C20.0068 18.9267 20.0028 19.553 19.6158 19.94L19.5972 19.9586C19.2102 20.3456 18.5839 20.3496 18.192 19.9675L15.5 17.3428L17 15.8428Z"
         fill="black"
-      />
+        />
     </svg>
   </div>
   <div class="head__dash"></div>
@@ -31,23 +31,24 @@
       cdkDropList
       [cdkDropListData]="todoTasks"
       (cdkDropListDropped)="onDrop($event)"
-    >
-      <ng-container *ngIf="todoTasks.length > 0; else todoTask">
-        <div *ngFor="let task of searchTasks(todoTasks)" cdkDrag>
-          <!-- Placeholder -->
-          <div class="task__placeholder" *cdkDragPlaceholder></div>
-          <!-- TASK -->
-          <app-task-label
-            class="drag__task"
-            [task]="task"
-            (dblclick)="openTask(task)"
-            (touchend)="handleDoubleTouch($event, task)"
-          ></app-task-label>
-        </div>
-      </ng-container>
-      <ng-template #todoTask>
+      >
+      @if (todoTasks.length > 0) {
+        @for (task of searchTasks(todoTasks); track task) {
+          <div cdkDrag>
+            <!-- Placeholder -->
+            <div class="task__placeholder" *cdkDragPlaceholder></div>
+            <!-- TASK -->
+            <app-task-label
+              class="drag__task"
+              [task]="task"
+              (dblclick)="openTask(task)"
+              (touchend)="handleDoubleTouch($event, task)"
+            ></app-task-label>
+          </div>
+        }
+      } @else {
         <div class="task__empty">No tasks in To Do</div>
-      </ng-template>
+      }
     </div>
   </div>
 
@@ -59,23 +60,24 @@
       cdkDropList
       [cdkDropListData]="inProgressTasks"
       (cdkDropListDropped)="onDrop($event)"
-    >
-      <ng-container *ngIf="inProgressTasks.length > 0; else inProgressTask">
-        <div *ngFor="let task of searchTasks(inProgressTasks)" cdkDrag>
-          <!-- Placeholder -->
-          <div class="task__placeholder" *cdkDragPlaceholder></div>
-          <!-- TASK -->
-          <app-task-label
-            class="drag__task"
-            [task]="task"
-            (dblclick)="openTask(task)"
-            (touchend)="handleDoubleTouch($event, task)"
-          ></app-task-label>
-        </div>
-      </ng-container>
-      <ng-template #inProgressTask>
+      >
+      @if (inProgressTasks.length > 0) {
+        @for (task of searchTasks(inProgressTasks); track task) {
+          <div cdkDrag>
+            <!-- Placeholder -->
+            <div class="task__placeholder" *cdkDragPlaceholder></div>
+            <!-- TASK -->
+            <app-task-label
+              class="drag__task"
+              [task]="task"
+              (dblclick)="openTask(task)"
+              (touchend)="handleDoubleTouch($event, task)"
+            ></app-task-label>
+          </div>
+        }
+      } @else {
         <div class="task__empty">No tasks in Progress</div>
-      </ng-template>
+      }
     </div>
   </div>
 
@@ -87,25 +89,24 @@
       cdkDropList
       [cdkDropListData]="awaitingFeedbackTasks"
       (cdkDropListDropped)="onDrop($event)"
-    >
-      <ng-container
-        *ngIf="awaitingFeedbackTasks.length > 0; else awitingFeedbackTask"
       >
-        <div *ngFor="let task of searchTasks(awaitingFeedbackTasks)" cdkDrag>
-          <!-- Placeholder -->
-          <div class="task__placeholder" *cdkDragPlaceholder></div>
-          <!-- TASK -->
-          <app-task-label
-            class="drag__task"
-            [task]="task"
-            (dblclick)="openTask(task)"
-            (touchend)="handleDoubleTouch($event, task)"
-          ></app-task-label>
-        </div>
-      </ng-container>
-      <ng-template #awitingFeedbackTask>
+      @if (awaitingFeedbackTasks.length > 0) {
+        @for (task of searchTasks(awaitingFeedbackTasks); track task) {
+          <div cdkDrag>
+            <!-- Placeholder -->
+            <div class="task__placeholder" *cdkDragPlaceholder></div>
+            <!-- TASK -->
+            <app-task-label
+              class="drag__task"
+              [task]="task"
+              (dblclick)="openTask(task)"
+              (touchend)="handleDoubleTouch($event, task)"
+            ></app-task-label>
+          </div>
+        }
+      } @else {
         <div class="task__empty">No tasks in Await Feddback</div>
-      </ng-template>
+      }
     </div>
   </div>
 
@@ -117,23 +118,24 @@
       cdkDropList
       [cdkDropListData]="doneTasks"
       (cdkDropListDropped)="onDrop($event)"
-    >
-      <ng-container *ngIf="doneTasks.length > 0; else doneTask">
-        <div *ngFor="let task of searchTasks(doneTasks)" cdkDrag>
-          <!-- Placeholder -->
-          <div class="task__placeholder" *cdkDragPlaceholder></div>
-          <!-- TASK -->
-          <app-task-label
-            class="drag__task"
-            [task]="task"
-            (dblclick)="openTask(task)"
-            (touchend)="handleDoubleTouch($event, task)"
-          ></app-task-label>
-        </div>
-      </ng-container>
-      <ng-template #doneTask>
+      >
+      @if (doneTasks.length > 0) {
+        @for (task of searchTasks(doneTasks); track task) {
+          <div cdkDrag>
+            <!-- Placeholder -->
+            <div class="task__placeholder" *cdkDragPlaceholder></div>
+            <!-- TASK -->
+            <app-task-label
+              class="drag__task"
+              [task]="task"
+              (dblclick)="openTask(task)"
+              (touchend)="handleDoubleTouch($event, task)"
+            ></app-task-label>
+          </div>
+        }
+      } @else {
         <div class="task__empty">No tasks in Done</div>
-      </ng-template>
+      }
     </div>
   </div>
 </section>

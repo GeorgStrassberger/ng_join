@@ -16,7 +16,7 @@
         placeholder="Enter a title"
         required
         ngModel
-      />
+        />
     </div>
     <!-- DESCRIPTION -->
     <div class="wrapper">
@@ -42,19 +42,20 @@
         required
         [ngModel]="setCurrentDate()"
         [min]="setCurrentDate()"
-      />
+        />
     </div>
     <!-- CATEGORY -->
     <div class="wrapper">
       <label for="category">Category</label>
       <select class="tf" name="category" id="category" required ngModel>
         <option value="">--Select a Category--</option>
-        <option
-          *ngFor="let category of taskService.allCategories"
-          [value]="category"
-        >
-          {{ category | titlecase }}
-        </option>
+        @for (category of taskService.allCategories; track category) {
+          <option
+            [value]="category"
+            >
+            {{ category | titlecase }}
+          </option>
+        }
       </select>
     </div>
     <!-- ASSIGNED TO -->
@@ -62,9 +63,11 @@
       <label for="assigned">Assigned to</label>
       <select class="tf" name="assignedTo" id="assigned" required ngModel>
         <option value="">--Select a Contact--</option>
-        <option *ngFor="let contact of contacts" [value]="contact.uid">
-          {{ contact.firstname }} {{ contact.lastname }}
-        </option>
+        @for (contact of contacts; track contact) {
+          <option [value]="contact.uid">
+            {{ contact.firstname }} {{ contact.lastname }}
+          </option>
+        }
       </select>
     </div>
     <button class="btn__primary" type="submit" [disabled]="!f.valid">
@@ -77,14 +80,14 @@
           stroke-width="4"
           stroke-linecap="round"
           stroke-linejoin="round"
-        />
+          />
       </svg>
     </button>
   </form>
 </section>
 
 <!-- POPUP -->
-<ng-container *ngIf="isAdded">
+@if (isAdded) {
   <div class="popup__container" (click)="onClose()">
     <button class="btn__primary popup">
       <span>Task added to board</span>
@@ -97,13 +100,13 @@
     20.4998L12.167 20.4998L12.167 2.49979L8.16699 2.49977L8.16699 20.4998ZM8.16699 2.49977L8.16699 20.4998C8.16646 21.03 7.95558 21.5384 7.58062 21.9134C7.20566 22.2883 6.69726 22.4992 6.16699 22.4998L2.16699 22.4998C1.63672 22.4992 1.12832 22.2883 0.753363
     21.9134C0.378405 21.5384 0.167522 21.03 0.166992 20.4998L0.166991 2.49977C0.167521 1.9695 0.378404 1.4611 0.753362 1.08614C1.12832 0.711182 1.63672 0.500299 2.16699 0.499769L6.16699 0.499769C6.69726 0.500299 7.20566 0.711181 7.58062 1.08614C7.95558 1.4611
     8.16646 1.9695 8.16699 2.49977ZM2.16699 20.4998L6.16699 20.4998L6.16699 2.49977L2.16699 2.49977L2.16699 20.4998Z "
-        />
+          />
         <path
           d="M26.167 2.50001L26.167 20.5C26.1665 21.0303 25.9556 21.5387 25.5806 21.9136C25.2057 22.2886 24.6973 22.4995 24.167 22.5L20.167 22.5C19.6367 22.4995 19.1283 22.2886 18.7534 21.9136C18.3784 21.5387 18.1675 21.0301 18.167 20.4998L18.167 2.49979C18.1675
     1.96952 18.3784 1.46134 18.7534 1.08638C19.1283 0.711423 19.6367 0.500541 20.167 0.500011L24.167 0.50001C24.6973 0.500541 25.2057 0.711423 25.5806 1.08638C25.9556 1.46134 26.1665 1.96974 26.167 2.50001ZM20.167 20.4998L24.167 20.5L24.167 2.50001L20.167
     2.49979L20.167 20.4998Z "
-        />
+          />
       </svg>
     </button>
   </div>
-</ng-container>
+}
